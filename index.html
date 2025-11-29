@@ -43,7 +43,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* The Blurred Hero Logic */
+        
+        /* --- HERO IMAGE LOGIC --- */
         .hero-wrapper {
             position: relative;
             overflow: hidden;
@@ -51,13 +52,24 @@
         .hero-bg-image {
             position: absolute;
             inset: 0;
-            background-image: url('hero.png');
+            background-image: url('hero.jpg'); /* Ensure file is named hero.jpg in GitHub */
             background-size: cover;
-            background-position: center;
-            filter: blur(2px); /* Blurs the rendering hero image */
-            transform: scale(1); 
+            
+            /* MOBILE DEFAULT: Focus on the Right side */
+            background-position: right center; 
+            
+            filter: blur(1px); 
+            transform: scale(1);
             z-index: 0;
         }
+        
+        /* DESKTOP OVERRIDE: Snap back to center on larger screens */
+        @media (min-width: 768px) {
+            .hero-bg-image {
+                background-position: center center;
+            }
+        }
+
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -83,7 +95,6 @@
     <section class="hero-wrapper min-h-screen flex items-center justify-center pt-20">
         
         <div class="hero-bg-image"></div>
-        
         <div class="hero-overlay"></div>
 
         <div class="max-w-4xl mx-auto px-6 text-center z-10 relative">
