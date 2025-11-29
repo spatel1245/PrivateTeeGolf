@@ -27,9 +27,6 @@
                         serif: ['"Playfair Display"', 'serif'],
                         sans: ['"Inter"', 'sans-serif'],
                     },
-                    backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(15, 17, 21, 0.4), rgba(15, 17, 21, 1)), url('https://images.unsplash.com/photo-1592919505780-30395071d48f?q=80&w=2600&auto=format&fit=crop')",
-                    }
                 }
             }
         }
@@ -45,6 +42,28 @@
             background: linear-gradient(to right, #fff, #a7f3d0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        /* The Blurred Hero Logic */
+        .hero-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            /* YOU MUST UPLOAD YOUR RENDERING AS 'hero.jpg' TO GITHUB */
+            background-image: url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px); /* Blurs the rendering to hide imperfections */
+            transform: scale(1.05); /* Scales up to hide blurred edges */
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15, 17, 21, 0.6), rgba(15, 17, 21, 1));
+            z-index: 1;
         }
     </style>
 </head>
@@ -62,8 +81,13 @@
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat pt-20">
-        <div class="max-w-4xl mx-auto px-6 text-center z-10">
+    <section class="hero-wrapper min-h-screen flex items-center justify-center pt-20">
+        
+        <div class="hero-bg-image"></div>
+        
+        <div class="hero-overlay"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center z-10 relative">
             
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hunter/20 border border-hunter/30 text-emerald-100 text-xs uppercase tracking-widest mb-8">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -75,7 +99,7 @@
                 <span class="text-gradient italic">Day or Night.</span>
             </h1>
 
-            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 A members-only, private indoor golf club featuring Trackman technology, 24/7 pin code access, and a premium lounge environment.
             </p>
 
