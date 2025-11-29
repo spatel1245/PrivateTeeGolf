@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Tee Golf - Greensburg | 24/ Members Only Indoor Golf</title>
+    <title>Private Tee Golf | Members Only</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -16,12 +16,18 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: '#d4af37',
-                        darkbg: '#0f172a',
+                        charcoal: '#0f1115',      /* Deepest Background */
+                        charcoalLight: '#181b21', /* Card Background */
+                        hunter: '#1B4D3E',        /* The "Masters" Green */
+                        moss: '#2F855A',          /* Lighter Green Accent */
+                        white: '#F9FAFB',
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
                         sans: ['"Inter"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(15, 17, 21, 0.3), rgba(15, 17, 21, 1)), url('https://images.unsplash.com/photo-1592919505780-30395071d48f?q=80&w=2600&auto=format&fit=crop')",
                     }
                 }
             }
@@ -29,81 +35,121 @@
     </script>
 
     <style>
-        /* Background Image Setup */
-        .bg-image {
-            /* Free high-quality moody golf image from Unsplash */
-            background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2670&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-        }
-        /* The "Glass" Effect */
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.85); /* Dark blue with opacity */
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(15, 17, 21, 0.8);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #fff, #a7f3d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="bg-darkbg text-gray-200 font-sans antialiased">
+<body class="bg-charcoal text-gray-300 font-sans antialiased selection:bg-hunter selection:text-white">
 
-    <div class="relative min-h-screen flex items-center justify-center bg-image">
-        <div class="absolute inset-0 bg-black/60"></div>
-
-        <div class="relative z-10 w-full max-w-4xl px-4 py-20">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-white font-serif text-2xl font-bold tracking-tight">Private Tee<span class="text-hunter">.</span></span>
+            </div>
             
-            <div class="glass-panel rounded-2xl p-8 md:p-12 shadow-2xl text-center">
-                
-                <span class="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-widest text-gold border border-gold/30 rounded-full uppercase">
-                    Coming 2025
-                </span>
+            <a href="#waitlist" class="hidden md:block bg-white text-charcoal px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
+                Join Waitlist
+            </a>
+        </div>
+    </nav>
 
-                <h1 class="font-serif text-4xl md:text-6xl text-white mb-6 tracking-tight">
-                    The Future of Golf <br />
-                    <span class="italic text-gray-400">is Indoor.</span>
-                </h1>
+    <section class="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat pt-20">
+        <div class="max-w-4xl mx-auto px-6 text-center z-10">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hunter/20 border border-hunter/30 text-emerald-100 text-xs uppercase tracking-widest mb-8">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Greensburg, PA &bull; Opening 2025
+            </div>
 
-                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                    Exclusive 24/7 access to Trackman simulators, private lounge, and storage. 
-                    <br class="hidden md:block">
-                    Limited to <span class="text-white font-semibold">50 Founding Members</span>.
-                </p>
+            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight">
+                Golf. On Your Terms.<br />
+                <span class="text-gradient italic">Day or Night.</span>
+            </h1>
 
-                <div class="grid md:grid-cols-2 gap-6 mb-12 text-left">
-                    <div class="p-4 border border-white/10 rounded-lg hover:border-gold/50 transition duration-300">
-                        <div class="text-gold text-xl mb-2">✦</div>
-                        <h3 class="text-white font-semibold mb-1">Trackman Technology</h3>
-                        <p class="text-sm text-gray-400">Precision data for serious game improvement.</p>
-                    </div>
-                    <div class="p-4 border border-white/10 rounded-lg hover:border-gold/50 transition duration-300">
-                        <div class="text-gold text-xl mb-2">✦</div>
-                        <h3 class="text-white font-semibold mb-1">Private Access</h3>
-                        <p class="text-sm text-gray-400">Book your bay instantly via app. 24/7 entry.</p>
-                    </div>
-                </div>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                A members-only indoor golf club featuring Trackman technology, private storage, and a premium lounge environment.
+            </p>
 
-                <div class="bg-white/5 rounded-xl p-6 border border-white/5">
-                    <h3 class="text-white text-lg font-serif mb-4">Join the Priority Waitlist</h3>
-                    
-                    <iframe 
-                        src="https://tally.so/embed/w7Xj1y?hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                        loading="lazy" 
-                        width="100%" 
-                        height="200" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0" 
-                        title="Waitlist">
-                    </iframe>
-                    
-                </div>
-                
-                <p class="mt-6 text-xs text-gray-500">
-                    No payment required today. You are securing your spot in line.
-                </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#waitlist" class="bg-hunter hover:bg-emerald-800 text-white px-8 py-3 rounded-lg text-lg transition duration-300 shadow-lg shadow-hunter/20">
+                    Secure Founder Status
+                </a>
+                <a href="#details" class="px-8 py-3 rounded-lg text-white border border-white/20 hover:bg-white/5 transition">
+                    View Membership
+                </a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="details" class="py-24 bg-charcoal">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-charcoal rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-white font-serif text-xl mb-3">Trackman Powered</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Train with the same radar technology used by the pros. Instant feedback on spin, carry, and club path.</p>
+                </div>
+
+                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-charcoal rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-white font-serif text-xl mb-3">24/7 Access</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Your game doesn't follow a schedule. Unlock the facility instantly with your phone, anytime.</p>
+                </div>
+
+                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-charcoal rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-white font-serif text-xl mb-3">Private & Social</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Bring guests, host leagues, or grind solo. Private storage lockers available for members.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="waitlist" class="py-20 bg-charcoal relative border-t border-white/5">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Waitlist</h2>
+            <p class="text-gray-400 mb-8">
+                We are limiting our Founding Memberships to ensure availability. <br class="hidden md:block" />
+                Sign up below to receive early access pricing.
+            </p>
+
+            <div class="bg-charcoalLight p-2 rounded-xl border border-white/10 shadow-2xl">
+                 
+                 <iframe 
+                    src="https://tally.so/embed/w7Xj1y?hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                    loading="lazy" 
+                    width="100%" 
+                    height="280" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    title="Waitlist">
+                </iframe>
+
+            </div>
+            
+            <p class="mt-8 text-xs text-gray-600">
+                &copy; 2025 Private Tee Golf. Greensburg, PA.
+            </p>
+        </div>
+    </section>
 
     <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
