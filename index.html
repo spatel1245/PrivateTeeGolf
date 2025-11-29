@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Tee Golf | 24/7 Members Only Sim</title>
+    <title>Private Tee Golf | 24/7 Members Only Golf Sim</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* The Blurred Hero Logic */
+        
+        /* --- HERO IMAGE LOGIC --- */
         .hero-wrapper {
             position: relative;
             overflow: hidden;
@@ -53,11 +54,22 @@
             inset: 0;
             background-image: url('hero.png');
             background-size: cover;
-            background-position: center;
-            filter: blur(2px);
+            
+            /* MOBILE DEFAULT: Focus on the Right side */
+            background-position: right center; 
+            
+            filter: blur(2px); 
             transform: scale(1);
             z-index: 0;
         }
+        
+        /* DESKTOP OVERRIDE: Snap back to center on larger screens */
+        @media (min-width: 768px) {
+            .hero-bg-image {
+                background-position: center center;
+            }
+        }
+
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -83,7 +95,6 @@
     <section class="hero-wrapper min-h-screen flex items-center justify-center pt-20">
         
         <div class="hero-bg-image"></div>
-        
         <div class="hero-overlay"></div>
 
         <div class="max-w-4xl mx-auto px-6 text-center z-10 relative">
