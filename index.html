@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Tee Golf | 24/7 Members Only Golf Sim</title>
+    <title>Private Tee Golf | 24/7 Members Only Sim</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +16,12 @@
             theme: {
                 extend: {
                     colors: {
-                        charcoal: '#0f1115',      /* Deepest Background */
-                        charcoalLight: '#181b21', /* Card Background */
-                        hunter: '#1B4D3E',        /* The "Masters" Green */
-                        moss: '#2F855A',          /* Lighter Green Accent */
-                        gold: '#d4af37',          /* Luxury Accent */
-                        white: '#F9FAFB',
+                        // LIGHTENED THE PALETTE
+                        mainBg: '#0f172a',        /* Slate 900 (Bluer/Lighter than charcoal) */
+                        cardBg: '#1e293b',        /* Slate 800 (Much lighter gray) */
+                        hunter: '#10b981',        /* Emerald 500 (Brighter Green for pop) */
+                        deepGreen: '#064e3b',     /* Emerald 900 (For gradients) */
+                        gold: '#fbbf24',          /* Amber 400 (Brighter Gold) */
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -33,52 +33,50 @@
     </script>
 
     <style>
+        /* 1. NEW BACKGROUND GRADIENT (Personality) */
+        body {
+            background-color: #0f172a; /* Fallback */
+            /* Creates a "Spotlight" effect of green in the center top */
+            background-image: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #0f172a 60%); 
+            /* Alternative Green Version: un-comment below if you prefer Green over Blue tint */
+            /* background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, #0f172a 70%); */
+            min-height: 100vh;
+        }
+
         .glass-nav {
-            background: rgba(15, 17, 21, 0.85);
+            background: rgba(15, 23, 42, 0.7); /* Adjusted to match new blue-slate */
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+        
         .text-gradient {
-            background: linear-gradient(to right, #fff, #a7f3d0);
+            background: linear-gradient(to right, #fff, #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        /* --- HERO IMAGE LOGIC --- */
-        .hero-wrapper {
-            position: relative;
-            overflow: hidden;
-        }
+        /* HERO LOGIC (Unchanged) */
+        .hero-wrapper { position: relative; overflow: hidden; }
         .hero-bg-image {
-            position: absolute;
-            inset: 0;
-            background-image: url('hero.png');
+            position: absolute; inset: 0;
+            background-image: url('hero.png'); 
             background-size: cover;
-            
-            /* MOBILE DEFAULT: Focus on the Right side */
             background-position: right center; 
-            
             filter: blur(2px); 
-            transform: scale(1);
+            transform: scale(1.05);
             z-index: 0;
         }
-        
-        /* DESKTOP OVERRIDE: Snap back to center on larger screens */
-        @media (min-width: 768px) {
-            .hero-bg-image {
-                background-position: center center;
-            }
-        }
+        @media (min-width: 768px) { .hero-bg-image { background-position: center center; } }
 
         .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(15, 17, 21, 0.6), rgba(15, 17, 21, 1));
+            position: absolute; inset: 0;
+            /* Lighter overlay so the image pops more */
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), #0f172a); 
             z-index: 1;
         }
     </style>
 </head>
-<body class="bg-charcoal text-gray-300 font-sans antialiased selection:bg-hunter selection:text-white">
+<body class="text-gray-300 font-sans antialiased selection:bg-hunter selection:text-white">
 
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -86,41 +84,40 @@
                 <span class="text-white font-serif text-2xl font-bold tracking-tight">Private Tee Golf<span class="text-hunter">.</span></span>
             </div>
             
-            <a href="#waitlist" class="hidden md:block bg-white text-charcoal px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition">
+            <a href="#waitlist" class="hidden md:block bg-white text-mainBg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition shadow-lg shadow-white/10">
                 Join Waitlist
             </a>
         </div>
     </nav>
 
     <section class="hero-wrapper min-h-screen flex items-center justify-center pt-20">
-        
         <div class="hero-bg-image"></div>
         <div class="hero-overlay"></div>
 
         <div class="max-w-4xl mx-auto px-6 text-center z-10 relative">
             
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hunter/20 border border-hunter/30 text-emerald-100 text-xs uppercase tracking-widest mb-8">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hunter/10 border border-hunter/40 text-emerald-300 text-xs uppercase tracking-widest mb-8 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-hunter animate-pulse"></span>
                 Greensburg, PA &bull; Opening Winter 2026
             </div>
 
-            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight">
+            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-xl">
                 Golf. On Your Terms.<br />
                 <span class="text-gradient italic">Day or Night.</span>
             </h1>
 
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
                 A members-only, private indoor golf club featuring Trackman technology, 24/7 pin code access, and a premium lounge environment.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#waitlist" class="w-full md:w-auto bg-hunter hover:bg-emerald-800 text-white px-8 py-3 rounded-lg text-lg transition duration-300 shadow-lg shadow-hunter/20">
+                <a href="#waitlist" class="w-full md:w-auto bg-hunter hover:bg-emerald-600 text-white px-8 py-3 rounded-lg text-lg transition duration-300 shadow-xl shadow-hunter/20 font-medium">
                     Join the Waitlist
                 </a>
-                <a href="#pricing" class="w-full md:w-auto px-8 py-3 rounded-lg text-white border border-white/20 hover:bg-white/5 hover:border-white/40 transition">
+                <a href="#pricing" class="w-full md:w-auto px-8 py-3 rounded-lg text-white border border-white/20 hover:bg-white/10 hover:border-white/50 transition backdrop-blur-sm">
                     Membership Tiers
                 </a>
-                <a href="#details" class="w-full md:w-auto px-6 py-3 text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                <a href="#details" class="w-full md:w-auto px-6 py-3 text-gray-300 hover:text-white transition flex items-center justify-center gap-2">
                     Learn More <span aria-hidden="true">&darr;</span>
                 </a>
             </div>
@@ -128,7 +125,7 @@
         </div>
     </section>
 
-    <section id="pricing" class="py-20 bg-charcoal">
+    <section id="pricing" class="py-20">
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="text-center mb-16">
@@ -141,7 +138,7 @@
 
             <div class="grid md:grid-cols-3 gap-8 items-center">
                 
-                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition duration-300 order-2 md:order-1">
+                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition-all duration-300 hover:-translate-y-1 shadow-xl order-2 md:order-1">
                     <h3 class="text-white font-serif text-2xl mb-2">Starter</h3>
                     <div class="mb-1">
                         <span class="text-3xl font-bold text-white">$129</span>
@@ -150,7 +147,7 @@
                     
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-xs text-gray-400">or <strong>$1,299</strong> / year</span>
-                        <span class="text-[10px] uppercase tracking-wide bg-white/10 text-white px-2 py-0.5 rounded">Save $249</span>
+                        <span class="text-[10px] uppercase tracking-wide bg-white/5 text-gray-300 px-2 py-0.5 rounded">Save $249</span>
                     </div>
 
                     <div class="text-xs text-hunter font-medium mb-6 pt-4 border-t border-white/5">Equivalent to ~ $32 / hour</div>
@@ -164,7 +161,7 @@
                     <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Starter</a>
                 </div>
 
-                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition duration-300 order-3 md:order-2">
+                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition-all duration-300 hover:-translate-y-1 shadow-xl order-3 md:order-2">
                     <h3 class="text-white font-serif text-2xl mb-2">Practice</h3>
                     <div class="mb-1">
                         <span class="text-3xl font-bold text-white">$219</span>
@@ -173,7 +170,7 @@
 
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-xs text-gray-400">or <strong>$2,199</strong> / year</span>
-                        <span class="text-[10px] uppercase tracking-wide bg-white/10 text-white px-2 py-0.5 rounded">Save $429</span>
+                        <span class="text-[10px] uppercase tracking-wide bg-white/5 text-gray-300 px-2 py-0.5 rounded">Save $429</span>
                     </div>
 
                     <div class="text-xs text-hunter font-medium mb-6 pt-4 border-t border-white/5">Equivalent to ~ $22 / hour</div>
@@ -187,59 +184,65 @@
                     <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Practice</a>
                 </div>
 
-                <div class="bg-charcoalLight p-8 rounded-2xl border-2 border-gold relative transform md:-translate-y-4 shadow-2xl shadow-gold/5 order-1 md:order-3">
-                    <div class="absolute top-0 right-0 bg-gold text-charcoal text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">BEST VALUE</div>
+                <div class="relative order-1 md:order-3 group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-gold to-yellow-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
                     
-                    <h3 class="text-gold font-serif text-2xl mb-2">Ultimate</h3>
-                    <div class="mb-1">
-                        <span class="text-4xl font-bold text-white">$299</span>
-                        <span class="text-gray-500">/mo</span>
+                    <div class="relative bg-cardBg p-8 rounded-2xl border border-gold/50 shadow-2xl order-1 md:order-3">
+                        <div class="absolute top-0 right-0 bg-gold text-mainBg text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">BEST VALUE</div>
+                        
+                        <h3 class="text-gold font-serif text-2xl mb-2">Ultimate</h3>
+                        <div class="mb-1">
+                            <span class="text-4xl font-bold text-white">$299</span>
+                            <span class="text-gray-500">/mo</span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="text-xs text-gray-300">or <strong>$2,999</strong> / year</span>
+                            <span class="text-[10px] uppercase tracking-wide bg-gold/20 text-gold font-bold px-2 py-0.5 rounded">Save $589</span>
+                        </div>
+
+                        <div class="text-xs text-gold font-medium mb-6 pt-4 border-t border-white/10">Equivalent to ~ $15 / hour</div>
+
+                        <p class="text-sm text-gray-400 mb-6 h-10">For the serious player who wants a private country club experience.</p>
+                        <ul class="space-y-4 mb-8 text-sm text-gray-300">
+                            <li class="flex gap-3"><span class="text-gold">✓</span> <strong class="text-white">Unlimited Access*</strong></li>
+                            <li class="flex gap-3"><span class="text-gold">✓</span> 24/7 Access</li>
+                            <li class="flex gap-3"><span class="text-gold">✓</span> 30-Day Advance Booking</li>
+                            <li class="flex gap-3"><span class="text-gold">✓</span> First Access to Leagues</li>
+                        </ul>
+                        <a href="#waitlist" class="block w-full text-center py-3 rounded bg-gold hover:bg-yellow-500 text-mainBg font-bold transition">Select Ultimate</a>
+                        <p class="text-xs text-center mt-4 text-gray-500 italic">*20 guaranteed hours. Unlimited based on availability.</p>
                     </div>
-
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-xs text-gray-300">or <strong>$2,999</strong> / year</span>
-                        <span class="text-[10px] uppercase tracking-wide bg-gold text-charcoal font-bold px-2 py-0.5 rounded">Save $589</span>
-                    </div>
-
-                    <div class="text-xs text-gold font-medium mb-6 pt-4 border-t border-white/10">Equivalent to ~ $15 / hour</div>
-
-                    <p class="text-sm text-gray-400 mb-6 h-10">For the serious player who wants a private country club experience.</p>
-                    <ul class="space-y-4 mb-8 text-sm text-gray-300">
-                        <li class="flex gap-3"><span class="text-gold">✓</span> <strong class="text-white">Unlimited Access*</strong></li>
-                        <li class="flex gap-3"><span class="text-gold">✓</span> 24/7 Access</li>
-                        <li class="flex gap-3"><span class="text-gold">✓</span> 30-Day Advance Booking</li>
-                        <li class="flex gap-3"><span class="text-gold">✓</span> First Access to Leagues</li>
-                    </ul>
-                    <a href="#waitlist" class="block w-full text-center py-3 rounded bg-gold hover:bg-yellow-600 text-charcoal font-bold transition">Select Ultimate</a>
-                    <p class="text-xs text-center mt-4 text-gray-500 italic">*20 guaranteed hours. Unlimited based on availability.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="details" class="py-24 bg-charcoal border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6">
+    <section id="details" class="py-24 border-t border-white/5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-hunter/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-3 gap-8">
                 
-                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group">
-                    <div class="w-12 h-12 bg-charcoal rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+                    <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     <h3 class="text-white font-serif text-xl mb-3">Trackman Powered</h3>
                     <p class="text-sm text-gray-500 leading-relaxed">Train with the same radar technology used by the pros. Instant feedback on spin, carry, and club path.</p>
                 </div>
 
-                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group">
-                    <div class="w-12 h-12 bg-charcoal rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+                    <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
                     <h3 class="text-white font-serif text-xl mb-3">24/7 Access</h3>
                     <p class="text-sm text-gray-500 leading-relaxed">Your game doesn't follow a schedule. Unlock the facility instantly with your phone, anytime.</p>
                 </div>
 
-                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group">
-                    <div class="w-12 h-12 bg-charcoal rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+                    <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     </div>
                     <h3 class="text-white font-serif text-xl mb-3">Private & Social</h3>
@@ -250,7 +253,7 @@
         </div>
     </section>
 
-    <section id="waitlist" class="py-20 bg-charcoal relative border-t border-white/5">
+    <section id="waitlist" class="py-20 border-t border-white/5 relative">
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Waitlist</h2>
             <p class="text-gray-400 mb-8">
@@ -258,7 +261,7 @@
                 Join the waitlist below to receive early access pricing.
             </p>
 
-            <div class="bg-charcoalLight p-2 rounded-xl border border-white/10 shadow-2xl">
+            <div class="bg-cardBg p-2 rounded-xl border border-white/10 shadow-2xl">
                  
                  <iframe 
                     src="https://tally.so/embed/w7Xj1y?hideTitle=1&transparentBackground=1&dynamicHeight=1" 
@@ -273,7 +276,7 @@
 
             </div>
             
-            <p class="mt-8 text-xs text-gray-600">
+            <p class="mt-8 text-xs text-gray-500">
                 &copy; 2025 Private Tee Golf. Greensburg, PA.
             </p>
         </div>
