@@ -20,6 +20,7 @@
                         charcoalLight: '#181b21', /* Card Background */
                         hunter: '#1B4D3E',        /* The "Masters" Green */
                         moss: '#2F855A',          /* Lighter Green Accent */
+                        gold: '#d4af37',          /* Luxury Accent */
                         white: '#F9FAFB',
                     },
                     fontFamily: {
@@ -27,7 +28,7 @@
                         sans: ['"Inter"', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(15, 17, 21, 0.3), rgba(15, 17, 21, 1)), url('https://images.unsplash.com/photo-1592919505780-30395071d48f?q=80&w=2600&auto=format&fit=crop')",
+                        'hero-pattern': "linear-gradient(to bottom, rgba(15, 17, 21, 0.4), rgba(15, 17, 21, 1)), url('https://images.unsplash.com/photo-1592919505780-30395071d48f?q=80&w=2600&auto=format&fit=crop')",
                     }
                 }
             }
@@ -35,9 +36,8 @@
     </script>
 
     <style>
-        /* Custom Utilities */
         .glass-nav {
-            background: rgba(15, 17, 21, 0.8);
+            background: rgba(15, 17, 21, 0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -76,21 +76,85 @@
             </h1>
 
             <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                A members-only, private indoor golf club featuring Trackman technology, 27/4 pin code access, and a premium lounge environment.
+                A members-only, private indoor golf club featuring Trackman technology, 24/7 pin code access, and a premium lounge environment.
             </p>
 
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#waitlist" class="bg-hunter hover:bg-emerald-800 text-white px-8 py-3 rounded-lg text-lg transition duration-300 shadow-lg shadow-hunter/20">
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#waitlist" class="w-full md:w-auto bg-hunter hover:bg-emerald-800 text-white px-8 py-3 rounded-lg text-lg transition duration-300 shadow-lg shadow-hunter/20">
                     Join the Waitlist
                 </a>
-                <a href="#details" class="px-8 py-3 rounded-lg text-white border border-white/20 hover:bg-white/5 transition">
-                    Learn more
+                <a href="#pricing" class="w-full md:w-auto px-8 py-3 rounded-lg text-white border border-white/20 hover:bg-white/5 hover:border-white/40 transition">
+                    Membership Tiers
                 </a>
+                <a href="#details" class="w-full md:w-auto px-6 py-3 text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                    Learn More <span aria-hidden="true">&darr;</span>
+                </a>
+            </div>
+            </div>
+    </section>
+
+    <section id="pricing" class="py-20 bg-charcoal">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Options</h2>
+                <p class="text-gray-400">Choose the tier that fits your game.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                
+                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition duration-300">
+                    <h3 class="text-white font-serif text-2xl mb-2">Starter</h3>
+                    <div class="flex items-baseline gap-1 mb-4">
+                        <span class="text-3xl font-bold text-white">$129</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6 h-10">Perfect for occasional golfers or weekend warriors.</p>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-300">
+                        <li class="flex gap-3"><span class="text-hunter">✓</span> ~4 Hours / Month</li>
+                        <li class="flex gap-3"><span class="text-hunter">✓</span> 24/7 Access</li>
+                        <li class="flex gap-3"><span class="text-hunter">✓</span> Guest Privileges</li>
+                    </ul>
+                    <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Starter</a>
+                </div>
+
+                <div class="bg-charcoalLight p-8 rounded-2xl border-2 border-hunter relative transform md:-translate-y-4 shadow-2xl shadow-hunter/10">
+                    <div class="absolute top-0 right-0 bg-hunter text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAR</div>
+                    <h3 class="text-white font-serif text-2xl mb-2">Practice</h3>
+                    <div class="flex items-baseline gap-1 mb-4">
+                        <span class="text-3xl font-bold text-white">$219</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6 h-10">Regular practice and casual rounds.</p>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-300">
+                        <li class="flex gap-3"><span class="text-hunter">✓</span> ~10 Hours / Month</li>
+                        <li class="flex gap-3"><span class="text-hunter">✓</span> 24/7 Access</li>
+                        <li class="flex gap-3"><span class="text-hunter">✓</span> Priority Booking</li>
+                        <li class="flex gap-3"><span class="text-hunter">✓</span> Storage Locker Waitlist</li>
+                    </ul>
+                    <a href="#waitlist" class="block w-full text-center py-2 rounded bg-hunter hover:bg-emerald-800 text-white transition font-medium">Select Practice</a>
+                </div>
+
+                <div class="bg-charcoalLight p-8 rounded-2xl border border-white/5 hover:border-gold/30 transition duration-300">
+                    <h3 class="text-gold font-serif text-2xl mb-2">Ultimate</h3>
+                    <div class="flex items-baseline gap-1 mb-4">
+                        <span class="text-3xl font-bold text-white">$299</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6 h-10">For the serious player who grinds daily.</p>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-300">
+                        <li class="flex gap-3"><span class="text-gold">✓</span> Unlimited Access*</li>
+                        <li class="flex gap-3"><span class="text-gold">✓</span> 24/7 Access</li>
+                        <li class="flex gap-3"><span class="text-gold">✓</span> Guaranteed Storage</li>
+                        <li class="flex gap-3"><span class="text-gold">✓</span> 30-Day Advance Booking</li>
+                    </ul>
+                    <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Ultimate</a>
+                    <p class="text-xs text-center mt-4 text-gray-600 italic">*Soft cap of 20 guaranteed hours</p>
+                </div>
+
             </div>
         </div>
     </section>
-
-    <section id="details" class="py-24 bg-charcoal">
+    <section id="details" class="py-24 bg-charcoal border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-8">
                 
@@ -126,7 +190,7 @@
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Waitlist</h2>
             <p class="text-gray-400 mb-8">
-                We have limitied memberships remaining for to ensure private availability. <br class="hidden md:block" />
+                We are limiting our Founding Memberships to ensure private availability. <br class="hidden md:block" />
                 Join the waitlist below to receive early access pricing.
             </p>
 
