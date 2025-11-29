@@ -16,12 +16,11 @@
             theme: {
                 extend: {
                     colors: {
-                        // LIGHTENED THE PALETTE
-                        mainBg: '#0f172a',        /* Slate 900 (Bluer/Lighter than charcoal) */
-                        cardBg: '#1e293b',        /* Slate 800 (Much lighter gray) */
-                        hunter: '#10b981',        /* Emerald 500 (Brighter Green for pop) */
-                        deepGreen: '#064e3b',     /* Emerald 900 (For gradients) */
-                        gold: '#fbbf24',          /* Amber 400 (Brighter Gold) */
+                        mainBg: '#020617',        /* Very dark base (almost black) */
+                        cardBg: '#0f221a',        /* Deep Green-Gray for cards */
+                        hunter: '#10b981',        /* Bright Emerald for accents */
+                        deepGreen: '#064e3b',     /* Emerald 900 for gradients */
+                        gold: '#fbbf24',          /* Amber 400 */
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -33,18 +32,17 @@
     </script>
 
     <style>
-        /* 1. NEW BACKGROUND GRADIENT (Personality) */
+        /* 1. GREEN SPOTLIGHT BACKGROUND */
         body {
-            background-color: #0f172a; /* Fallback */
-            /* Creates a "Spotlight" effect of green in the center top */
-            background-image: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #0f172a 60%); 
-            /* Alternative Green Version: un-comment below if you prefer Green over Blue tint */
-            /* background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, #0f172a 70%); */
+            background-color: #020617; /* Fallback */
+            /* This is the key change: Green Gradient instead of Blue */
+            background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, #020617 60%); 
             min-height: 100vh;
         }
 
+        /* 2. Nav Bar tinted with Green */
         .glass-nav {
-            background: rgba(15, 23, 42, 0.7); /* Adjusted to match new blue-slate */
+            background: rgba(2, 6, 23, 0.7); 
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -55,7 +53,7 @@
             -webkit-text-fill-color: transparent;
         }
         
-        /* HERO LOGIC (Unchanged) */
+        /* HERO LOGIC */
         .hero-wrapper { position: relative; overflow: hidden; }
         .hero-bg-image {
             position: absolute; inset: 0;
@@ -70,8 +68,8 @@
 
         .hero-overlay {
             position: absolute; inset: 0;
-            /* Lighter overlay so the image pops more */
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), #0f172a); 
+            /* Gradient fades to the new Green-Black */
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.4), #020617); 
             z-index: 1;
         }
     </style>
