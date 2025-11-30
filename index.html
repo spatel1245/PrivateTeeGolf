@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Private Tee Golf | 24/7 Members Only Sim</title>
+
     <link rel="icon" href="small_logo.png" type="image/png">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        mainBg: '#020617',        /* Very dark base (almost black) */
-                        cardBg: '#0f221a',        /* Deep Green-Gray for cards */
-                        hunter: '#10b981',        /* Bright Emerald for accents */
-                        deepGreen: '#064e3b',     /* Emerald 900 for gradients */
-                        gold: '#fbbf24',          /* Amber 400 */
+                        mainBg: '#020617',
+                        cardBg: '#0f221a',
+                        hunter: '#10b981',
+                        deepGreen: '#064e3b',
+                        gold: '#fbbf24',
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -33,35 +34,31 @@
     </script>
 
     <style>
-        /* 1. GREEN SPOTLIGHT BACKGROUND */
         body {
-            background-color: #020617; /* Fallback */
-            /* This is the key change: Green Gradient instead of Blue */
-            background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, #020617 60%); 
+            background-color: #020617;
+            background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, #020617 60%);
             min-height: 100vh;
         }
 
-        /* 2. Nav Bar tinted with Green */
         .glass-nav {
-            background: rgba(2, 6, 23, 0.7); 
+            background: rgba(2, 6, 23, 0.7);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .text-gradient {
             background: linear-gradient(to right, #fff, #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        /* HERO LOGIC */
+
         .hero-wrapper { position: relative; overflow: hidden; }
         .hero-bg-image {
             position: absolute; inset: 0;
-            background-image: url('hero.png'); 
+            background-image: url('hero.png');
             background-size: cover;
-            background-position: right center; 
-            filter: blur(2px); 
+            background-position: 70% center;
+            filter: blur(2px);
             transform: scale(1.05);
             z-index: 0;
         }
@@ -69,222 +66,201 @@
 
         .hero-overlay {
             position: absolute; inset: 0;
-            /* Gradient fades to the new Green-Black */
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.4), #020617); 
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.4), #020617);
             z-index: 1;
         }
     </style>
 </head>
 <body class="text-gray-300 font-sans antialiased selection:bg-hunter selection:text-white">
 
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="small_logo.png" alt="Private Tee Logo" class="h-10 w-10 rounded-full border border-white/10">
-                
-                <span class="text-white font-serif text-2xl font-bold tracking-tight">
-                    Private Tee Golf<span class="text-hunter">.</span>
-                </span>
-            </div>
-            
-            <a href="#waitlist" class="hidden md:block bg-white text-mainBg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition shadow-lg shadow-white/10">
-                Join Waitlist
+<nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <img src="small_logo.png" alt="Private Tee Logo" class="h-10 w-10 rounded-full border border-white/10">
+            <span class="text-white font-serif text-2xl font-bold tracking-tight">Private Tee Golf<span class="text-hunter">.</span></span>
+        </div>
+
+        <a href="#waitlist" class="hidden md:block bg-white text-mainBg px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition shadow-lg shadow-white/10">
+            Join Waitlist
+        </a>
+    </div>
+</nav>
+
+<section class="hero-wrapper min-h-screen flex items-center justify-center pt-20">
+    <div class="hero-bg-image"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center z-10 relative">
+
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hunter/10 border border-hunter/40 text-emerald-300 text-xs uppercase tracking-widest mb-8 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-hunter animate-pulse"></span>
+            Greensburg, PA &bull; Opening Winter 2026
+        </div>
+
+        <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-xl">
+            Golf. On Your Terms.<br />
+            <span class="text-gradient italic">Day or Night.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
+            A members-only, private indoor golf club featuring Pro-Level Launch Tech, 24/7 pin code access, and a premium lounge.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+            <a href="#waitlist" class="w-full md:w-auto bg-hunter hover:bg-emerald-600 text-white px-8 py-3 rounded-lg text-lg transition duration-300 shadow-xl shadow-hunter/20 font-medium">
+                Join the Waitlist
+            </a>
+            <a href="#pricing" class="w-full md:w-auto px-8 py-3 rounded-lg text-white border border-white/20 hover:bg-white/10 hover:border-white/50 transition backdrop-blur-sm">
+                Membership Tiers
+            </a>
+            <a href="#details" class="w-full md:w-auto px-6 py-3 text-gray-300 hover:text-white transition flex items-center justify-center gap-2">
+                Learn More <span aria-hidden="true">&darr;</span>
             </a>
         </div>
-    </nav>
 
-    <section class="hero-wrapper min-h-screen flex items-center justify-center pt-20">
-        <div class="hero-bg-image"></div>
-        <div class="hero-overlay"></div>
+    </div>
+</section>
 
-        <div class="max-w-4xl mx-auto px-6 text-center z-10 relative">
-            
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hunter/10 border border-hunter/40 text-emerald-300 text-xs uppercase tracking-widest mb-8 backdrop-blur-sm">
-                <span class="w-2 h-2 rounded-full bg-hunter animate-pulse"></span>
-                Greensburg, PA &bull; Opening Winter 2026
-            </div>
+<section id="pricing" class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
 
-            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-xl">
-                Golf. On Your Terms.<br />
-                <span class="text-gradient italic">Day or Night.</span>
-            </h1>
-
-            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
-                A members-only, private indoor golf club featuring Trackman technology, 24/7 pin code access, and a premium lounge environment.
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Options</h2>
+            <p class="text-gray-400 max-w-xl mx-auto">
+                Local simulator rates average <span class="text-white font-serif italic text-lg">$40/hr</span>.<br>
+                Our members play for as low as <span class="text-gold font-serif italic text-2xl">$15/hr</span>.
             </p>
-
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#waitlist" class="w-full md:w-auto bg-hunter hover:bg-emerald-600 text-white px-8 py-3 rounded-lg text-lg transition duration-300 shadow-xl shadow-hunter/20 font-medium">
-                    Join the Waitlist
-                </a>
-                <a href="#pricing" class="w-full md:w-auto px-8 py-3 rounded-lg text-white border border-white/20 hover:bg-white/10 hover:border-white/50 transition backdrop-blur-sm">
-                    Membership Tiers
-                </a>
-                <a href="#details" class="w-full md:w-auto px-6 py-3 text-gray-300 hover:text-white transition flex items-center justify-center gap-2">
-                    Learn More <span aria-hidden="true">&darr;</span>
-                </a>
-            </div>
-            
         </div>
-    </section>
 
-    <section id="pricing" class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Options</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">
-                    Local simulator rates average <span class="text-white font-semibold">$40/hr</span>. 
-                    Our members play for as low as <span class="text-gold font-semibold">$15/hr</span>.
-                </p>
-            </div>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
 
-            <div class="grid md:grid-cols-3 gap-8 items-center">
-                
-                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition-all duration-300 hover:-translate-y-1 shadow-xl order-2 md:order-1">
-                    <h3 class="text-white font-serif text-2xl mb-2">Starter</h3>
-                    <div class="mb-1">
-                        <span class="text-3xl font-bold text-white">$129</span>
-                        <span class="text-gray-500">/mo</span>
-                    </div>
-                    
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-xs text-gray-400">or <strong>$1,299</strong> / year</span>
-                        <span class="text-[10px] uppercase tracking-wide bg-white/5 text-gray-300 px-2 py-0.5 rounded">Save $249</span>
-                    </div>
-
-                    <div class="text-xs text-hunter font-medium mb-6 pt-4 border-t border-white/5">Equivalent to ~ $32 / hour</div>
-                    
-                    <p class="text-sm text-gray-400 mb-6 h-10">Perfect for the occasional golfer or weekend warrior.</p>
-                    <ul class="space-y-4 mb-8 text-sm text-gray-300">
-                        <li class="flex gap-3"><span class="text-hunter">✓</span> <strong class="text-white">4 Hours</strong> / Month</li>
-                        <li class="flex gap-3"><span class="text-hunter">✓</span> 24/7 Access</li>
-                        <li class="flex gap-3"><span class="text-hunter">✓</span> Guest Privileges</li>
-                    </ul>
-                    <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Starter</a>
+            <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition-all duration-300 hover:-translate-y-1 shadow-xl">
+                <h3 class="text-white font-serif text-2xl mb-2">Practice</h3>
+                <div class="mb-1">
+                    <span class="text-3xl font-bold text-white">$219</span>
+                    <span class="text-gray-500">/mo</span>
                 </div>
 
-                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition-all duration-300 hover:-translate-y-1 shadow-xl order-3 md:order-2">
-                    <h3 class="text-white font-serif text-2xl mb-2">Practice</h3>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-xs text-gray-400">or <strong>$2,199</strong> / year</span>
+                    <span class="text-[10px] uppercase tracking-wide bg-white/5 text-gray-300 px-2 py-0.5 rounded">Save $429</span>
+                </div>
+
+                <div class="text-xs text-hunter font-medium mb-6 pt-4 border-t border-white/5">Equivalent to ~ $22 / hour</div>
+
+                <p class="text-sm text-gray-400 mb-6 h-10">Regular practice and casual rounds to keep your game sharp.</p>
+                <ul class="space-y-4 mb-8 text-sm text-gray-300">
+                    <li class="flex gap-3"><span class="text-hunter">✓</span> <strong class="text-white">10 Hours</strong> / Month</li>
+                    <li class="flex gap-3"><span class="text-hunter">✓</span> <strong class="text-white">Bring 3 Guests Free</strong></li>
+                    <li class="flex gap-3"><span class="text-hunter">✓</span> Priority Booking</li>
+                    <li class="flex gap-3"><span class="text-hunter">✓</span> 14-Day Advance Booking</li>
+                </ul>
+                <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Practice</a>
+            </div>
+
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-gold to-yellow-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+
+                <div class="relative bg-cardBg p-8 rounded-2xl border border-gold/50 shadow-2xl">
+                    <div class="absolute top-0 right-0 bg-gold text-mainBg text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">BEST VALUE</div>
+
+                    <h3 class="text-gold font-serif text-2xl mb-2">Ultimate</h3>
                     <div class="mb-1">
-                        <span class="text-3xl font-bold text-white">$219</span>
+                        <span class="text-4xl font-bold text-white">$299</span>
                         <span class="text-gray-500">/mo</span>
                     </div>
 
                     <div class="flex items-center gap-2 mb-4">
-                        <span class="text-xs text-gray-400">or <strong>$2,199</strong> / year</span>
-                        <span class="text-[10px] uppercase tracking-wide bg-white/5 text-gray-300 px-2 py-0.5 rounded">Save $429</span>
+                        <span class="text-xs text-gray-300">or <strong>$2,999</strong> / year</span>
+                        <span class="text-[10px] uppercase tracking-wide bg-gold/20 text-gold font-bold px-2 py-0.5 rounded">Save $589</span>
                     </div>
 
-                    <div class="text-xs text-hunter font-medium mb-6 pt-4 border-t border-white/5">Equivalent to ~ $22 / hour</div>
+                    <div class="text-xs text-gold font-medium mb-6 pt-4 border-t border-white/10">Equivalent to ~ $15 / hour</div>
 
-                    <p class="text-sm text-gray-400 mb-6 h-10">Regular practice and casual rounds to keep your game sharp.</p>
+                    <p class="text-sm text-gray-400 mb-6 h-10">For the serious player who wants a private country club experience.</p>
                     <ul class="space-y-4 mb-8 text-sm text-gray-300">
-                        <li class="flex gap-3"><span class="text-hunter">✓</span> <strong class="text-white">10 Hours</strong> / Month</li>
-                        <li class="flex gap-3"><span class="text-hunter">✓</span> 24/7 Access</li>
-                        <li class="flex gap-3"><span class="text-hunter">✓</span> Priority Booking</li>
+                        <li class="flex gap-3"><span class="text-gold">✓</span> <strong class="text-white">Unlimited Access*</strong></li>
+                        <li class="flex gap-3"><span class="text-gold">✓</span> <strong class="text-white">Bring 3 Guests Free</strong></li>
+                        <li class="flex gap-3"><span class="text-gold">✓</span> 30-Day Booking Window</li>
+                        <li class="flex gap-3"><span class="text-gold">✓</span> Guaranteed Availability</li>
                     </ul>
-                    <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Practice</a>
+                    <a href="#waitlist" class="block w-full text-center py-3 rounded bg-gold hover:bg-yellow-500 text-mainBg font-bold transition">Select Ultimate</a>
+                    <p class="text-xs text-center mt-4 text-gray-500 italic">*20 guaranteed hours. Unlimited standby.</p>
                 </div>
-
-                <div class="relative order-1 md:order-3 group">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-gold to-yellow-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                    
-                    <div class="relative bg-cardBg p-8 rounded-2xl border border-gold/50 shadow-2xl order-1 md:order-3">
-                        <div class="absolute top-0 right-0 bg-gold text-mainBg text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">BEST VALUE</div>
-                        
-                        <h3 class="text-gold font-serif text-2xl mb-2">Ultimate</h3>
-                        <div class="mb-1">
-                            <span class="text-4xl font-bold text-white">$299</span>
-                            <span class="text-gray-500">/mo</span>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-4">
-                            <span class="text-xs text-gray-300">or <strong>$2,999</strong> / year</span>
-                            <span class="text-[10px] uppercase tracking-wide bg-gold/20 text-gold font-bold px-2 py-0.5 rounded">Save $589</span>
-                        </div>
-
-                        <div class="text-xs text-gold font-medium mb-6 pt-4 border-t border-white/10">Equivalent to ~ $15 / hour</div>
-
-                        <p class="text-sm text-gray-400 mb-6 h-10">For the serious player who wants a private country club experience.</p>
-                        <ul class="space-y-4 mb-8 text-sm text-gray-300">
-                            <li class="flex gap-3"><span class="text-gold">✓</span> <strong class="text-white">Unlimited Access*</strong></li>
-                            <li class="flex gap-3"><span class="text-gold">✓</span> 24/7 Access</li>
-                            <li class="flex gap-3"><span class="text-gold">✓</span> 30-Day Advance Booking</li>
-                            <li class="flex gap-3"><span class="text-gold">✓</span> First Access to Leagues</li>
-                        </ul>
-                        <a href="#waitlist" class="block w-full text-center py-3 rounded bg-gold hover:bg-yellow-500 text-mainBg font-bold transition">Select Ultimate</a>
-                        <p class="text-xs text-center mt-4 text-gray-500 italic">*20 guaranteed hours. Unlimited based on availability.</p>
-                    </div>
-                </div>
-
             </div>
+
         </div>
-    </section>
 
-    <section id="details" class="py-24 border-t border-white/5 relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-hunter/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="text-center mt-12">
+            <p class="text-sm text-gray-500">Looking for a lighter option? <a href="#waitlist" class="text-hunter hover:text-emerald-400 underline decoration-hunter/30">Join the waitlist</a> to be notified if Starter memberships ($129/mo) become available.</p>
+        </div>
 
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
-                    <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-white font-serif text-xl mb-3">Trackman Powered</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Train with the same radar technology used by the pros. Instant feedback on spin, carry, and club path.</p>
+    </div>
+</section>
+
+<section id="details" class="py-24 border-t border-white/5 relative overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-hunter/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 </div>
-
-                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
-                    <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-white font-serif text-xl mb-3">24/7 Access</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Your game doesn't follow a schedule. Unlock the facility instantly with your phone, anytime.</p>
-                </div>
-
-                <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
-                    <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    </div>
-                    <h3 class="text-white font-serif text-xl mb-3">Private & Social</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Bring guests, host leagues, or grind solo in our oversized private bay and lounge.</p>
-                </div>
-
+                <h3 class="text-white font-serif text-xl mb-3">High-Speed Impact Vision</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Powered by the <strong>Uneekor XO2</strong>. View your club impact in 3,000 FPS slow-motion video. Verify your strike with pro-level accuracy.</p>
             </div>
+
+            <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-white font-serif text-xl mb-3">24/7 Access</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Your game doesn't follow a schedule. Unlock the facility instantly with your phone, anytime.</p>
+            </div>
+
+            <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+                <div class="w-12 h-12 bg-mainBg rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h3 class="text-white font-serif text-xl mb-3">Private & Social</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Bring guests, host leagues, or grind solo in our oversized private bay and lounge.</p>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="waitlist" class="py-20 border-t border-white/5 relative">
-        <div class="max-w-2xl mx-auto px-6 text-center">
-            <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Waitlist</h2>
-            <p class="text-gray-400 mb-8">
-                We are limiting our Founding Memberships to ensure private availability. <br class="hidden md:block" />
-                Join the waitlist below to receive early access pricing.
-            </p>
+<section id="waitlist" class="py-20 border-t border-white/5 relative">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+        <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Waitlist</h2>
+        <p class="text-gray-400 mb-8">
+            We are limiting our Founding Memberships to ensure private availability. <br class="hidden md:block" />
+            Join the waitlist below to receive early access pricing.
+        </p>
 
-            <div class="bg-cardBg p-2 rounded-xl border border-white/10 shadow-2xl">
-                 
-                 <iframe 
-                    src="https://tally.so/embed/w7Xj1y?hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                    loading="lazy" 
-                    width="100%" 
-                    height="280" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0" 
+        <div class="bg-cardBg p-2 rounded-xl border border-white/10 shadow-2xl">
+
+            <iframe
+                    src="https://tally.so/embed/w7Xj1y?hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    loading="lazy"
+                    width="100%"
+                    height="280"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
                     title="Waitlist">
-                </iframe>
+            </iframe>
 
-            </div>
-            
-            <p class="mt-8 text-xs text-gray-500">
-                &copy; 2025 Private Tee Golf. Greensburg, PA.
-            </p>
         </div>
-    </section>
 
-    <script async src="https://tally.so/widgets/embed.js"></script>
+        <p class="mt-8 text-xs text-gray-500">
+            &copy; 2025 Private Tee Golf. Greensburg, PA.
+        </p>
+    </div>
+</section>
+
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
