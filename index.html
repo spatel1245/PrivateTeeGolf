@@ -63,14 +63,11 @@
             position: absolute; inset: 0;
             background-image: url('hero.jpg');
             background-size: cover;
-            /* Mobile Focus: Shifts image to show the lounge/sim */
             background-position: 70% center;
-            /* Blur: Softens the rendering */
             filter: blur(2px);
             transform: scale(1.05);
             z-index: 0;
         }
-        /* Desktop Override: Centers image */
         @media (min-width: 768px) { .hero-bg-image { background-position: center center; } }
 
         .hero-overlay {
@@ -105,7 +102,7 @@
 
     <div class="max-w-4xl mx-auto px-6 text-center z-10 relative">
 
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-hunter/20 border border-hunter text-white text-sm uppercase tracking-widest mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-hunter/20 border border-hunter text-white text-sm uppercase tracking-widest mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.3)]">
             <span class="w-2 h-2 rounded-full bg-hunter animate-pulse"></span>
             Greensburg, PA &bull; Opening Winter 2026
         </div>
@@ -115,8 +112,21 @@
             <span class="text-gradient italic">Day or Night.</span>
         </h1>
 
+        <div class="mb-8 inline-flex flex-col md:flex-row items-center gap-2 md:gap-3 bg-red-900/30 border border-red-500/40 px-6 py-3 rounded-lg backdrop-blur-md">
+            <div class="flex items-center gap-2 text-red-400 font-bold uppercase text-xs tracking-wider">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+                Status Update
+            </div>
+            <p class="text-sm text-gray-200">
+                <span class="text-white font-semibold">Starter Tier Sold Out.</span> Only <span class="text-white font-bold underline decoration-red-500 decoration-2 underline-offset-4">4 Founder Spots</span> remain.
+            </p>
+        </div>
+
         <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md">
-            A 24/7 members-only indoor golf club featuring Pro-Level Launch Tech, smart keyless entry, and a premium BYOB lounge.
+            A members-only indoor golf club featuring Pro-Level Launch Tech, smart keyless entry, and a premium BYOB lounge.
         </p>
 
         <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
@@ -135,26 +145,49 @@
 </section>
 
 <section id="pricing" class="py-20">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
 
         <div class="text-center mb-16">
             <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Membership Options</h2>
-
-            <div class="inline-block bg-hunter/20 border border-hunter text-hunter px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-                Founding Member Sale
-            </div>
-
             <p class="text-gray-400 max-w-xl mx-auto">
                 Local simulator rates average <span class="text-white font-semibold text-lg">$40/hr</span>.<br>
-                Lock in your <span class="text-white">lifetime rate</span> before we open.
+                Our members play for as low as <span class="text-gold font-semibold text-2xl">$15/hr</span>.
+                <br><br>
+                <span class="text-sm uppercase tracking-wide text-hunter font-bold">24/7 Private Access included with all tiers.</span>
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 items-start">
 
-            <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition-all duration-300 hover:-translate-y-1 shadow-xl relative">
+            <div class="bg-cardBg p-8 rounded-2xl border border-white/5 relative overflow-hidden opacity-60 grayscale transition duration-300 hover:grayscale-0 hover:opacity-100 order-3 lg:order-1">
+                <div class="absolute top-6 right-[-40px] rotate-45 bg-red-600 text-white text-xs font-bold px-12 py-1 shadow-md z-20">SOLD OUT</div>
+                
+                <h3 class="text-white font-serif text-2xl mb-2">Starter</h3>
+                
+                <div class="mb-1 flex items-baseline gap-3">
+                    <span class="text-lg text-gray-500 line-through decoration-gray-400 decoration-2">$179</span>
+                    <span class="text-3xl font-bold text-white">$129</span>
+                    <span class="text-gray-500">/mo</span>
+                </div>
+                
+                <div class="flex items-center gap-2 mb-4 opacity-50">
+                    <span class="text-xs text-gray-400">or <strong>$1,799</strong> / year</span>
+                </div>
+
+                <div class="text-xs text-hunter font-medium mb-6 pt-4 border-t border-white/5">Equivalent to ~ $45 / hour</div>
+                
+                <p class="text-sm text-gray-400 mb-6 h-10">Perfect for the occasional golfer or weekend warrior.</p>
+                <ul class="space-y-4 mb-8 text-sm text-gray-400">
+                    <li class="flex gap-3"><span class="text-gray-500">✓</span> 4 Hours / Month</li>
+                    <li class="flex gap-3"><span class="text-gray-500">✓</span> Bring 3 Guests Free</li>
+                    <li class="flex gap-3"><span class="text-gray-500">✓</span> 24/7 Access</li>
+                </ul>
+                <button disabled class="block w-full text-center py-2 rounded border border-white/10 bg-white/5 text-gray-500 cursor-not-allowed">Waitlist Only</button>
+            </div>
+
+            <div class="bg-cardBg p-8 rounded-2xl border border-white/5 hover:border-hunter/30 transition-all duration-300 hover:-translate-y-1 shadow-xl order-1 lg:order-2">
                 <h3 class="text-white font-serif text-2xl mb-2">Practice</h3>
-
+                
                 <div class="mb-1 flex items-baseline gap-3">
                     <span class="text-lg text-gray-500 line-through decoration-gray-400 decoration-2">$269</span>
                     <span class="text-3xl font-bold text-white">$219</span>
@@ -181,7 +214,7 @@
                 <a href="#waitlist" class="block w-full text-center py-2 rounded border border-white/10 hover:bg-white/5 hover:text-white text-gray-400 transition">Select Practice</a>
             </div>
 
-            <div class="relative group">
+            <div class="relative group order-2 lg:order-3">
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-gold to-yellow-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
                 <div class="relative bg-cardBg p-8 rounded-2xl border border-gold/50 shadow-2xl">
@@ -213,14 +246,16 @@
                         <li class="flex gap-3"><span class="text-gold">✓</span> Guaranteed Availability</li>
                     </ul>
                     <a href="#waitlist" class="block w-full text-center py-3 rounded bg-gold hover:bg-yellow-500 text-mainBg font-bold transition">Select Ultimate</a>
-                    <p class="text-xs text-center mt-4 text-gray-500 italic">*20 guaranteed hours. Unlimited standby.</p>
+                    
+                    <p class="text-xs text-center mt-3 text-red-400 font-bold animate-pulse">🔥 4 Founder Spots Remaining</p>
+                    <p class="text-xs text-center mt-1 text-gray-500 italic">*20 guaranteed hours. Unlimited standby.</p>
                 </div>
             </div>
 
         </div>
 
         <div class="text-center mt-12">
-            <p class="text-sm text-gray-500">Looking for a lighter option? <a href="#waitlist" class="text-hunter hover:text-emerald-400 underline decoration-hunter/30">Join the waitlist</a> to be notified if Starter memberships ($129/mo) become available.</p>
+            <p class="text-sm text-gray-500">Looking for a lighter option? <a href="#waitlist" class="text-hunter hover:text-emerald-400 underline decoration-hunter/30">Join the waitlist</a> to be notified if Starter memberships ($179/mo) become available.</p>
         </div>
 
     </div>
@@ -360,10 +395,10 @@
             </a>
 
             <div class="flex justify-center md:justify-end gap-4">
-                <a href="https://www.instagram.com/private.tee.golf" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-hunter transition duration-300">
+                <a href="https://www.instagram.com/privateteegolf" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-hunter transition duration-300">
                     <span class="sr-only">Instagram</span>
                     <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.48 2h-.165zm-2.386 1.882c-2.164.098-2.411.466-2.67.567-.323.125-.552.274-.793.515-.241.24-.39.47-.516.793-.1.258-.469.506-.566 2.67-.048 1.065-.059 1.385-.059 4.076 0 2.692.01 3.011.06 4.076.097 2.164.466 2.411.566 2.67.125.323.274.552.516.793.24.241.47.39.793.516.258.1-.506-.469-2.67.566 1.065.048 1.385.059 4.076.059 2.692 0 3.011-.01 4.076-.06 2.164-.097 2.411-.466 2.67-.566.323-.125.552-.274.793-.516.241-.24.39-.47.516-.793.1-.258.469-.506.566-2.67.048-1.065.059-1.385.059-4.076 0-2.692-.01-3.011-.06-4.076-.097-2.164-.466-2.411-.566-2.67-.125-.323-.274-.552-.516-.793-.24-.241-.47-.39-.793-.516-.258-.1-.506-.469-2.67-.566-1.065-.048-1.385-.059-4.076-.059-2.692 0-3.011.01-4.076.06zm1.103 4.253a3.865 3.865 0 110 7.73 3.865 3.865 0 010-7.73zm0 1.942a1.923 1.923 0 100 3.846 1.923 1.923 0 000-3.846zm5.874-3.644a.972.972 0 110 1.944.972.972 0 010-1.944z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.48 2h-.165zm-2.386 1.882c-2.164.098-2.411.466-2.67.567-.323.125-.552.274-.793.515-.241.24-.39.47-.516.793-.1.258-.469.506-.566 2.67-.048 1.065-.059 1.385-.059 4.076 0 2.692.01 3.011.06 4.076.097 2.164.466 2.411.566 2.67.125.323.274.552.516.793.24.241.47.39.793.516.258.1.506.469 2.67.566 1.065.048 1.385.059 4.076.059 2.692 0 3.011-.01 4.076-.06 2.164-.097 2.411-.466 2.67-.566.323-.125.552-.274.793-.516.241-.24.39-.47.516-.793.1-.258.469-.506.566-2.67.048-1.065.059-1.385.059-4.076 0-2.692-.01-3.011-.06-4.076-.097-2.164-.466-2.411-.566-2.67-.125-.323-.274-.552-.516-.793-.24-.241-.47-.39-.793-.516-.258-.1-.506-.469-2.67.566-1.065-.048 1.385.059 4.076.059 2.692 0 3.011.01-4.076.06zm1.103 4.253a3.865 3.865 0 110 7.73 3.865 3.865 0 010-7.73zm0 1.942a1.923 1.923 0 100 3.846 1.923 1.923 0 000-3.846zm5.874-3.644a.972.972 0 110 1.944.972.972 0 010-1.944z" clip-rule="evenodd" />
                     </svg>
                 </a>
 
