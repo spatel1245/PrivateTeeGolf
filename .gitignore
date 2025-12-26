@@ -1,0 +1,14 @@
+# JetBrains IDE settings (WebStorm, IntelliJ, etc.)
+.idea/
+
+# Mac System files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows System files
+Thumbs.db
+ehthumbs.db
+
+# Logs
+*.log
