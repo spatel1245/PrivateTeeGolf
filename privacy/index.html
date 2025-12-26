@@ -1,62 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Private Tee Golf</title>
+
+    <meta name="description" content="Privacy Policy for Private Tee Golf. Learn how we collect, use, and protect your personal information.">
+    <meta property="og:title" content="Privacy Policy - Private Tee Golf">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="../small_logo.jpg" type="image/jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mainBg: '#cbd5e1',
+                        cardBg: '#e2e8f0',
+                        hunter: '#10b981',
+                        deepGreen: '#064e3b',
+                        gold: '#d97706',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #cbd5e1;
+            background-image: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, #cbd5e1 60%);
+            min-height: 100vh;
+        }
+
+        .glass-nav {
+            background: rgba(203, 213, 225, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
 
-    <nav class="bg-white shadow p-4">
-        <div class="max-w-4xl mx-auto">
-            <a href="/" class="font-bold text-xl text-green-700 hover:underline">&larr; Back to Home</a>
+<nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3 hover:opacity-80 transition duration-300">
+            <img src="../small_logo.jpg" alt="Private Tee Golf Simulator Greensburg PA Logo" class="h-10 w-10 rounded-full border border-gray-200">
+            <span class="text-gray-900 font-serif text-2xl font-bold tracking-tight">Private Tee <span class="text-hunter">Golf.</span></span>
+        </a>
+
+        <div class="flex items-center gap-6">
+            <a href="/#waitlist" class="hidden md:inline-flex bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20">
+                Join Waitlist
+            </a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <main class="max-w-4xl mx-auto p-6 my-10 bg-white shadow-lg rounded-lg">
-        <h1 class="text-3xl font-bold mb-6 text-gray-900">Privacy Policy</h1>
-        <p class="text-sm text-gray-500 mb-8">Last Updated: December 25, 2025</p>
+<main class="max-w-4xl mx-auto px-6 pt-32 pb-20">
+    <div class="mb-8">
+        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-100 hover:border-gray-400 transition font-medium">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Back to Home
+        </a>
+    </div>
+
+    <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 shadow-lg">
+        <h1 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-gray-900">Privacy Policy</h1>
+        <p class="text-sm text-gray-600 mb-8">Last Updated: December 25, 2025</p>
 
         <section class="mb-8">
             <h2 class="text-xl font-bold mb-3 text-gray-900">1. Information We Collect</h2>
-            <p class="mb-4">We collect information you provide directly to us, such as when you join our waitlist, book a simulator, or contact customer support. This may include your name, email address, and phone number.</p>
+            <p class="mb-4 text-gray-700">We collect information you provide directly to us, such as when you join our waitlist, book a simulator, or contact customer support. This may include your name, email address, and phone number.</p>
         </section>
 
         <section class="mb-8">
             <h2 class="text-xl font-bold mb-3 text-gray-900">2. How We Use Your Information</h2>
-            <p class="mb-4">We use the information we collect to communicate with you about your membership, send appointment reminders, and provide customer support.</p>
+            <p class="mb-4 text-gray-700">We use the information we collect to communicate with you about your membership, send appointment reminders, and provide customer support.</p>
         </section>
 
-        <section class="mb-8 p-5 bg-gray-100 border-l-4 border-green-600">
+        <section class="mb-8 p-5 bg-green-50 border-l-4 border-hunter rounded">
             <h2 class="text-xl font-bold mb-3 text-gray-900">3. SMS Privacy Policy</h2>
-            <p class="mb-4 text-sm text-gray-600">PRIVATE TEE GOLF LLC may disclose Personal Data and other information as follows:</p>
+            <p class="mb-4 text-sm text-gray-700">PRIVATE TEE GOLF LLC may disclose Personal Data and other information as follows:</p>
             
             <div class="mb-4">
                 <h3 class="font-bold text-gray-900">Third Parties that Help Provide the Messaging Service</h3>
-                <p class="mt-1">We will not share your opt-in to an SMS short code campaign with a third party for purposes unrelated to supporting you in connection with that campaign. We may share your Personal Data with third parties that help us provide the messaging service, including, but not limited to, platform providers, phone companies, and other vendors who assist us in the delivery of text messages.</p>
+                <p class="mt-1 text-gray-700">We will not share your opt-in to an SMS short code campaign with a third party for purposes unrelated to supporting you in connection with that campaign. We may share your Personal Data with third parties that help us provide the messaging service, including, but not limited to, platform providers, phone companies, and other vendors who assist us in the delivery of text messages.</p>
             </div>
 
             <div class="mb-4">
                 <h3 class="font-bold text-gray-900">Additional Disclosures: Affiliates</h3>
-                <p class="mt-1">We may disclose the Personal Data to our affiliates or subsidiaries; however, if we do so, their use and disclosure of your Personal Data will be subject to this Policy.</p>
+                <p class="mt-1 text-gray-700">We may disclose the Personal Data to our affiliates or subsidiaries; however, if we do so, their use and disclosure of your Personal Data will be subject to this Policy.</p>
             </div>
 
-            <div class="mt-4 p-3 bg-white border border-gray-300 rounded text-gray-900 font-medium">
+            <div class="mt-4 p-3 bg-cardBg border border-gray-300 rounded text-gray-900 font-medium">
                 All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
             </div>
         </section>
 
         <section class="mb-8">
             <h2 class="text-xl font-bold mb-3 text-gray-900">4. Contact Us</h2>
-            <p class="mb-4">If you have questions about this policy, please contact us at support@privateteegolf.com.</p>
+            <p class="mb-4 text-gray-700">If you have questions about this policy, please contact us at support@privateteegolf.com.</p>
         </section>
+    </div>
+</main>
 
-    </main>
+<footer class="border-t border-gray-200 bg-cardBg relative z-10">
+    <!-- Main Footer Content -->
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3">
+                <img src="../small_logo.jpg" alt="Private Tee Golf Logo" class="h-12 w-12 rounded-full border border-gray-200">
+                <div>
+                    <span class="font-serif text-gray-900 text-2xl font-bold tracking-tight block">Private Tee <span class="text-hunter">Golf.</span></span>
+                    <span class="text-xs text-gray-600 mt-1 block">Greensburg, PA</span>
+                </div>
+            </div>
 
-    <footer class="text-center py-6 text-gray-500 text-sm">
-        &copy; 2026 Private Tee Golf LLC. All rights reserved.
-    </footer>
+            <!-- Contact & Social Section -->
+            <div class="flex flex-col items-center md:items-end gap-6">
+                <!-- Contact Link -->
+                <a href="/contact/" class="text-gray-900 hover:text-hunter transition duration-300 font-medium text-base">
+                    Contact Us
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:info@privateteegolf.com" class="inline-flex items-center gap-2 text-hunter hover:text-emerald-600 transition group">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span class="text-base font-medium border-b border-hunter/30 group-hover:border-emerald-600">info@privateteegolf.com</span>
+                </a>
+
+                <!-- Social Media -->
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/private.tee.golf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-hunter transition duration-300" aria-label="Instagram">
+                        <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.48 2h-.165zm-2.386 1.882c-2.164.098-2.411.466-2.67.567-.323.125-.552.274-.793.515-.241.24-.39.47-.516.793-.1.258-.469.506-.566 2.67-.048 1.065-.059 1.385-.059 4.076 0 2.692.01 3.011.06 4.076.097 2.164.466 2.411.566 2.67.125.323.274.552.516.793.24.241.47.39.793.516.258.1.506.469 2.67.566 1.065.048 1.385.059-4.076.059 2.692 0 3.011.01-4.076.06zm1.103 4.253a3.865 3.865 0 110 7.73 3.865 3.865 0 010-7.73zm0 1.942a1.923 1.923 0 100 3.846 1.923 1.923 0 000-3.846zm5.874-3.644a.972.972 0 110 1.944.972.972 0 010-1.944z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+
+                    <a href="https://www.facebook.com/privateteegolf/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-hunter transition duration-300" aria-label="Facebook">
+                        <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Bar - Copyright & Legal -->
+    <div class="border-t border-gray-200 py-4 pb-24 md:pb-4">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p class="text-[10px] text-gray-600">&copy; 2025 Private Tee Golf. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="/privacy/" class="text-[10px] text-gray-600 hover:text-gray-400 transition duration-300">
+                    Privacy Policy
+                </a>
+                <a href="/" class="text-[10px] text-gray-600 hover:text-gray-400 transition duration-300">
+                    Home
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
