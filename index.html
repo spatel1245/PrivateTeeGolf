@@ -361,6 +361,82 @@
     </div>
 </section>
 
+<section id="preview" class="py-20 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Facility Preview</h2>
+            <p class="text-gray-700 max-w-xl mx-auto leading-relaxed">
+                Take a look at what's coming. These renderings show the premium experience we're building for our members.
+            </p>
+        </div>
+
+        <div class="relative">
+            <!-- Carousel Container -->
+            <div class="carousel-container relative overflow-hidden rounded-2xl border border-gray-200 shadow-lg bg-cardBg group">
+                <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
+                    <!-- Slide 1 - Exterior Rendering -->
+                    <div class="carousel-slide min-w-full">
+                        <div class="relative aspect-video">
+                            <img src="private-tee-golf-greensburg-pa-exterior-rendering.jpg" alt="Private Tee Golf Exterior Rendering" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded text-xs font-medium">
+                                Exterior Rendering
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 - Hero Image -->
+                    <div class="carousel-slide min-w-full">
+                        <div class="relative aspect-video">
+                            <img src="hero.jpg" alt="Private Tee Golf Facility Rendering" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded text-xs font-medium">
+                                Artist's Rendering
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 - Route 30 Map -->
+                    <div class="carousel-slide min-w-full">
+                        <div class="relative aspect-video overflow-hidden">
+                            <img src="route-30-map.jpg" alt="Private Tee Golf Location on Route 30" class="w-full h-full object-cover object-center">
+                            <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded text-xs font-medium">
+                                Location Map
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional slides can be added here -->
+                    <!-- Example placeholder for future renderings:
+                    <div class="carousel-slide min-w-full">
+                        <div class="relative aspect-video">
+                            <img src="rendering-2.jpg" alt="Simulator Bay Rendering" class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded text-xs font-medium">
+                                Artist's Rendering
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="carousel-btn carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Previous image">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="carousel-btn carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Next image">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Thumbnail Indicators -->
+            <div class="flex justify-center gap-2 mt-6" id="carouselIndicators">
+                <button class="carousel-indicator w-8 h-2 rounded-full bg-hunter transition-all duration-300" aria-label="Go to slide 1" data-slide="0"></button>
+                <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Go to slide 2" data-slide="1"></button>
+                <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Go to slide 3" data-slide="2"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="py-16 bg-gradient-to-b from-gray-50 to-mainBg border-t border-gray-200">
     <div class="max-w-4xl mx-auto px-6 text-center">
         <div class="inline-flex justify-center items-center w-12 h-12 rounded-full bg-hunter/10 text-hunter mb-6">
@@ -502,6 +578,90 @@
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Carousel Functionality
+    const carouselTrack = document.getElementById('carouselTrack');
+    const carouselIndicators = document.getElementById('carouselIndicators');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const carouselContainer = document.querySelector('.carousel-container');
+    
+    if (carouselTrack && prevBtn && nextBtn) {
+        const slides = carouselTrack.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+
+        // Update carousel position
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            const indicators = carouselIndicators.querySelectorAll('.carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('bg-hunter', 'w-8');
+                    indicator.classList.remove('bg-gray-300', 'w-2');
+                } else {
+                    indicator.classList.remove('bg-hunter', 'w-8');
+                    indicator.classList.add('bg-gray-300', 'w-2');
+                }
+            });
+
+            // Show/hide navigation buttons
+            prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        // Next slide
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        });
+
+        // Previous slide
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        });
+
+        // Indicator clicks
+        carouselIndicators.addEventListener('click', (e) => {
+            if (e.target.classList.contains('carousel-indicator')) {
+                currentSlide = parseInt(e.target.dataset.slide);
+                updateCarousel();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (carouselContainer.matches(':hover')) {
+                if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                } else if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateCarousel();
+                }
+            }
+        });
+
+        // Hide navigation if only one slide
+        if (totalSlides <= 1) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            carouselIndicators.style.display = 'none';
+        }
+
+        // Initialize
+        updateCarousel();
+    }
 </script>
 
 </body>
