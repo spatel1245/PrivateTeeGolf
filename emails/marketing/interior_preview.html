@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Tee Golf - Combined Ad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;800&display=swap');
+        
+        /* Custom Font Classes */
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        /* Brand Colors */
+        .text-gold { color: #d97706; }
+        .text-hunter { color: #10b981; }
+        .bg-hunter { background-color: #10b981; }
+        .bg-navy { background-color: #020617; }
+    </style>
+</head>
+<body class="bg-gray-100 p-10 flex justify-center">
+
+    <div class="relative w-[600px] h-[600px] bg-black overflow-hidden shadow-2xl flex flex-col group">
+        
+        <img src="images/private-tee-golf-interior-rendering.jpg" alt="Background" class="absolute inset-0 w-full h-full object-contain">
+        
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+
+        <!-- Top Bar -->
+        <div class="absolute top-0 w-full bg-navy h-20 px-8 flex items-center justify-between z-10 border-b-4 border-hunter">
+            <div class="flex items-center gap-3">
+                <img src="../../small_logo.jpg" alt="Private Tee Golf Logo" class="h-10 w-10 rounded-full border border-gray-200/30">
+                <div>
+                    <h1 class="text-white text-2xl font-serif font-bold tracking-tight leading-none">
+                        Private Tee <span class="text-hunter">Golf.</span>
+                    </h1>
+                    <div class="flex items-center gap-2 mt-1">
+                        <div class="w-1.5 h-1.5 rounded-full bg-hunter"></div>
+                        <p class="text-gray-300 text-xs font-sans uppercase tracking-wider">Greensburg, PA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="absolute bottom-0 w-full bg-navy h-20 px-8 flex items-center justify-between z-10 border-t-4 border-hunter">
+            <div>
+                <p class="text-gray-400 text-[10px] font-bold uppercase tracking-[0.15em] leading-none mb-1">Coming Soon</p>
+                <p class="text-white text-lg font-serif font-bold leading-none">Early 2026</p>
+            </div>
+            
+            <div class="text-right">
+                <p class="text-hunter text-[10px] font-bold uppercase tracking-[0.15em] leading-none mb-1">Join the Waitlist</p>
+                <p class="text-gold text-xl font-serif italic font-bold leading-none">PrivateTeeGolf.com</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
