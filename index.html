@@ -231,6 +231,19 @@
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
             z-index: 1;
         }
+
+        @keyframes pulse-outline {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.4);
+            }
+        }
+
+        .pulsing-outline {
+            animation: pulse-outline 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
@@ -400,6 +413,10 @@
                 <div class="mb-6 pt-4 border-t border-gray-200">
                     <p class="text-xs text-gray-600 mb-1">Need more hours?</p>
                     <p class="text-sm font-semibold text-gray-900">Discounted a la carte hours available</p>
+                </div>
+
+                <div class="mb-4 p-3 rounded-lg border-2 border-red-600 pulsing-outline bg-red-50">
+                    <p class="text-red-600 text-sm font-bold text-center uppercase tracking-wide">Only 2 Memberships Remaining</p>
                 </div>
 
                 <a href="#waitlist" class="block w-full text-center py-3 rounded bg-hunter hover:bg-emerald-600 text-white font-bold transition shadow-lg shadow-hunter/20">
