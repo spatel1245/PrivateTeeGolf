@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>Behind the scenes at Private Tee Golf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* GLOBAL RESET */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #cbd5e1; 
+            -webkit-font-smoothing: antialiased; 
+        }
+        .email-wrapper { 
+            max-width: 600px; 
+            margin: 40px auto; 
+            background-color: #e2e8f0; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            border: 1px solid #cbd5e1; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            color: #334155; 
+            line-height: 1.6; 
+        }
+        .header-link { 
+            display: block; 
+            background-color: #cbd5e1; 
+            padding: 30px; 
+            text-align: center; 
+            text-decoration: none; 
+        }
+        .brand-text { 
+            color: #0f172a; 
+            font-family: "Playfair Display", serif;
+            font-size: 28px; 
+            font-weight: 700; 
+            letter-spacing: -0.02em; 
+            margin: 0; 
+        }
+        .brand-accent { 
+            color: #10b981; 
+        }
+        .content { 
+            padding: 40px; 
+            font-size: 16px; 
+            background-color: #ffffff;
+            font-family: "Inter", sans-serif;
+        }
+        h1, h2, h3, p { 
+            margin-bottom: 20px; 
+            font-family: "Inter", sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: "Playfair Display", serif;
+            color: #0f172a;
+            font-weight: 700;
+        }
+        strong { 
+            color: #0f172a; 
+            font-weight: 600; 
+        }
+
+        /* Image Styles */
+        .email-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 1px solid #cbd5e1;
+        }
+        .image-caption {
+            font-size: 13px;
+            color: #64748b;
+            font-style: italic;
+            text-align: center;
+            margin-top: 8px;
+            margin-bottom: 25px;
+        }
+
+        /* Feature Box */
+        .feature-box { 
+            background-color: #e2e8f0; 
+            border: 1px solid #cbd5e1; 
+            border-left: 4px solid #10b981; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 25px 0; 
+        }
+        .feature-list { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+        }
+        .feature-list li { 
+            margin-bottom: 12px; 
+            padding-left: 24px; 
+            position: relative; 
+        }
+        .feature-list li::before { 
+            content: "✓"; 
+            color: #10b981; 
+            font-weight: bold; 
+            position: absolute; 
+            left: 0; 
+            font-size: 16px; 
+            line-height: 1.4; 
+        }
+
+        .footer { 
+            background-color: #e2e8f0; 
+            padding: 30px; 
+            border-top: 1px solid #cbd5e1;
+            text-align: center;
+        }
+        .footer-brand {
+            font-family: "Playfair Display", serif;
+            color: #0f172a;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .footer-brand-accent {
+            color: #10b981;
+        }
+        .footer-info {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.8;
+            margin: 0 0 20px 0;
+        }
+        .footer-link {
+            color: #475569;
+            text-decoration: none;
+        }
+        .footer-contact-link {
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 12px 0;
+        }
+        .footer-email {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .footer-social {
+            margin: 20px 0;
+        }
+        .footer-social-link {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .footer-social-link:hover {
+            color: #10b981;
+        }
+        .footer-bottom {
+            border-top: 1px solid #cbd5e1;
+            padding-top: 16px;
+            margin-top: 20px;
+        }
+        .footer-copyright {
+            font-size: 10px;
+            color: #64748b;
+            margin: 0 0 8px 0;
+        }
+        .footer-legal-link {
+            font-size: 10px;
+            color: #64748b;
+            text-decoration: none;
+        }
+        /* REFERRAL BOX - WITH GREEN ACCENT */
+        .referral-box {
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid #10b981;
+            background-color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 15px;
+        }
+        .referral-title {
+            color: #10b981;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .signature-line { 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 1px solid #e2e8f0; 
+        }
+        .signature-name {
+            font-family: "Playfair Display", serif;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #020617 !important; }
+            .email-wrapper { background-color: #0f172a !important; border-color: #334155 !important; color: #cbd5e1 !important; }
+            .header-link { background-color: #1e293b !important; }
+            .content { background-color: #0f172a !important; }
+            h1, h2, h3 { color: #ffffff !important; }
+            strong { color: #ffffff !important; }
+            .feature-box { background-color: #1e293b !important; border-color: #334155 !important; }
+            .referral-box { background-color: #1e293b !important; border-color: #334155 !important; }
+            .referral-title { color: #10b981 !important; }
+            .feature-list li::before { color: #10b981 !important; }
+            .signature-line { border-top-color: #334155 !important; }
+            .signature-name { color: #ffffff !important; }
+            .email-image { border-color: #334155 !important; }
+            .image-caption { color: #94a3b8 !important; }
+            .footer { background-color: #1e293b !important; border-top-color: #334155 !important; }
+            .footer-brand { color: #ffffff !important; }
+            .footer-info { color: #cbd5e1 !important; }
+            .footer-link { color: #cbd5e1 !important; }
+            .footer-contact-link { color: #ffffff !important; }
+            .footer-bottom { border-top-color: #334155 !important; }
+            .footer-copyright { color: #94a3b8 !important; }
+            .footer-legal-link { color: #94a3b8 !important; }
+            .footer-social-link { color: #94a3b8 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+    <a href="https://PrivateTeeGolf.com" class="header-link">
+        <h1 class="brand-text">Private Tee <span class="brand-accent">Golf.</span></h1>
+    </a>
+
+    <div class="content">
+        <p>Hi {{ contact.FIRSTNAME | default:'there' }},</p>
+
+        <p>I wanted to give you a quick behind-the-scenes look at what we're building at <strong>Private Tee Golf</strong>.</p>
+
+        <p>Construction is moving along nicely, and I'm excited to share a couple of previews with you:</p>
+
+        <img src="https://www.privateteegolf.com/emails/marketing/images/lounge_and_simulator.jpg" alt="Lounge and Simulator Space" class="email-image">
+        <p class="image-caption">Rendering of our 24/7 lounge and simulator bays</p>
+
+        <p>This is where you'll be spending your time—state-of-the-art simulators paired with a comfortable lounge area. We're designing it to be the perfect place to practice, play, and unwind.</p>
+
+        <img src="https://www.privateteegolf.com/private-tee-golf-greensburg-pa-exterior-rendering.jpg" alt="Private Tee Golf Exterior" class="email-image">
+        <p class="image-caption">Exterior rendering of Private Tee Golf</p>
+
+        <p>We're located on Route 30, across from Westmoreland Mall and next door to the former Corsi's Indoor Golf.</p>
+
+        <p>We're on track to open in <strong>a couple of months</strong>, and I can't wait to welcome you through the doors. As a priority list member, you'll be among the first to know when booking opens, and you'll have access to our <strong>Founder's Rates</strong>—the lowest pricing we'll ever offer.</p>
+
+        <p>Thank you for being part of this journey with us. We're building something special, and your early support means everything.</p>
+
+        <div class="referral-box">
+            <span class="referral-title">Know a golf buddy?</span>
+            Our waitlist is growing fast. If you have a friend or colleague who would be a perfect fit for a private membership, feel free to forward them this email so they can get on the list before we cap it. <a href="https://PrivateTeeGolf.com#pricing" style="color: #10b981; text-decoration: underline; font-weight: 600;">View membership tiers and join the waitlist here.</a>
+        </div>
+
+        <p>Questions about the space, the tech, or anything else? Just hit reply—we read every message.</p>
+
+        <div class="signature-line">
+            <p style="margin-bottom: 5px;" class="signature-name">Private Tee <span style="color: #10b981;">Golf.</span></p>
+            <p style="margin: 0; font-size: 14px; color: #64748b;">Greensburg, PA</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span class="footer-brand">Private Tee <span class="footer-brand-accent">Golf.</span></span>
+        
+        <div class="footer-info">
+            <a href="https://maps.app.goo.gl/mwQJ1wPZmTUbU8AbA" class="footer-link">5351 US-30, Greensburg, PA 15601</a><br>
+            <a href="tel:+18786453216" class="footer-link">(878) 645-3216</a>
+        </div>
+
+        <a href="https://PrivateTeeGolf.com/contact/" class="footer-contact-link">Contact Us</a>
+        
+        <a href="mailto:info@privateteegolf.com" class="footer-email">info@privateteegolf.com</a>
+
+        <div class="footer-social">
+            <a href="https://www.instagram.com/private.tee.golf" class="footer-social-link">Instagram</a> |
+            <a href="https://www.facebook.com/privateteegolf/" class="footer-social-link">Facebook</a> |
+            <a href="https://www.linkedin.com/company/private-tee-golf/" class="footer-social-link">LinkedIn</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 Private Tee Golf LLC. All rights reserved.</p>
+            <a href="https://PrivateTeeGolf.com/privacy/" class="footer-legal-link">Privacy Policy</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+
