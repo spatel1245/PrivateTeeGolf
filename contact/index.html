@@ -38,39 +38,7 @@
         }
     </script>
 
-    <style>
-        body {
-            background-color: #cbd5e1;
-            background-image: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, #cbd5e1 60%);
-            min-height: 100vh;
-        }
-
-        .glass-nav {
-            background: rgba(203, 213, 225, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-        }
-
-        .mobile-menu-overlay {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .mobile-menu-overlay.open {
-            transform: translateX(0);
-        }
-
-        .mobile-menu-backdrop {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        }
-
-        .mobile-menu-backdrop.open {
-            opacity: 1;
-            visibility: visible;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/shared.css">
 </head>
 <body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
 
@@ -263,6 +231,10 @@
                 <a href="/contact/" class="text-gray-900 hover:text-hunter transition duration-300 font-medium text-base">
                     Contact Us
                 </a>
+                <!-- Corporate Link -->
+                <a href="/corporate/" class="text-gray-900 hover:text-hunter transition duration-300 font-medium text-base">
+                    Corporate Events
+                </a>
 
                 <!-- Email -->
                 <a href="mailto:info@privateteegolf.com" class="inline-flex items-center gap-2 text-hunter hover:text-emerald-600 transition group">
@@ -312,9 +284,15 @@
     </div>
 </footer>
 
+<button id="backToTop" class="fixed bottom-8 right-8 bg-hunter text-white p-3 rounded-full shadow-lg hover:bg-emerald-600 transition-all duration-300 opacity-0 invisible translate-y-4 z-50 group" aria-label="Back to top">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+</button>
+
 <script async src="https://tally.so/widgets/embed.js"></script>
 <script src="../js/mobile-menu.js"></script>
+<script src="../js/back-to-top.js"></script>
 
 </body>
 </html>
-
