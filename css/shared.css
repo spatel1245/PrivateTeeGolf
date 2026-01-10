@@ -56,3 +56,20 @@ body {
 .pulsing-outline {
     animation: pulse-outline 2s ease-in-out infinite;
 }
+
+/* FAQ Accordion Styles */
+details summary {
+    list-style: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary svg {
+    transform: rotate(180deg);
+}
+
+details summary:hover {
+    color: #10b981;
+}
