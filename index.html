@@ -213,6 +213,76 @@
             background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.75));
             z-index: 1;
         }
+
+        /* Scroll Animation Classes - GPU Accelerated */
+        .fade-in-up {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            will-change: auto;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translate3d(-50px, 0, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translate3d(50px, 0, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) scale(0.95);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            will-change: auto;
+        }
+
+        /* Stagger Animation Delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
     </style>
 </head>
 <body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
@@ -383,7 +453,7 @@
 <section id="pricing" class="py-20 scroll-mt-20">
     <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
 
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 fade-in-up">
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Golf Simulator Membership Options</h2>
             <p class="text-gray-700 max-w-2xl mx-auto text-lg mb-6">
                 <strong class="text-gray-900">Monthly membership with included hours.</strong> Your fee covers all your simulator time. Need more? Add discounted a la carte hours anytime. Private 24/7 access included.
@@ -406,7 +476,7 @@
 
         <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 items-start">
 
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden transition duration-300 hover:border-hunter/50 hover:-translate-y-1 shadow-lg order-1 lg:order-1 flex flex-col h-full">
+            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden transition duration-300 hover:border-hunter/50 hover:-translate-y-1 shadow-lg order-1 lg:order-1 flex flex-col h-full scale-in stagger-1">
 
                 <div class="absolute top-0 right-0 bg-hunter text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
                     MOST POPULAR
@@ -438,7 +508,7 @@
                 </a>
             </div>
 
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden transition duration-300 hover:border-hunter/50 hover:-translate-y-1 shadow-lg order-2 lg:order-2 flex flex-col h-full">
+            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden transition duration-300 hover:border-hunter/50 hover:-translate-y-1 shadow-lg order-2 lg:order-2 flex flex-col h-full scale-in stagger-2">
 
                 <h3 class="text-gray-900 font-serif text-2xl mb-3">Practice</h3>
 
@@ -471,7 +541,7 @@
                 </a>
             </div>
 
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden shadow-lg order-3 lg:order-3 opacity-90 flex flex-col h-full group">
+            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden shadow-lg order-3 lg:order-3 opacity-90 flex flex-col h-full group scale-in stagger-3">
 
                 <div class="absolute top-0 right-0 bg-gray-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
                     WAITLIST ONLY
@@ -508,7 +578,7 @@
 
         </div>
 
-        <div class="text-center mt-12">
+        <div class="text-center mt-12 fade-in-up">
             <p class="text-sm text-gray-700">Not sure which tier fits? <a href="#waitlist" class="text-hunter hover:text-emerald-600 underline decoration-hunter/30">Reserve the Starter Tier</a> for now (it's risk-free).</p>
         </div>
 
@@ -517,7 +587,7 @@
 
 <section id="how-it-works" class="py-20 border-t border-gray-200 scroll-mt-20">
     <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 fade-in-up">
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
             <p class="text-gray-700 max-w-2xl mx-auto text-lg">
                 A simple, straightforward membership model designed for golfers who want flexibility and convenience.
@@ -525,7 +595,7 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-200 text-center">
+            <div class="bg-cardBg p-6 rounded-2xl border border-gray-200 text-center fade-in-up stagger-1">
                 <div class="w-16 h-16 bg-hunter/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl font-bold text-hunter">1</span>
                 </div>
@@ -533,7 +603,7 @@
                 <p class="text-sm text-gray-700 leading-relaxed">Reserve your spot with no payment required. You'll receive early access pricing and be notified when we open.</p>
             </div>
 
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-200 text-center">
+            <div class="bg-cardBg p-6 rounded-2xl border border-gray-200 text-center fade-in-up stagger-2">
                 <div class="w-16 h-16 bg-hunter/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl font-bold text-hunter">2</span>
                 </div>
@@ -541,7 +611,7 @@
                 <p class="text-sm text-gray-700 leading-relaxed">Select a membership tier that matches your playing frequency. Your monthly fee includes all your simulator hours.</p>
             </div>
 
-            <div class="bg-cardBg p-6 rounded-2xl border border-gray-200 text-center">
+            <div class="bg-cardBg p-6 rounded-2xl border border-gray-200 text-center fade-in-up stagger-3">
                 <div class="w-16 h-16 bg-hunter/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl font-bold text-hunter">3</span>
                 </div>
@@ -551,7 +621,7 @@
         </div>
 
         <div class="border-t border-gray-200 pt-12">
-            <div class="text-center mb-10">
+            <div class="text-center mb-10 fade-in-up">
                 <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
                 <p class="text-gray-700 max-w-xl mx-auto">
                     Everything you need to know about membership, booking, and the facility.
@@ -559,7 +629,7 @@
             </div>
 
             <div class="max-w-3xl mx-auto space-y-4">
-                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group">
+                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
                     <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                         <span>How does the membership model work?</span>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -571,7 +641,7 @@
                     </p>
                 </details>
 
-                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group">
+                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
                     <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                         <span>How does 24/7 access work?</span>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -583,7 +653,7 @@
                     </p>
                 </details>
 
-                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group">
+                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
                     <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                         <span>What happens if I don't use all my hours in a month?</span>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -595,7 +665,7 @@
                     </p>
                 </details>
                 
-                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group">
+                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
                     <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                         <span>What happens after I join the waitlist?</span>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -607,7 +677,7 @@
                     </p>
                 </details>
 
-                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group">
+                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
                     <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                         <span>Can I upgrade or downgrade my membership later?</span>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -619,7 +689,7 @@
                     </p>
                 </details>
 
-                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group">
+                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
                     <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                         <span>What's included in the facility?</span>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -631,7 +701,7 @@
                     </p>
                 </details>
 
-                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group">
+                <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
                     <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
                         <span>How much do additional a la carte hours cost?</span>
                         <svg class="w-5 h-5 text-gray-500 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -651,7 +721,7 @@
     <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-hunter/10 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 fade-in-up">
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Facility Details & Preview</h2>
             <p class="text-gray-700 max-w-xl mx-auto leading-relaxed">
                 Take a look at what's coming. These renderings show the premium golf simulator experience we're building for our members in Greensburg, PA.
@@ -659,7 +729,7 @@
         </div>
 
         <!-- Facility Preview Carousel -->
-        <div class="relative mb-16">
+        <div class="relative mb-16 fade-in-up">
             <div class="carousel-container relative overflow-hidden rounded-2xl border border-gray-200 shadow-lg bg-cardBg group">
                 <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
                     <!-- Slide 1 - Exterior Rendering -->
@@ -724,7 +794,7 @@
 
         <!-- Facility Features Cards -->
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg fade-in-up stagger-1">
                 <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
                     <svg class="w-6 h-6 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 </div>
@@ -732,7 +802,7 @@
                 <p class="text-sm text-gray-700 leading-relaxed mb-0">Powered by the <strong class="text-gray-900">Uneekor XO2</strong>. View your club impact in 3,000 FPS slow-motion video. Verify your strike with pro-level accuracy.</p>
             </div>
 
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg fade-in-up stagger-2">
                 <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
                     <svg class="w-6 h-6 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                 </div>
@@ -740,7 +810,7 @@
                 <p class="text-sm text-gray-700 leading-relaxed mb-0">Book online and receive a unique SMS access code 15 minutes before your tee time. Zero friction, total privacy.</p>
             </div>
 
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg">
+            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 hover:border-hunter/50 transition duration-300 group hover:-translate-y-1 shadow-lg fade-in-up stagger-3">
                 <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-hunter transition duration-300">
                     <svg class="w-6 h-6 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                 </div>
@@ -753,7 +823,7 @@
 </section>
 
 <section class="py-16 bg-gradient-to-b from-gray-50 to-mainBg border-t border-gray-200">
-    <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center fade-in-up">
         <div class="inline-flex justify-center items-center w-12 h-12 rounded-full bg-hunter/10 text-hunter mb-6">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
         </div>
@@ -775,20 +845,20 @@
 
 <section id="waitlist" class="py-20 border-t border-gray-200 relative scroll-mt-24">
     <div class="max-w-2xl mx-auto px-4 md:px-6 lg:px-8 text-center">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Membership Waitlist</h2>
-        <p class="text-gray-700 mb-8">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4 fade-in-up">Membership Waitlist</h2>
+        <p class="text-gray-700 mb-8 fade-in-up">
             We are limiting our Founding Memberships to ensure private availability. <br class="hidden md:block" />
             Join the waitlist below to receive early access pricing.
         </p>
 
-        <div class="inline-flex items-center gap-2 bg-green-200 border border-hunter/50 rounded-lg px-4 py-2 mb-8">
+        <div class="inline-flex items-center gap-2 bg-green-200 border border-hunter/50 rounded-lg px-4 py-2 mb-8 fade-in-up">
             <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <span class="text-sm text-gray-800">
                 <strong class="text-gray-900">Reservation Only.</strong> No payment required until Opening Day.
             </span>
         </div>
 
-        <div class="bg-cardBg p-2 rounded-xl border border-gray-200 shadow-lg">
+        <div class="bg-cardBg p-2 rounded-xl border border-gray-200 shadow-lg fade-in-up">
 
             <iframe
                     src="https://tally.so/embed/Xx5Old?hideTitle=1&transparentBackground=1&dynamicHeight=1"
@@ -903,6 +973,55 @@
 
         // Initialize
         updateCarousel();
+    }
+
+    // Optimized Scroll Animation Observer - Performance focused with fallback
+    let animationObserver;
+    
+    function initScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in');
+        
+        // Feature detection: Check if IntersectionObserver is supported
+        if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
+            // Modern browsers - Use IntersectionObserver
+            requestAnimationFrame(() => {
+                const observerOptions = {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+
+                animationObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Use requestAnimationFrame for class addition
+                            requestAnimationFrame(() => {
+                                entry.target.classList.add('visible');
+                                // Disconnect after animation to improve performance
+                                animationObserver.unobserve(entry.target);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all animated elements
+                animatedElements.forEach(el => {
+                    animationObserver.observe(el);
+                });
+            });
+        } else {
+            // Fallback for older browsers (IE, very old Safari, etc.)
+            // Show all elements immediately without animation
+            animatedElements.forEach(el => {
+                el.classList.add('visible');
+            });
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    } else {
+        initScrollAnimations();
     }
 </script>
 

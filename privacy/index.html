@@ -38,6 +38,77 @@
     </script>
 
     <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Scroll Animation Classes - GPU Accelerated */
+        .fade-in-up {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            will-change: auto;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translate3d(-50px, 0, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translate3d(50px, 0, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) scale(0.95);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            will-change: auto;
+        }
+
+        /* Stagger Animation Delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+    </style>
 </head>
 <body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
 
@@ -161,21 +232,21 @@
         </a>
     </div>
 
-    <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 shadow-lg">
+    <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 shadow-lg fade-in-up">
         <h1 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-gray-900">Privacy Policy</h1>
         <p class="text-sm text-gray-600 mb-8">Last Updated: December 25, 2025</p>
 
-        <section class="mb-8">
+        <section class="mb-8 fade-in-up stagger-1">
             <h2 class="text-xl font-bold mb-3 text-gray-900">1. Information We Collect</h2>
             <p class="mb-4 text-gray-700">We collect information you provide directly to us, such as when you join our waitlist, book a simulator, or contact customer support. This may include your name, email address, and phone number.</p>
         </section>
 
-        <section class="mb-8">
+        <section class="mb-8 fade-in-up stagger-2">
             <h2 class="text-xl font-bold mb-3 text-gray-900">2. How We Use Your Information</h2>
             <p class="mb-4 text-gray-700">We use the information we collect to communicate with you about your membership, send appointment reminders, and provide customer support.</p>
         </section>
 
-        <section class="mb-8 p-5 bg-green-50 border-l-4 border-hunter rounded">
+        <section class="mb-8 p-5 bg-green-50 border-l-4 border-hunter rounded fade-in-up stagger-3">
             <h2 class="text-xl font-bold mb-3 text-gray-900">3. SMS Privacy Policy</h2>
             <p class="mb-4 text-sm text-gray-700">PRIVATE TEE GOLF LLC may disclose Personal Data and other information as follows:</p>
             
@@ -194,7 +265,7 @@
             </div>
         </section>
 
-        <section class="mb-8">
+        <section class="mb-8 fade-in-up stagger-4">
             <h2 class="text-xl font-bold mb-3 text-gray-900">4. Contact Us</h2>
             <p class="mb-4 text-gray-700">If you have questions about this policy, please contact us at support@privateteegolf.com.</p>
         </section>
@@ -213,6 +284,57 @@
 <script src="../js/mobile-menu.js"></script>
 <script src="../js/back-to-top.js"></script>
 <script src="../js/footer.js"></script>
+
+<script>
+    // Optimized Scroll Animation Observer - Performance focused with fallback
+    let animationObserver;
+    
+    function initScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in');
+        
+        // Feature detection: Check if IntersectionObserver is supported
+        if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
+            // Modern browsers - Use IntersectionObserver
+            requestAnimationFrame(() => {
+                const observerOptions = {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+
+                animationObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Use requestAnimationFrame for class addition
+                            requestAnimationFrame(() => {
+                                entry.target.classList.add('visible');
+                                // Disconnect after animation to improve performance
+                                animationObserver.unobserve(entry.target);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all animated elements
+                animatedElements.forEach(el => {
+                    animationObserver.observe(el);
+                });
+            });
+        } else {
+            // Fallback for older browsers (IE, very old Safari, etc.)
+            // Show all elements immediately without animation
+            animatedElements.forEach(el => {
+                el.classList.add('visible');
+            });
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    } else {
+        initScrollAnimations();
+    }
+</script>
 
 </body>
 </html>
