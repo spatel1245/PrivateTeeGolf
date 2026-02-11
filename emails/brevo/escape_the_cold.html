@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>Escape the Cold with Private Tee Golf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* GLOBAL RESET */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #cbd5e1; 
+            -webkit-font-smoothing: antialiased; 
+        }
+        .email-wrapper { 
+            max-width: 600px; 
+            margin: 40px auto; 
+            background-color: #e2e8f0; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            border: 1px solid #cbd5e1; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            color: #334155; 
+            line-height: 1.6; 
+        }
+        .header-link { 
+            display: block; 
+            background-color: #cbd5e1; 
+            padding: 30px; 
+            text-align: center; 
+            text-decoration: none; 
+        }
+        .brand-text { 
+            color: #0f172a; 
+            font-family: "Playfair Display", serif;
+            font-size: 28px; 
+            font-weight: 700; 
+            letter-spacing: -0.02em; 
+            margin: 0; 
+        }
+        .brand-accent { 
+            color: #10b981; 
+        }
+        .content { 
+            padding: 40px; 
+            font-size: 16px; 
+            background-color: #ffffff;
+            font-family: "Inter", sans-serif;
+        }
+        h1, h2, h3, p { 
+            margin-bottom: 20px; 
+            font-family: "Inter", sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: "Playfair Display", serif;
+            color: #0f172a;
+            font-weight: 700;
+        }
+        strong { 
+            color: #0f172a; 
+            font-weight: 600; 
+        }
+
+        /* Feature Box */
+        .feature-box { 
+            background-color: #e2e8f0; 
+            border: 1px solid #cbd5e1; 
+            border-left: 4px solid #10b981; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 25px 0; 
+        }
+        .feature-list { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+        }
+        .feature-list li { 
+            margin-bottom: 12px; 
+            padding-left: 24px; 
+            position: relative; 
+        }
+        .feature-list li:last-child {
+            margin-bottom: 0;
+        }
+        .feature-list li::before { 
+            content: "✓"; 
+            color: #10b981; 
+            font-weight: bold; 
+            position: absolute; 
+            left: 0; 
+            font-size: 16px; 
+            line-height: 1.4; 
+        }
+
+        .footer { 
+            background-color: #e2e8f0; 
+            padding: 30px; 
+            border-top: 1px solid #cbd5e1;
+            text-align: center;
+        }
+        .footer-brand {
+            font-family: "Playfair Display", serif;
+            color: #0f172a;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .footer-brand-accent {
+            color: #10b981;
+        }
+        .footer-info {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.8;
+            margin: 0 0 20px 0;
+        }
+        .footer-link {
+            color: #475569;
+            text-decoration: none;
+        }
+        .footer-contact-link {
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 12px 0;
+        }
+        .footer-email {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .footer-social {
+            margin: 20px 0;
+        }
+        .footer-social-link {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .footer-social-link:hover {
+            color: #10b981;
+        }
+        .footer-bottom {
+            border-top: 1px solid #cbd5e1;
+            padding-top: 16px;
+            margin-top: 20px;
+        }
+        .footer-copyright {
+            font-size: 10px;
+            color: #64748b;
+            margin: 0 0 8px 0;
+        }
+        .footer-legal-link {
+            font-size: 10px;
+            color: #64748b;
+            text-decoration: none;
+        }
+        /* REFERRAL BOX - WITH GREEN ACCENT */
+        .referral-box {
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid #10b981;
+            background-color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 15px;
+        }
+        .referral-title {
+            color: #10b981;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .signature-line { 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 1px solid #e2e8f0; 
+        }
+        .signature-name {
+            font-family: "Playfair Display", serif;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #020617 !important; }
+            .email-wrapper { background-color: #0f172a !important; border-color: #334155 !important; color: #cbd5e1 !important; }
+            .header-link { background-color: #1e293b !important; }
+            .content { background-color: #0f172a !important; }
+            h1, h2, h3 { color: #ffffff !important; }
+            strong { color: #ffffff !important; }
+            .feature-box { background-color: #1e293b !important; border-color: #334155 !important; }
+            .referral-box { background-color: #1e293b !important; border-color: #334155 !important; }
+            .referral-title { color: #10b981 !important; }
+            .feature-list li::before { color: #10b981 !important; }
+            .signature-line { border-top-color: #334155 !important; }
+            .signature-name { color: #ffffff !important; }
+            .footer { background-color: #1e293b !important; border-top-color: #334155 !important; }
+            .footer-brand { color: #ffffff !important; }
+            .footer-info { color: #cbd5e1 !important; }
+            .footer-link { color: #cbd5e1 !important; }
+            .footer-contact-link { color: #ffffff !important; }
+            .footer-bottom { border-top-color: #334155 !important; }
+            .footer-copyright { color: #94a3b8 !important; }
+            .footer-legal-link { color: #94a3b8 !important; }
+            .footer-social-link { color: #94a3b8 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+    <a href="https://PrivateTeeGolf.com" class="header-link">
+        <h1 class="brand-text">Private Tee <span class="brand-accent">Golf.</span></h1>
+    </a>
+
+    <div class="content">
+        <p>Hi {{ contact.FIRSTNAME | default:'there' }},</p>
+
+        <p>It's mid-February in Greensburg. The courses are frozen, the driving ranges are closed, and your clubs are collecting dust in the garage.</p>
+
+        <p>Now picture this instead: you walk into a warm, private lounge, grab your clubs, and start swinging on an <strong>Uneekor Eye XO2</strong> with <strong>Swing Optix cameras</strong> and a <strong>4K projector</strong>.</p>
+
+        <p>That's what we're building for you at <strong>Private Tee Golf</strong>, and we're on track to open our doors in <strong>mid-March</strong>. As a priority list member, you'll be among the first to know when booking goes live.</p>
+
+        <h3>And when the courses open back up?</h3>
+
+        <p>Your membership keeps working for you. Think of the simulator as a complement to your outdoor game, not a replacement:</p>
+
+        <div class="feature-box">
+            <ul class="feature-list">
+                <li><strong>Spring training for your swing:</strong> Use real Uneekor data like launch angle, spin rate, and ball speed to get dialed in before your first outdoor round.</li>
+                <li><strong>24/7 on your schedule:</strong> Tee off at 10pm. Squeeze in a session before work at 6am. Golf that fits around your life, year-round.</li>
+                <li><strong>Rainy days and evenings:</strong> PA spring means plenty of rain. Never lose a golf day again.</li>
+                <li><strong>Dozens of courses at your fingertips:</strong> Play famous courses from around the world without leaving Greensburg.</li>
+            </ul>
+        </div>
+
+        <p>As a priority list member, you'll lock in our <strong>Founder's Rates</strong>, the lowest pricing we will ever offer. Know someone who'd love this? Forward this email their way so they can <a href="https://PrivateTeeGolf.com#pricing" style="color: #10b981; text-decoration: underline; font-weight: 600;">join the waitlist</a> before we cap it. Questions? Just hit reply, we read every message.</p>
+
+    </div>
+
+    <div class="footer">
+        <span class="footer-brand">Private Tee <span class="footer-brand-accent">Golf.</span></span>
+        
+        <div class="footer-info">
+            <a href="https://maps.app.goo.gl/mwQJ1wPZmTUbU8AbA" class="footer-link">5351 US-30, Greensburg, PA 15601</a><br>
+            <a href="tel:+18786453216" class="footer-link">(878) 645-3216</a>
+        </div>
+
+        <a href="https://PrivateTeeGolf.com/contact/" class="footer-contact-link">Contact Us</a>
+        
+        <a href="mailto:info@privateteegolf.com" class="footer-email">info@privateteegolf.com</a>
+
+        <div class="footer-social">
+            <a href="https://www.instagram.com/private.tee.golf" class="footer-social-link">Instagram</a> |
+            <a href="https://www.facebook.com/privateteegolf/" class="footer-social-link">Facebook</a> |
+            <a href="https://www.linkedin.com/company/private-tee-golf/" class="footer-social-link">LinkedIn</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 Private Tee Golf LLC. All rights reserved.</p>
+            <a href="https://PrivateTeeGolf.com/privacy/" class="footer-legal-link">Privacy Policy</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
