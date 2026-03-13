@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Use Your Membership - Private Tee Golf</title>
+
+    <meta name="description" content="Step-by-step guide on how to use your Private Tee Golf membership: joining the waitlist, booking time, accessing the facility, and enjoying your session.">
+    <meta property="og:title" content="How To Use Your Membership - Private Tee Golf">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="../small_logo.jpg" type="image/jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mainBg: '#cbd5e1',
+                        cardBg: '#e2e8f0',
+                        hunter: '#10b981',
+                        deepGreen: '#064e3b',
+                        gold: '#d97706',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Scroll Animation Classes - GPU Accelerated */
+        .fade-in-up {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            will-change: auto;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translate3d(-50px, 0, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translate3d(50px, 0, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) scale(0.95);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            will-change: auto;
+        }
+
+        /* Stagger Animation Delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
+
+<nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-3 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3 hover:opacity-80 transition duration-300">
+            <img src="../small_logo.jpg" alt="Private Tee Golf Simulator Greensburg PA Logo" class="h-10 w-10 rounded-full border border-gray-200">
+            <span class="text-gray-900 font-serif text-2xl font-bold tracking-tight">Private Tee <span class="text-hunter">Golf.</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-4">
+            <a href="/" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                Home
+            </a>
+            <a href="/#pricing" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                Membership Tiers
+            </a>
+            <a href="/#how-it-works" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                How It Works
+            </a>
+            <a href="/#details" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                Facility Details
+            </a>
+            <a href="/corporate/" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                Corporate Events
+            </a>
+            <a href="/contact/" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                Contact
+            </a>
+            <a href="/#waitlist" class="bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20">
+                Join Waitlist
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="flex md:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition items-center justify-center" aria-label="Open menu" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu Backdrop -->
+<div id="mobileMenuBackdrop" class="mobile-menu-backdrop fixed inset-0 bg-black/50 z-[60] md:hidden"></div>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenu" class="mobile-menu-overlay fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-cardBg shadow-2xl z-[70] md:hidden overflow-y-auto">
+    <div class="flex flex-col h-full">
+        <!-- Menu Header -->
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <span class="font-serif text-xl font-bold text-gray-900">Menu</span>
+            <button id="mobileMenuClose" class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition" aria-label="Close menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu Links -->
+        <nav class="flex-1 p-6 space-y-2" aria-label="Mobile navigation">
+            <a href="/#pricing" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Membership Tiers
+            </a>
+            <a href="/#how-it-works" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+                How It Works
+            </a>
+            <a href="/#details" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Facility Details
+            </a>
+            <a href="/#waitlist" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Join Waitlist
+            </a>
+            <div class="border-t border-gray-200 my-4"></div>
+            <a href="/contact/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Contact Us
+            </a>
+            <a href="/corporate/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+                Corporate Events
+            </a>
+        </nav>
+
+        <!-- Menu Footer -->
+        <div class="p-6 border-t border-gray-200">
+            <a href="tel:+18786453216" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100 transition text-sm">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                (878) 645-3216
+            </a>
+        </div>
+    </div>
+</div>
+
+<main class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 pt-32 pb-20">
+    <div class="mb-8">
+        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-100 hover:border-gray-400 transition font-medium">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Back to Home
+        </a>
+    </div>
+
+    <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 shadow-lg fade-in-up">
+        <h1 class="font-serif text-3xl md:text-4xl font-bold mb-4 text-gray-900">How To Use Your Membership</h1>
+        <p class="text-sm text-gray-600 mb-8">A simple step-by-step guide to Private Tee Golf.</p>
+
+        <section class="mb-8 fade-in-up stagger-1">
+            <h2 class="text-xl font-bold mb-3 text-gray-900">1. Join the Waitlist</h2>
+            <p class="mb-4 text-gray-700">
+                Start by reserving your spot on the Founding Membership waitlist. This gives you priority access to membership enrollment and
+                founder pricing when we open in Greensburg, PA.
+            </p>
+            <ul class="list-decimal pl-5 space-y-2 text-gray-700 text-sm">
+                <li>Visit the <a href="/#waitlist" class="text-hunter hover:text-emerald-600 underline">Membership Waitlist</a> section on the homepage.</li>
+                <li>Select your preferred membership tier (Starter, Practice, or Ultimate).</li>
+                <li>Submit your contact information so we can send you presale and opening details.</li>
+            </ul>
+        </section>
+
+        <section class="mb-8 fade-in-up stagger-2">
+            <h2 class="text-xl font-bold mb-3 text-gray-900">2. Confirm Your Membership</h2>
+            <p class="mb-4 text-gray-700">
+                As we approach opening, you&rsquo;ll receive an email and/or SMS with steps to finalize your membership.
+            </p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                <li>Review the membership options and included hours on the <a href="/#pricing" class="text-hunter hover:text-emerald-600 underline">Membership Tiers</a> section.</li>
+                <li>Confirm whether you want a monthly or annual membership. Monthly memberships will auto-renew until cancelled.</li>
+                <li>Review our <a href="/terms-and-conditions/" class="text-hunter hover:text-emerald-600 underline">Terms &amp; Conditions</a> and <a href="/privacy/" class="text-hunter hover:text-emerald-600 underline">Privacy Policy</a>.</li>
+            </ul>
+        </section>
+
+        <section class="mb-8 fade-in-up stagger-3">
+            <h2 class="text-xl font-bold mb-3 text-gray-900">3. Book Simulator Time</h2>
+            <p class="mb-4 text-gray-700">
+                Once your membership is active, you can start booking your simulator sessions online.
+            </p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                <li>Log in to the booking system using the credentials we provide.</li>
+                <li>Select the date, time, and duration of your session based on your available membership hours.</li>
+                <li>Confirm your booking and watch for a confirmation email or SMS.</li>
+            </ul>
+            <p class="mt-4 text-sm text-gray-700">
+                Remember: each membership tier includes a fixed number of hours per month, and unused hours do not roll over to the next month.
+            </p>
+        </section>
+
+        <section class="mb-8 fade-in-up stagger-4">
+            <h2 class="text-xl font-bold mb-3 text-gray-900">4. Access the Facility</h2>
+            <p class="mb-4 text-gray-700">
+                Private Tee Golf is designed for secure, convenient 24/7 access using smart entry.
+            </p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                <li>Before your scheduled session, you&rsquo;ll receive a unique door code via SMS.</li>
+                <li>Arrive at your scheduled time (not early), enter your code, and the door will unlock for your session.</li>
+                <li>Do not open the door for other guests outside your party; this can disrupt the automation system.</li>
+            </ul>
+            <p class="mt-4 text-sm text-gray-700">
+                For full access and conduct expectations, see our <a href="/terms-and-conditions/" class="text-hunter hover:text-emerald-600 underline">Terms &amp; Conditions</a>.
+            </p>
+        </section>
+
+        <section class="mb-8 fade-in-up">
+            <h2 class="text-xl font-bold mb-3 text-gray-900">5. Enjoy Your Session</h2>
+            <p class="mb-4 text-gray-700">
+                Once inside, you&rsquo;ll have private access to the simulator bay and lounge area for the duration of your booking.
+            </p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                <li>Follow the on-screen prompts to select courses, practice modes, or games.</li>
+                <li>Use clean clubs and balls, and remove any balls that collect near the screen.</li>
+                <li>Treat the space, equipment, and walls with care so we can keep the environment premium for every member.</li>
+            </ul>
+        </section>
+
+        <section class="mb-2 fade-in-up">
+            <h2 class="text-xl font-bold mb-3 text-gray-900">6. Need Help?</h2>
+            <p class="mb-2 text-gray-700">
+                If you ever have questions about booking, billing, or using the facility:
+            </p>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700 text-sm">
+                <li>Email us at <a href="mailto:info@privateteegolf.com" class="text-hunter hover:text-emerald-600 underline">info@privateteegolf.com</a>.</li>
+                <li>Use the contact form on the <a href="/contact/" class="text-hunter hover:text-emerald-600 underline">Contact</a> page.</li>
+                <li>Review policies on the <a href="/terms-and-conditions/" class="text-hunter hover:text-emerald-600 underline">Terms &amp; Conditions</a> and <a href="/presale-details/" class="text-hunter hover:text-emerald-600 underline">Presale Details</a> pages.</li>
+            </ul>
+        </section>
+    </div>
+</main>
+
+<!-- Footer Container - Injected by footer.js -->
+<div id="footerContainer"></div>
+
+<button id="backToTop" class="fixed bottom-8 right-8 bg-hunter text-white p-3 rounded-full shadow-lg hover:bg-emerald-600 transition-all duration-300 opacity-0 invisible translate-y-4 z-50 group" aria-label="Back to top">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+</button>
+
+<script src="../js/mobile-menu.js"></script>
+<script src="../js/back-to-top.js"></script>
+<script src="../js/footer.js"></script>
+
+<script>
+    // Optimized Scroll Animation Observer - Performance focused with fallback
+    let animationObserver;
+    
+    function initScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in');
+        
+        // Feature detection: Check if IntersectionObserver is supported
+        if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
+            // Modern browsers - Use IntersectionObserver
+            requestAnimationFrame(() => {
+                const observerOptions = {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+
+                animationObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Use requestAnimationFrame for class addition
+                            requestAnimationFrame(() => {
+                                entry.target.classList.add('visible');
+                                // Disconnect after animation to improve performance
+                                animationObserver.unobserve(entry.target);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all animated elements
+                animatedElements.forEach(el => {
+                    animationObserver.observe(el);
+                });
+            });
+        } else {
+            // Fallback for older browsers (IE, very old Safari, etc.)
+            // Show all elements immediately without animation
+            animatedElements.forEach(el => {
+                el.classList.add('visible');
+            });
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    } else {
+        initScrollAnimations();
+    }
+</script>
+
+</body>
+</html>
+
