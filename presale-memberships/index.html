@@ -283,10 +283,10 @@
                     <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Bring up to 3 guests at no extra charge.</li>
                 </ul>
                 <div class="mt-auto space-y-2">
-                    <a href="https://app.birrdi.com/u/plans/004385c0-9b1d-4b9b-be2c-a34be55a6db0" class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                    <a href="#" data-url="https://app.birrdi.com/u/plans/004385c0-9b1d-4b9b-be2c-a34be55a6db0" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
                         Choose Annual Starter
                     </a>
-                    <a href="https://app.birrdi.com/u/plans/6481dad6-13ca-41c9-aa04-f6c4e93681a1" class="block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                    <a href="#" data-url="https://app.birrdi.com/u/plans/6481dad6-13ca-41c9-aa04-f6c4e93681a1" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
                         Choose Monthly Starter
                     </a>
                 </div>
@@ -312,10 +312,10 @@
                     <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Discounted a la carte hours when available.</li>
                 </ul>
                 <div class="mt-auto space-y-2">
-                    <a href="https://app.birrdi.com/u/plans/472a747c-253d-48cb-9677-719df2283c01" class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                    <a href="#" data-url="https://app.birrdi.com/u/plans/472a747c-253d-48cb-9677-719df2283c01" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
                         Choose Annual Practice
                     </a>
-                    <a href="https://app.birrdi.com/u/plans/ed41b4fb-d255-41ac-9122-0c44f5274bd1" class="block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                    <a href="#" data-url="https://app.birrdi.com/u/plans/ed41b4fb-d255-41ac-9122-0c44f5274bd1" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
                         Choose Monthly Practice
                     </a>
                 </div>
@@ -359,6 +359,37 @@
 
     </div>
 </main>
+
+<!-- Confirmation Modal -->
+<div id="presaleModalBackdrop" class="fixed inset-0 bg-black/40 z-[80] hidden"></div>
+<div id="presaleModal" class="fixed inset-0 z-[90] flex items-center justify-center px-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-sm w-full p-6">
+        <div class="flex items-start gap-3 mb-4">
+            <div class="w-8 h-8 rounded-full bg-hunter/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12A9 9 0 113 12a9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <h3 class="font-serif text-lg font-bold text-gray-900">Continue to Secure Payment</h3>
+                <p class="text-sm text-gray-700 mt-1">
+                    You&rsquo;re about to open a new tab to complete your membership purchase securely via Birrdi.
+                </p>
+            </div>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">
+            Billing will begin on March 20, 2026 for presale memberships. You can update your membership directly in the Birrdi portal later if needed.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+            <button id="presaleModalCancel" class="w-full sm:w-1/2 py-2.5 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition">
+                Cancel
+            </button>
+            <button id="presaleModalConfirm" class="w-full sm:w-1/2 py-2.5 rounded-lg bg-hunter text-white text-sm font-semibold hover:bg-emerald-600 transition shadow-md shadow-hunter/20">
+                Continue in New Tab
+            </button>
+        </div>
+    </div>
+</div>
 
 <!-- Footer Container - Injected by footer.js -->
 <div id="footerContainer"></div>
@@ -416,11 +447,65 @@
         }
     }
 
+    function initPresaleModal() {
+        const buttons = document.querySelectorAll('.presale-purchase-btn');
+        const backdrop = document.getElementById('presaleModalBackdrop');
+        const modal = document.getElementById('presaleModal');
+        const confirmBtn = document.getElementById('presaleModalConfirm');
+        const cancelBtn = document.getElementById('presaleModalCancel');
+        let pendingUrl = null;
+
+        if (!buttons.length || !backdrop || !modal || !confirmBtn || !cancelBtn) return;
+
+        function openModal(url) {
+            pendingUrl = url;
+            backdrop.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            pendingUrl = null;
+            backdrop.classList.add('hidden');
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = btn.getAttribute('data-url');
+                if (!url) return;
+                openModal(url);
+            });
+        });
+
+        confirmBtn.addEventListener('click', () => {
+            if (pendingUrl) {
+                window.open(pendingUrl, '_blank', 'noopener');
+            }
+            closeModal();
+        });
+
+        cancelBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    }
+
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollAnimations();
+            initPresaleModal();
+        });
     } else {
         initScrollAnimations();
+        initPresaleModal();
     }
 </script>
 
