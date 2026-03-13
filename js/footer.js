@@ -95,6 +95,9 @@
                 <a href="/privacy/" class="text-[10px] text-gray-600 hover:text-gray-400 transition duration-300">
                     Privacy Policy
                 </a>
+                <a href="/terms-and-conditions/" class="text-[10px] text-gray-600 hover:text-gray-400 transition duration-300">
+                    Terms &amp; Conditions
+                </a>
                 ${!isHomepage ? `<a href="/" class="text-[10px] text-gray-600 hover:text-gray-400 transition duration-300">
                     Home
                 </a>` : ''}
