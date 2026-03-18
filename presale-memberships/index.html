@@ -283,10 +283,10 @@
                     <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Bring up to 3 guests at no extra charge.</li>
                 </ul>
                 <div class="mt-auto space-y-2">
-                    <a href="#" data-url="https://app.birrdi.com/u/plans/004385c0-9b1d-4b9b-be2c-a34be55a6db0" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                    <a id="starter-annual" href="#" data-url="https://app.birrdi.com/u/plans/004385c0-9b1d-4b9b-be2c-a34be55a6db0" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
                         Choose Annual Starter
                     </a>
-                    <a href="#" data-url="https://app.birrdi.com/u/plans/6481dad6-13ca-41c9-aa04-f6c4e93681a1" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                    <a id="starter-monthly" href="#" data-url="https://app.birrdi.com/u/plans/6481dad6-13ca-41c9-aa04-f6c4e93681a1" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
                         Choose Monthly Starter
                     </a>
                 </div>
@@ -312,10 +312,10 @@
                     <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Discounted a la carte hours when available.</li>
                 </ul>
                 <div class="mt-auto space-y-2">
-                    <a href="#" data-url="https://app.birrdi.com/u/plans/472a747c-253d-48cb-9677-719df2283c01" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                    <a id="practice-annual" href="#" data-url="https://app.birrdi.com/u/plans/472a747c-253d-48cb-9677-719df2283c01" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
                         Choose Annual Practice
                     </a>
-                    <a href="#" data-url="https://app.birrdi.com/u/plans/ed41b4fb-d255-41ac-9122-0c44f5274bd1" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                    <a id="practice-monthly" href="#" data-url="https://app.birrdi.com/u/plans/ed41b4fb-d255-41ac-9122-0c44f5274bd1" class="presale-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
                         Choose Monthly Practice
                     </a>
                 </div>
@@ -497,15 +497,36 @@
         });
     }
 
+    function highlightDeepLinkTarget() {
+        const hash = window.location.hash;
+        if (!hash) return;
+        const el = document.querySelector(hash);
+        if (!el) return;
+
+        // Ensure it's visible, then highlight briefly
+        try {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (e) {
+            el.scrollIntoView();
+        }
+
+        el.classList.add('ring-4', 'ring-hunter/30');
+        setTimeout(() => {
+            el.classList.remove('ring-4', 'ring-hunter/30');
+        }, 1800);
+    }
+
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             initScrollAnimations();
             initPresaleModal();
+            highlightDeepLinkTarget();
         });
     } else {
         initScrollAnimations();
         initPresaleModal();
+        highlightDeepLinkTarget();
     }
 </script>
 
