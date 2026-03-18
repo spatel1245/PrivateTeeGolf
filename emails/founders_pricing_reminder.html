@@ -346,7 +346,7 @@
     </a>
 
     <div class="content">
-        <p>Hi [REPLACE WITH NAME],</p>
+        <p>Hi {{ contact.FIRSTNAME | default:"there" }},</p>
 
         <p>
             Thanks again for joining the waitlist for <strong>Private Tee Golf</strong>.
@@ -356,6 +356,7 @@
         <p>
             If you still want to become a founding member, here are the <strong>Founder’s Rates</strong> while they’re available.
             <strong>No pressure</strong>—I just wanted to make sure you saw them before we move to standard pricing for new signups.
+            Founder pricing will be available through <strong>Thursday at 5:00 PM</strong>.
         </p>
 
         <div class="feature-box">
