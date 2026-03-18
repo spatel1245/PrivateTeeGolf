@@ -269,11 +269,12 @@
                     </p>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 cursor-zoom-in">
                         <img
                             src="images/1 - Time Selected.png"
                             alt="Booking screen showing time length, bay selection, and rate before reserving time"
-                            class="w-full h-full object-cover"
+                            class="w-full h-full object-cover booking-step-image"
+                            data-step="1"
                         />
                     </div>
                 </div>
@@ -293,11 +294,12 @@
                     </p>
                 </div>
                 <div class="md:w-1/2 order-1 md:order-2">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 cursor-zoom-in">
                         <img
                             src="images/2 - Sign in.png"
                             alt="Select Items screen showing Members rate and Sign In button"
-                            class="w-full h-full object-cover"
+                            class="w-full h-full object-cover booking-step-image"
+                            data-step="2"
                         />
                     </div>
                 </div>
@@ -318,11 +320,12 @@
                     </p>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 cursor-zoom-in">
                         <img
                             src="images/3 - Apply Credits.png"
                             alt="Select Credits screen showing remaining credits and Apply button"
-                            class="w-full h-full object-cover"
+                            class="w-full h-full object-cover booking-step-image"
+                            data-step="3"
                         />
                     </div>
                 </div>
@@ -344,11 +347,12 @@
                     </p>
                 </div>
                 <div class="md:w-1/2 order-1 md:order-2">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 cursor-zoom-in">
                         <img
                             src="images/4 - Check out.png"
                             alt="Final checkout screen showing membership credits applied and Reserve $0.00 button"
-                            class="w-full h-full object-cover"
+                            class="w-full h-full object-cover booking-step-image"
+                            data-step="4"
                         />
                     </div>
                 </div>
@@ -403,6 +407,19 @@
             <button id="bookingModalConfirm" class="w-full sm:w-1/2 py-2.5 rounded-lg bg-hunter text-white text-sm font-semibold hover:bg-emerald-600 transition shadow-md shadow-hunter/20">
                 Continue in New Tab
             </button>
+        </div>
+    </div>
+</div>
+
+<!-- Image Lightbox for Booking Steps -->
+<div id="bookingImageLightboxBackdrop" class="fixed inset-0 bg-black/60 z-[85] hidden"></div>
+<div id="bookingImageLightbox" class="fixed inset-0 z-[90] flex items-center justify-center px-4 hidden">
+    <div class="relative max-w-4xl w-full">
+        <button id="bookingImageLightboxClose" class="absolute -top-10 right-0 text-gray-200 hover:text-white text-sm font-medium px-3 py-1 rounded-full bg-black/40 border border-white/20">
+            Close
+        </button>
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+            <img id="bookingImageLightboxImg" src="" alt="" class="w-full h-full object-contain max-h-[80vh]" />
         </div>
     </div>
 </div>
@@ -513,15 +530,67 @@
         });
     }
 
+    function initBookingImageLightbox() {
+        const images = document.querySelectorAll('.booking-step-image');
+        const backdrop = document.getElementById('bookingImageLightboxBackdrop');
+        const lightbox = document.getElementById('bookingImageLightbox');
+        const lightboxImg = document.getElementById('bookingImageLightboxImg');
+        const closeBtn = document.getElementById('bookingImageLightboxClose');
+
+        if (!images.length || !backdrop || !lightbox || !lightboxImg || !closeBtn) return;
+
+        function openLightbox(src, alt) {
+            lightboxImg.src = src;
+            lightboxImg.alt = alt || '';
+            backdrop.classList.remove('hidden');
+            lightbox.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeLightbox() {
+            lightboxImg.src = '';
+            lightboxImg.alt = '';
+            backdrop.classList.add('hidden');
+            lightbox.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                openLightbox(img.src, img.alt);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        backdrop.addEventListener('click', closeLightbox);
+
+        // Close when clicking anywhere outside the enlarged image
+        lightbox.addEventListener('click', (e) => {
+            const clickedInsideImage = e.target.closest('#bookingImageLightboxImg');
+            const clickedClose = e.target.closest('#bookingImageLightboxClose');
+            if (!clickedInsideImage && !clickedClose) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+    }
+
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             initScrollAnimations();
             initBookingModal();
+            initBookingImageLightbox();
         });
     } else {
         initScrollAnimations();
         initBookingModal();
+        initBookingImageLightbox();
     }
 </script>
 
