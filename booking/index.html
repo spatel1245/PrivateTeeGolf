@@ -38,77 +38,6 @@
     </script>
 
     <link rel="stylesheet" href="../css/shared.css">
-    <style>
-        /* Scroll Animation Classes - GPU Accelerated */
-        .fade-in-up {
-            opacity: 0;
-            transform: translate3d(0, 30px, 0);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            will-change: auto;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            will-change: auto;
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translate3d(-50px, 0, 0);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            will-change: auto;
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translate3d(50px, 0, 0);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            will-change: auto;
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: translate3d(0, 0, 0) scale(0.95);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1);
-            will-change: auto;
-        }
-
-        /* Stagger Animation Delays */
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-    </style>
 </head>
 <body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
 
@@ -438,49 +367,6 @@
 <script src="../js/footer.js"></script>
 
 <script>
-    // Optimized Scroll Animation Observer - Performance focused with fallback
-    let animationObserver;
-    
-    function initScrollAnimations() {
-        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in');
-        
-        // Feature detection: Check if IntersectionObserver is supported
-        if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
-            // Modern browsers - Use IntersectionObserver
-            requestAnimationFrame(() => {
-                const observerOptions = {
-                    threshold: 0.15,
-                    rootMargin: '0px 0px -100px 0px'
-                };
-
-                animationObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Use requestAnimationFrame for class addition
-                            requestAnimationFrame(() => {
-                                entry.target.classList.add('visible');
-                                // Disconnect after animation to improve performance
-                                if (animationObserver) {
-                                    animationObserver.unobserve(entry.target);
-                                }
-                            });
-                        }
-                    });
-                }, observerOptions);
-
-                // Observe all animated elements
-                animatedElements.forEach(el => {
-                    animationObserver.observe(el);
-                });
-            });
-        } else {
-            // Fallback for older browsers
-            animatedElements.forEach(el => {
-                el.classList.add('visible');
-            });
-        }
-    }
-
     function initBookingModal() {
         const buttons = document.querySelectorAll('.booking-link-btn');
         const backdrop = document.getElementById('bookingModalBackdrop');
@@ -583,12 +469,10 @@
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            initScrollAnimations();
             initBookingModal();
             initBookingImageLightbox();
         });
     } else {
-        initScrollAnimations();
         initBookingModal();
         initBookingImageLightbox();
     }
