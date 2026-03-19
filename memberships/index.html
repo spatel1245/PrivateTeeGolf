@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memberships - Private Tee Golf</title>
+
+    <meta name="description" content="Choose a Private Tee Golf membership in Greensburg, PA. Private 24/7 access during your booked time, smart entry, and included simulator hours.">
+    <meta property="og:title" content="Memberships - Private Tee Golf">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="../small_logo.jpg" type="image/jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mainBg: '#cbd5e1',
+                        cardBg: '#e2e8f0',
+                        hunter: '#10b981',
+                        deepGreen: '#064e3b',
+                        gold: '#d97706',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        /* Scroll Animation Classes - GPU Accelerated */
+        .fade-in-up {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) scale(0.95);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            will-change: auto;
+        }
+
+        /* Stagger Animation Delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
+
+<nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-3 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3 hover:opacity-80 transition duration-300">
+            <img src="../small_logo.jpg" alt="Private Tee Golf Logo" class="h-10 w-10 rounded-full border border-gray-200">
+            <span class="text-gray-900 font-serif text-2xl font-bold tracking-tight">Private Tee <span class="text-hunter">Golf.</span></span>
+        </a>
+        <div class="flex items-center gap-3">
+            <a href="/booking/" class="hidden sm:inline-flex text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                Booking
+            </a>
+            <a href="/terms-and-conditions/" class="hidden sm:inline-flex text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
+                Terms
+            </a>
+            <a href="/contact/" class="inline-flex bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20">
+                Questions? Contact
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 pt-32 pb-20">
+
+    <div class="mb-8 fade-in-up">
+        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-100 hover:border-gray-400 transition font-medium">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Back to Home
+        </a>
+    </div>
+
+    <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 shadow-lg fade-in-up">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <div>
+                <h1 class="font-serif text-3xl md:text-4xl font-bold text-gray-900">Memberships</h1>
+                <p class="text-sm text-gray-700 mt-2 max-w-2xl">
+                    Choose the tier that fits how often you play. Memberships include private 24/7 access during your booked time, smart entry, and included monthly simulator hours.
+                </p>
+            </div>
+            <div class="inline-flex items-center gap-2 bg-white/70 border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-800">
+                <span class="w-2 h-2 rounded-full bg-hunter animate-pulse"></span>
+                <span><span class="font-semibold">Availability-based</span> onboarding</span>
+            </div>
+        </div>
+
+        <p class="text-sm text-gray-700 mb-4">
+            We keep membership capacity limited to maintain true private availability. If a tier is available, you can purchase instantly below.
+            Monthly memberships will continue billing each month unless cancelled. Memberships start March 27.
+        </p>
+
+        <p class="text-[11px] text-gray-600 mb-8">
+            By purchasing, you agree to our
+            <a href="/terms-and-conditions/" class="text-hunter hover:text-emerald-600 underline">Terms &amp; Conditions</a>
+            and
+            <a href="/privacy/" class="text-hunter hover:text-emerald-600 underline">Privacy Policy</a>.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Starter -->
+            <section id="starter" class="bg-white/80 p-6 rounded-2xl border border-hunter/60 shadow-md scale-in stagger-1 relative flex flex-col scroll-mt-28">
+                <div class="absolute top-0 right-0 bg-hunter text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                    MOST POPULAR
+                </div>
+                <div class="mb-4">
+                    <h2 class="font-serif text-2xl text-gray-900 mb-1">Starter</h2>
+                    <p class="text-xs uppercase tracking-wide text-gray-500">For the occasional round</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-2">$179<span class="text-base font-normal text-gray-600">/mo</span></p>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">
+                    Includes <span class="font-semibold">4 hours</span> of simulator time each month. Effective rate: ~$45/hr.
+                </p>
+                <ul class="text-sm text-gray-700 space-y-2 mb-6">
+                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Bring up to 3 guests at no extra charge.</li>
+                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> 1 booking at a time.</li>
+                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Great for monthly tune-ups and casual play.</li>
+                </ul>
+                <div class="mt-auto space-y-2">
+                    <a id="starter-annual" href="#" data-url="https://app.birrdi.com/u/plans/e19dc6a8-55a3-4aab-b0c9-93203ec2f1e3" class="membership-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                        Choose Annual Starter
+                    </a>
+                    <a id="starter-monthly" href="#" data-url="https://app.birrdi.com/u/plans/d058af54-fdb6-4da6-a443-d730c7841b91" class="membership-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                        Choose Monthly Starter
+                    </a>
+                    <p class="text-[11px] text-gray-600 text-center mt-2">
+                        Annual includes 1 month free.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Practice -->
+            <section id="practice" class="bg-white/60 p-6 rounded-2xl border border-gray-200 shadow-sm scale-in stagger-2 flex flex-col scroll-mt-28">
+                <div class="mb-4">
+                    <h2 class="font-serif text-2xl text-gray-900 mb-1">Practice</h2>
+                    <p class="text-xs uppercase tracking-wide text-gray-500">For regular practice</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-2">$299<span class="text-base font-normal text-gray-600">/mo</span></p>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">
+                    Includes <span class="font-semibold">10 hours</span> of simulator time each month. Effective rate: ~$30/hr.
+                </p>
+                <ul class="text-sm text-gray-700 space-y-2 mb-6">
+                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> 2 bookings at a time.</li>
+                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Priority booking over Starter members.</li>
+                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Discounted a la carte hours when available.</li>
+                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Best for steady improvement.</li>
+                </ul>
+                <div class="mt-auto space-y-2">
+                    <a id="practice-annual" href="#" data-url="https://app.birrdi.com/u/plans/ae2864da-5de0-4e9b-8065-11e4227f82ea" class="membership-purchase-btn block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                        Choose Annual Practice
+                    </a>
+                    <a id="practice-monthly" href="#" data-url="https://app.birrdi.com/u/plans/2b57b13d-3834-4840-8617-b7c9e6476d3f" class="membership-purchase-btn block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                        Choose Monthly Practice
+                    </a>
+                    <p class="text-[11px] text-gray-600 text-center mt-2">
+                        Annual includes 1 month free.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Ultimate (Sold Out) -->
+            <section id="ultimate" class="bg-gray-100 p-6 rounded-2xl border border-gray-300 shadow-inner scale-in stagger-3 flex flex-col opacity-95 relative scroll-mt-28">
+                <div class="absolute top-0 right-0 bg-gray-700 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                    SOLD OUT
+                </div>
+                <div class="mb-4">
+                    <h2 class="font-serif text-2xl text-gold mb-1">Ultimate</h2>
+                    <p class="text-xs uppercase tracking-wide text-gray-500">For heavy users</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-2">$399<span class="text-base font-normal text-gray-600">/mo</span></p>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">
+                    Includes at least <span class="font-semibold text-gold">20 hours</span> of simulator time per month, with additional access based on availability.
+                </p>
+                <ul class="text-sm text-gray-700 space-y-2 mb-6">
+                    <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Designed for serious players.</li>
+                    <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Extended booking window and highest priority.</li>
+                    <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Limited capacity by design.</li>
+                </ul>
+                <div class="mt-auto space-y-2">
+                    <span class="block w-full text-center py-3 rounded-lg bg-gray-200 text-gray-500 font-semibold text-sm border border-gray-300 cursor-default">
+                        Sold Out
+                    </span>
+                    <p class="text-[11px] text-center text-gray-600 italic leading-relaxed">
+                        No Ultimate spots currently available.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+</main>
+
+<!-- Confirmation Modal -->
+<div id="membershipModalBackdrop" class="fixed inset-0 bg-black/40 z-[80] hidden"></div>
+<div id="membershipModal" class="fixed inset-0 z-[90] flex items-center justify-center px-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-sm w-full p-6">
+        <div class="flex items-start gap-3 mb-4">
+            <div class="w-8 h-8 rounded-full bg-hunter/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12A9 9 0 113 12a9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <h3 class="font-serif text-lg font-bold text-gray-900">Continue to Secure Checkout</h3>
+                <p class="text-sm text-gray-700 mt-1">
+                    You&rsquo;re about to open a new tab to complete your membership purchase securely via Birrdi.
+                </p>
+            </div>
+        </div>
+        <p class="text-xs text-gray-500 mb-4">
+            Before checking out, please review our
+            <a href="/terms-and-conditions/" class="text-hunter hover:text-emerald-600 underline">Terms &amp; Conditions</a>.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+            <button id="membershipModalCancel" class="w-full sm:w-1/2 py-2.5 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition">
+                Cancel
+            </button>
+            <button id="membershipModalConfirm" class="w-full sm:w-1/2 py-2.5 rounded-lg bg-hunter text-white text-sm font-semibold hover:bg-emerald-600 transition shadow-md shadow-hunter/20">
+                Continue in New Tab
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Container - Injected by footer.js -->
+<div id="footerContainer"></div>
+
+<button id="backToTop" class="fixed bottom-8 right-8 bg-hunter text-white p-3 rounded-full shadow-lg hover:bg-emerald-600 transition-all duration-300 opacity-0 invisible translate-y-4 z-50 group" aria-label="Back to top">
+    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+</button>
+
+<script src="../js/back-to-top.js"></script>
+<script src="../js/footer.js"></script>
+
+<script>
+    // Optimized Scroll Animation Observer - Performance focused with fallback
+    let animationObserver;
+
+    function initScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in');
+        if (!animatedElements.length) return;
+
+        if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
+            requestAnimationFrame(() => {
+                const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -100px 0px' };
+                animationObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            requestAnimationFrame(() => {
+                                entry.target.classList.add('visible');
+                                animationObserver.unobserve(entry.target);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                animatedElements.forEach(el => animationObserver.observe(el));
+            });
+        } else {
+            animatedElements.forEach(el => el.classList.add('visible'));
+        }
+    }
+
+    function highlightDeepLinkTarget() {
+        const hash = window.location.hash;
+        if (!hash) return;
+        const el = document.querySelector(hash);
+        if (!el) return;
+
+        try {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (e) {
+            el.scrollIntoView();
+        }
+
+        el.classList.add('ring-4', 'ring-hunter/30');
+        setTimeout(() => {
+            el.classList.remove('ring-4', 'ring-hunter/30');
+        }, 1800);
+    }
+
+    function initMembershipModal() {
+        const buttons = document.querySelectorAll('.membership-purchase-btn');
+        const backdrop = document.getElementById('membershipModalBackdrop');
+        const modal = document.getElementById('membershipModal');
+        const cancelBtn = document.getElementById('membershipModalCancel');
+        const confirmBtn = document.getElementById('membershipModalConfirm');
+
+        if (!buttons.length || !backdrop || !modal || !cancelBtn || !confirmBtn) return;
+
+        let pendingUrl = '';
+
+        function openModal(url) {
+            pendingUrl = url || '';
+            backdrop.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            pendingUrl = '';
+            backdrop.classList.add('hidden');
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = btn.getAttribute('data-url') || '';
+
+                // No guessing: if links aren’t configured yet, do nothing.
+                if (!url) {
+                    alert('Membership checkout link is not configured yet. Please contact us.');
+                    return;
+                }
+
+                openModal(url);
+            });
+        });
+
+        cancelBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            const clickedInside = e.target.closest('.bg-white');
+            if (!clickedInside) closeModal();
+        });
+
+        confirmBtn.addEventListener('click', () => {
+            if (!pendingUrl) return;
+            window.open(pendingUrl, '_blank', 'noopener,noreferrer');
+            closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollAnimations();
+            initMembershipModal();
+            highlightDeepLinkTarget();
+        });
+    } else {
+        initScrollAnimations();
+        initMembershipModal();
+        highlightDeepLinkTarget();
+    }
+</script>
+
+</body>
+</html>
