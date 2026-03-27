@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - Private Tee Golf</title>
+    <meta name="description" content="Book a public trial at Private Tee Golf for $35/hour and experience the facility before joining membership.">
+    <meta property="og:title" content="Book Now - Private Tee Golf">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="../small_logo.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mainBg: '#cbd5e1',
+                        cardBg: '#e2e8f0',
+                        hunter: '#10b981',
+                        deepGreen: '#064e3b',
+                        gold: '#d97706',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="../css/shared.css">
+</head>
+<body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
+
+<nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-3 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3 hover:opacity-80 transition duration-300">
+            <img src="../small_logo.jpg" alt="Private Tee Golf Simulator Greensburg PA Logo" class="h-10 w-10 rounded-full border border-gray-200">
+            <span class="text-gray-900 font-serif text-2xl font-bold tracking-tight">Private Tee <span class="text-hunter">Golf.</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-4">
+            <a href="/" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Home</a>
+            <a href="/#pricing" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Membership Tiers</a>
+            <a href="/memberships/" class="text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Memberships</a>
+            <button class="booking-link-btn bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20" data-url="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20">
+                Book Now
+            </button>
+        </div>
+        <button id="mobileMenuBtn" class="flex md:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition items-center justify-center" aria-label="Open menu" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<div id="mobileMenuBackdrop" class="mobile-menu-backdrop fixed inset-0 bg-black/50 z-[60] md:hidden"></div>
+<div id="mobileMenu" class="mobile-menu-overlay fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-cardBg shadow-2xl z-[70] md:hidden overflow-y-auto">
+    <div class="flex flex-col h-full">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <span class="font-serif text-xl font-bold text-gray-900">Menu</span>
+            <button id="mobileMenuClose" class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition" aria-label="Close menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex-1 p-6 space-y-2" aria-label="Mobile navigation">
+            <a href="/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">Home</a>
+            <a href="/#pricing" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">Membership Tiers</a>
+            <a href="/memberships/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">Join Membership</a>
+        </nav>
+    </div>
+</div>
+
+<main class="bg-mainBg min-h-screen pt-28 pb-20">
+    <section class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
+        <div class="bg-deepGreen text-white border border-gold/40 rounded-2xl p-8 md:p-10 shadow-xl mb-10 text-center">
+            <p class="text-xs md:text-sm text-gold uppercase tracking-[0.2em] font-semibold mb-3">Public Trial Booking</p>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold leading-tight mb-4">Book a Session and Experience Private Tee</h1>
+            <p class="text-lg md:text-xl text-emerald-50 leading-relaxed max-w-4xl mx-auto mb-8">
+                Play for <strong class="text-gold">$35 per hour</strong>, which is below typical local public simulator pricing.
+                It is the easiest way to experience the facility before deciding on membership.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 mb-8 max-w-3xl mx-auto">
+                <div class="bg-white/10 border border-white/20 rounded-xl p-5 text-center">
+                    <p class="text-xs uppercase tracking-[0.12em] text-emerald-100 mb-2">Public Trial</p>
+                    <p class="font-serif text-4xl font-bold text-gold">$35/hr</p>
+                </div>
+                <div class="bg-white/10 border border-white/20 rounded-xl p-5 text-center">
+                    <p class="text-xs uppercase tracking-[0.12em] text-emerald-100 mb-2">Typical Public Sims</p>
+                    <p class="font-serif text-3xl font-semibold text-gray-200 line-through">$50/hr+</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <button class="booking-link-btn inline-flex items-center justify-center bg-gold hover:bg-amber-500 text-deepGreen px-8 py-4 rounded-lg text-lg font-semibold transition shadow-lg shadow-black/20" data-url="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20">
+                    Book Your Session
+                </button>
+                <a href="/memberships/" class="inline-flex items-center justify-center border border-gold/50 text-gold hover:bg-gold/10 px-8 py-4 rounded-lg text-lg font-semibold transition">
+                    View Memberships
+                </a>
+            </div>
+        </div>
+
+        <div class="bg-cardBg border border-gray-200 rounded-2xl p-6 md:p-8 shadow-lg">
+            <div class="text-center mb-8">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-3">Facility Preview</h2>
+                <p class="text-gray-700 text-lg max-w-2xl mx-auto">See the exact space you will play in before you reserve your time.</p>
+            </div>
+
+            <div class="relative mb-2">
+                <div class="carousel-container relative overflow-hidden rounded-2xl border border-gray-200 shadow-lg bg-cardBg group">
+                    <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
+                        <div class="carousel-slide min-w-full">
+                            <div class="relative aspect-[4/3] bg-gray-900 flex items-center justify-center overflow-hidden">
+                                <img src="../images/facility/1.jpeg" alt="Private Tee Golf Interior" class="w-full h-full object-cover object-center">
+                            </div>
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <div class="relative aspect-[4/3] bg-gray-900 flex items-center justify-center overflow-hidden">
+                                <img src="../images/facility/2.jpeg" alt="Private Tee Golf Interior" class="w-full h-full object-cover object-center">
+                            </div>
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <div class="relative aspect-[4/3] bg-gray-900 flex items-center justify-center overflow-hidden">
+                                <img src="../images/facility/3.jpeg" alt="Private Tee Golf Interior" class="w-full h-full object-cover object-center">
+                            </div>
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <div class="relative aspect-[4/3] bg-gray-900">
+                                <img src="../private-tee-golf-greensburg-pa-exterior-rendering.jpg" alt="Private Tee Golf Exterior Rendering" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <div class="relative aspect-[4/3] overflow-hidden bg-gray-900">
+                                <img src="../route-30-map.jpg" alt="Private Tee Golf Location on Route 30" class="w-full h-full object-cover object-center">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Previous image">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Next image">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex justify-center gap-2 mt-6" id="carouselIndicators">
+                    <button class="carousel-indicator w-8 h-2 rounded-full bg-hunter transition-all duration-300" aria-label="Go to slide 1" data-slide="0"></button>
+                    <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Go to slide 2" data-slide="1"></button>
+                    <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Go to slide 3" data-slide="2"></button>
+                    <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Go to slide 4" data-slide="3"></button>
+                    <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Go to slide 5" data-slide="4"></button>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <button class="booking-link-btn inline-flex items-center justify-center bg-hunter hover:bg-emerald-600 text-white px-10 py-4 rounded-lg text-lg font-semibold transition shadow-lg shadow-hunter/20" data-url="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20">
+                    Book Your $35 Trial
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Booking Confirmation Modal -->
+<div id="bookingModalBackdrop" class="fixed inset-0 bg-black/40 z-[80] hidden"></div>
+<div id="bookingModal" class="fixed inset-0 z-[90] flex items-center justify-center px-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-sm w-full p-6">
+        <div class="flex items-start gap-3 mb-4">
+            <div class="w-8 h-8 rounded-full bg-hunter/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12A9 9 0 113 12a9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <h3 class="font-serif text-lg font-bold text-gray-900">Continue to Booking</h3>
+                <p class="text-sm text-gray-700 mt-1">
+                    You&apos;re about to open a new tab to access our secure booking calendar and reserve your simulator time.
+                </p>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+            <button id="bookingModalCancel" class="w-full sm:w-1/2 py-2.5 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition">
+                Cancel
+            </button>
+            <button id="bookingModalConfirm" class="w-full sm:w-1/2 py-2.5 rounded-lg bg-hunter text-white text-sm font-semibold hover:bg-emerald-600 transition shadow-md shadow-hunter/20">
+                Continue in New Tab
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="footerContainer"></div>
+<script src="../js/mobile-menu.js"></script>
+<script src="../js/footer.js"></script>
+<script>
+    function initBookingModal() {
+        const buttons = document.querySelectorAll('.booking-link-btn');
+        const backdrop = document.getElementById('bookingModalBackdrop');
+        const modal = document.getElementById('bookingModal');
+        const confirmBtn = document.getElementById('bookingModalConfirm');
+        const cancelBtn = document.getElementById('bookingModalCancel');
+        let pendingUrl = null;
+
+        if (!buttons.length || !backdrop || !modal || !confirmBtn || !cancelBtn) return;
+
+        function openModal(url) {
+            pendingUrl = url;
+            backdrop.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            pendingUrl = null;
+            backdrop.classList.add('hidden');
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = btn.getAttribute('data-url') || '#';
+                openModal(url);
+            });
+        });
+
+        confirmBtn.addEventListener('click', () => {
+            if (pendingUrl && pendingUrl !== '#') {
+                window.open(pendingUrl, '_blank', 'noopener');
+            }
+            closeModal();
+        });
+
+        cancelBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    }
+
+    function initCarousel() {
+        const carouselTrack = document.getElementById('carouselTrack');
+        const carouselIndicators = document.getElementById('carouselIndicators');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+
+        if (!carouselTrack || !prevBtn || !nextBtn || !carouselIndicators) return;
+
+        const slides = carouselTrack.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            const indicators = carouselIndicators.querySelectorAll('.carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('bg-hunter', 'w-8');
+                    indicator.classList.remove('bg-gray-300', 'w-2');
+                } else {
+                    indicator.classList.remove('bg-hunter', 'w-8');
+                    indicator.classList.add('bg-gray-300', 'w-2');
+                }
+            });
+            prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        });
+
+        carouselIndicators.addEventListener('click', (e) => {
+            if (e.target.classList.contains('carousel-indicator')) {
+                currentSlide = parseInt(e.target.dataset.slide, 10) || 0;
+                updateCarousel();
+            }
+        });
+
+        updateCarousel();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            initBookingModal();
+            initCarousel();
+        });
+    } else {
+        initBookingModal();
+        initCarousel();
+    }
+</script>
+</body>
+</html>
