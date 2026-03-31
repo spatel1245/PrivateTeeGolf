@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Tee Golf - Rainy Week Ad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0f1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .ad-card {
+            width: 1080px;
+            height: 1080px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: #0f172a;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 36px 40px;
+            background: #0f172a;
+            flex-shrink: 0;
+        }
+        .top-brand {
+            font-family: "Playfair Display", serif;
+            font-size: 44px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+        .top-brand-accent { color: #10b981; }
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .top-location-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+        .top-location-text {
+            font-size: 22px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .accent-line {
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+            flex-shrink: 0;
+        }
+
+        /* Image + Overlay */
+        .image-area {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            min-height: 0;
+        }
+        .image-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 52%;
+            display: block;
+            transform: scale(1.02);
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(2,6,23,0.18) 0%, rgba(2,6,23,0.42) 55%, rgba(2,6,23,0.78) 100%),
+                radial-gradient(900px 520px at 50% 55%, rgba(2,6,23,0.28), rgba(0,0,0,0));
+        }
+
+        .weather-strip {
+            position: absolute;
+            left: 50%;
+            top: 54%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 22px;
+            border-radius: 24px;
+            background: rgba(2, 6, 23, 0.72);
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+            color: #ffffff;
+            width: 720px;
+        }
+
+        .rain-row {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+        }
+        .day-pill {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.26);
+        }
+        .day {
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+        }
+        .rain {
+            font-size: 26px;
+            line-height: 1;
+        }
+        .weather-caption {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.92);
+            text-align: center;
+        }
+        .weather-caption strong {
+            color: #34d399;
+        }
+
+        /* Bottom Bar */
+        .bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 40px;
+            background: #0f172a;
+            flex-shrink: 0;
+        }
+        .bottom-left-label {
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #10b981;
+            margin-bottom: 6px;
+        }
+        .bottom-left-text {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #ffffff;
+            font-style: italic;
+            line-height: 1.05;
+        }
+        .bottom-left-text strong {
+            color: #34d399;
+            font-style: normal;
+        }
+        .bottom-right-label {
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 6px;
+            text-align: right;
+        }
+        .bottom-right-url {
+            font-family: "Playfair Display", serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ad-card">
+
+    <div class="top-bar">
+        <span class="top-brand">Private Tee <span class="top-brand-accent">Golf.</span></span>
+        <div class="top-right">
+            <div class="top-location-dot"></div>
+            <span class="top-location-text">Greensburg, PA</span>
+        </div>
+    </div>
+    <div class="accent-line"></div>
+
+    <div class="image-area">
+        <img src="../images/facility/1.jpeg" alt="Private Tee Golf simulator bay">
+        <div class="overlay"></div>
+
+        <div class="weather-strip" aria-label="Rain Tuesday through Friday">
+            <div class="rain-row">
+                <div class="day-pill"><span class="day">Tue</span><span class="rain">☔</span></div>
+                <div class="day-pill"><span class="day">Wed</span><span class="rain">☔</span></div>
+                <div class="day-pill"><span class="day">Thu</span><span class="rain">☔</span></div>
+                <div class="day-pill"><span class="day">Fri</span><span class="rain">☔</span></div>
+            </div>
+            <div class="weather-caption">4 rainy days in Greensburg. <strong>Stay dry &amp; swing</strong>.</div>
+        </div>
+    </div>
+
+    <div class="accent-line"></div>
+    <div class="bottom-bar">
+        <div>
+            <div class="bottom-left-label">Public Trial</div>
+            <div class="bottom-left-text"><strong>$35/hr</strong> indoor golf</div>
+        </div>
+        <div>
+            <div class="bottom-right-label">Book now</div>
+            <div class="bottom-right-url">PrivateTeeGolf.com</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
