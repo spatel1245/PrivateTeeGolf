@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memberships - Private Tee Golf</title>
+    <title>Memberships | Private Tee Golf — Greensburg, PA</title>
 
-    <meta name="description" content="Choose a Private Tee Golf membership in Greensburg, PA. Private 24/7 access during your booked time, smart entry, and included simulator hours.">
-    <meta property="og:title" content="Memberships - Private Tee Golf">
+    <meta name="description" content="Golf simulator memberships in Greensburg, PA. Included monthly hours, 24/7 smart access, and no tee times. Starter from $149/mo, Practice from $219/mo.">
+    <meta property="og:title" content="Memberships | Private Tee Golf">
+    <meta property="og:description" content="Monthly golf simulator memberships with included hours and 24/7 access. Greensburg, PA.">
     <meta property="og:type" content="website">
 
     <link rel="icon" href="../small_logo.jpg" type="image/jpeg">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -37,270 +36,370 @@
         }
     </script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZCCSYK1ZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KZCCSYK1ZB');
+    </script>
+
     <link rel="stylesheet" href="../css/shared.css">
     <style>
-        /* Scroll Animation Classes - GPU Accelerated */
         .fade-in-up {
             opacity: 0;
-            transform: translate3d(0, 30px, 0);
+            transform: translate3d(0, 24px, 0);
             transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: opacity, transform;
         }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            will-change: auto;
-        }
+        .fade-in-up.visible { opacity: 1; transform: translate3d(0, 0, 0); will-change: auto; }
 
         .scale-in {
             opacity: 0;
-            transform: translate3d(0, 0, 0) scale(0.95);
+            transform: translate3d(0, 0, 0) scale(0.97);
             transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: opacity, transform;
         }
+        .scale-in.visible { opacity: 1; transform: translate3d(0, 0, 0) scale(1); will-change: auto; }
 
-        .scale-in.visible {
-            opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1);
-            will-change: auto;
-        }
-
-        /* Stagger Animation Delays */
         .stagger-1 { transition-delay: 0.1s; }
         .stagger-2 { transition-delay: 0.2s; }
         .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
     </style>
 </head>
 <body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
 
+<!-- Mobile Sticky Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-cardBg/95 backdrop-blur-md border-t border-gray-200 px-4 py-3 z-[100] md:hidden flex items-center gap-3 shadow-[0_-5px_20px_rgba(0,0,0,0.1)]">
+    <a href="#starter-monthly" class="flex-1 text-center bg-hunter text-white px-4 py-3 rounded-lg text-sm font-bold shadow-lg shadow-hunter/20 active:scale-95 transition">
+        Get Started
+    </a>
+    <a href="/book-now/" class="flex-1 text-center bg-white border border-gray-300 text-gray-900 px-4 py-3 rounded-lg text-sm font-semibold active:scale-95 transition">
+        Book a Tee Time
+    </a>
+</div>
+
+<!-- Navigation -->
 <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
     <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-3 flex justify-between items-center">
         <a href="/" class="flex items-center gap-3 hover:opacity-80 transition duration-300">
             <img src="../small_logo.jpg" alt="Private Tee Golf Logo" class="h-10 w-10 rounded-full border border-gray-200">
             <span class="text-gray-900 font-serif text-2xl font-bold tracking-tight">Private Tee <span class="text-hunter">Golf.</span></span>
         </a>
-        <div class="flex items-center gap-3">
-            <a href="/terms-and-conditions/" class="hidden sm:inline-flex text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">
-                Terms
-            </a>
-            <a href="/contact/" class="inline-flex bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20">
-                Questions? Contact
-            </a>
+        <div class="hidden md:flex items-center gap-1">
+            <a href="/" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition">Home</a>
+            <a href="/#how-it-works" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition">How It Works</a>
+            <a href="/corporate/" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition">Corporate</a>
+            <a href="/contact/" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition">Contact</a>
+            <div class="w-px h-5 bg-gray-300 mx-2"></div>
+            <a href="/book-now/" class="border border-gray-300 text-gray-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition">Book a Tee Time</a>
+            <a href="#starter-monthly" class="bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20 ml-1">Get Started</a>
         </div>
+        <button id="mobileMenuBtn" class="flex md:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition" aria-label="Open menu" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
     </div>
 </nav>
 
-<main class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 pt-32 pb-20">
+<!-- Mobile Menu -->
+<div id="mobileMenuBackdrop" class="mobile-menu-backdrop fixed inset-0 bg-black/50 z-[60] md:hidden"></div>
+<div id="mobileMenu" class="mobile-menu-overlay fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-cardBg shadow-2xl z-[70] md:hidden overflow-y-auto">
+    <div class="flex flex-col h-full">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <span class="font-serif text-xl font-bold text-gray-900">Menu</span>
+            <button id="mobileMenuClose" class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition" aria-label="Close menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="flex-1 p-6 space-y-1">
+            <a href="/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">Home</a>
+            <a href="/#how-it-works" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">How It Works</a>
+            <a href="/book-now/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">Book a Tee Time</a>
+            <a href="/corporate/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">Corporate Events</a>
+            <a href="/contact/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">Contact</a>
+        </nav>
+    </div>
+</div>
 
-    <div class="mb-8 fade-in-up">
-        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-100 hover:border-gray-400 transition font-medium">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-            Back to Home
-        </a>
+<!-- =========================================================
+     PAGE HEADER
+     ========================================================= -->
+<main class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 pt-32 pb-24">
+
+    <!-- Header -->
+    <div class="text-center mb-14 fade-in-up">
+        <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-hunter/40 bg-green-100 mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-hunter animate-pulse"></span>
+            <span class="text-hunter text-xs uppercase tracking-[0.2em] font-semibold">Founders Pricing — Available Now</span>
+        </div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-5">Membership Options</h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            Monthly memberships with included simulator hours and 24/7 smart access. The more you play, the more you save.
+        </p>
     </div>
 
-    <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 shadow-lg fade-in-up">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+    <!-- What every membership includes -->
+    <div class="bg-cardBg rounded-2xl border border-gray-200 p-6 md:p-8 mb-10 fade-in-up">
+        <h2 class="font-serif text-xl font-bold text-gray-900 mb-6 text-center">Every Membership Includes</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="flex items-start gap-3">
+                <span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>
+                <div>
+                    <p class="text-sm font-semibold text-gray-900">24/7 Smart Access</p>
+                    <p class="text-xs text-gray-500 mt-0.5">SMS door code 15 min before every session</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>
+                <div>
+                    <p class="text-sm font-semibold text-gray-900">Bring Up to 3 Guests</p>
+                    <p class="text-xs text-gray-500 mt-0.5">At no additional charge</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>
+                <div>
+                    <p class="text-sm font-semibold text-gray-900">Everything Ready On Arrival</p>
+                    <p class="text-xs text-gray-500 mt-0.5">Projector, software, and bay are on when you walk in</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>
+                <div>
+                    <p class="text-sm font-semibold text-gray-900">Uneekor Eye XO2</p>
+                    <p class="text-xs text-gray-500 mt-0.5">Pro-level simulator with 2,000+ courses</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid md:grid-cols-3 gap-6 mb-6">
+
+        <!-- Starter -->
+        <section id="starter" class="bg-cardBg p-7 rounded-2xl border-2 border-hunter/50 shadow-lg scale-in stagger-1 relative flex flex-col scroll-mt-28">
+            <div class="absolute top-0 right-0 bg-hunter text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider">MOST POPULAR</div>
+
+            <div class="mb-5">
+                <h2 class="font-serif text-2xl text-gray-900 mb-1">Starter</h2>
+                <p class="text-xs uppercase tracking-wide text-gray-500">For the occasional round</p>
+                <div class="mt-3 flex flex-wrap items-baseline gap-2">
+                    <span class="text-xl text-gray-400 line-through">$179</span>
+                    <span class="text-3xl font-bold text-gray-900">$149</span>
+                    <span class="text-gray-500">/mo</span>
+                </div>
+            </div>
+
+            <div class="pb-5 mb-5 border-b border-gray-200">
+                <p class="text-sm text-gray-700">Includes <span class="text-hunter font-bold text-base">4 hours</span> of simulator time per month.</p>
+            </div>
+
+            <ul class="text-sm text-gray-600 space-y-2.5 mb-7 flex-grow">
+                <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold flex-shrink-0">✓</span>4 included hours monthly</li>
+                <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold flex-shrink-0">✓</span>1 active booking at a time</li>
+                <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold flex-shrink-0">✓</span>Great for monthly tune-ups and casual play</li>
+            </ul>
+
+            <div class="mt-auto space-y-2.5">
+                <a id="starter-annual" href="https://app.birrdi.com/u/plans/004385c0-9b1d-4b9b-be2c-a34be55a6db0" target="_blank" rel="noopener noreferrer"
+                    class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                    Choose Annual — Save 1 Month
+                </a>
+                <a id="starter-monthly" href="https://app.birrdi.com/u/plans/6481dad6-13ca-41c9-aa04-f6c4e93681a1" target="_blank" rel="noopener noreferrer"
+                    class="block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                    Choose Monthly — $149/mo
+                </a>
+            </div>
+        </section>
+
+        <!-- Practice -->
+        <section id="practice" class="bg-cardBg p-7 rounded-2xl border border-gray-200 shadow-lg scale-in stagger-2 flex flex-col scroll-mt-28">
+            <div class="mb-5">
+                <h2 class="font-serif text-2xl text-gray-900 mb-1">Practice</h2>
+                <p class="text-xs uppercase tracking-wide text-gray-500">For regular players</p>
+                <div class="mt-3 flex flex-wrap items-baseline gap-2">
+                    <span class="text-xl text-gray-400 line-through">$299</span>
+                    <span class="text-3xl font-bold text-gray-900">$219</span>
+                    <span class="text-gray-500">/mo</span>
+                </div>
+            </div>
+
+            <div class="pb-5 mb-5 border-b border-gray-200">
+                <p class="text-sm text-gray-700">Includes <span class="text-hunter font-bold text-base">10 hours</span> per month — effective rate of <span class="font-semibold">~$22/hr</span>.</p>
+            </div>
+
+            <ul class="text-sm text-gray-600 space-y-2.5 mb-7 flex-grow">
+                <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold flex-shrink-0">✓</span>10 included hours monthly</li>
+                <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold flex-shrink-0">✓</span>2 active bookings at a time</li>
+                <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold flex-shrink-0">✓</span>Priority booking over Starter</li>
+                <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold flex-shrink-0">✓</span>Discounted extra hours when you need more</li>
+            </ul>
+
+            <div class="mt-auto space-y-2.5">
+                <a id="practice-annual" href="https://app.birrdi.com/u/plans/472a747c-253d-48cb-9677-719df2283c01" target="_blank" rel="noopener noreferrer"
+                    class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
+                    Choose Annual — Save 1 Month
+                </a>
+                <a id="practice-monthly" href="https://app.birrdi.com/u/plans/ed41b4fb-d255-41ac-9122-0c44f5274bd1" target="_blank" rel="noopener noreferrer"
+                    class="block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
+                    Choose Monthly — $219/mo
+                </a>
+            </div>
+        </section>
+
+        <!-- Ultimate (Sold Out) -->
+        <section id="ultimate" class="bg-gray-100 p-7 rounded-2xl border border-gray-200 shadow-sm scale-in stagger-3 flex flex-col opacity-75 relative scroll-mt-28">
+            <div class="absolute top-0 right-0 bg-gray-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider">SOLD OUT</div>
+
+            <div class="mb-5">
+                <h2 class="font-serif text-2xl text-gold mb-1">Ultimate</h2>
+                <p class="text-xs uppercase tracking-wide text-gray-500">For serious players</p>
+                <div class="mt-3 flex flex-wrap items-baseline gap-2">
+                    <span class="text-xl text-gray-400 line-through">$399</span>
+                    <span class="text-3xl font-bold text-gray-500">$299</span>
+                    <span class="text-gray-400">/mo</span>
+                </div>
+            </div>
+
+            <div class="pb-5 mb-5 border-b border-gray-200">
+                <p class="text-sm text-gray-500">Includes <span class="font-bold">20+ hours</span> per month.</p>
+            </div>
+
+            <ul class="text-sm text-gray-500 space-y-2.5 mb-7 flex-grow">
+                <li class="flex gap-2.5 items-start"><span class="text-gold font-bold flex-shrink-0">✓</span>20+ included hours monthly</li>
+                <li class="flex gap-2.5 items-start"><span class="text-gold font-bold flex-shrink-0">✓</span>30-day booking window</li>
+                <li class="flex gap-2.5 items-start"><span class="text-gold font-bold flex-shrink-0">✓</span>Guaranteed availability</li>
+                <li class="flex gap-2.5 items-start"><span class="text-gold font-bold flex-shrink-0">✓</span>Highest booking priority</li>
+            </ul>
+
+            <div class="mt-auto">
+                <span class="block w-full text-center py-3 rounded-lg bg-gray-200 text-gray-400 font-semibold text-sm border border-gray-300 cursor-not-allowed">Currently Sold Out</span>
+                <p class="text-[11px] text-center text-gray-400 mt-3">Want to be notified when spots open? <a href="/contact/" class="text-hunter hover:text-emerald-600 underline">Contact us.</a></p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Fine print -->
+    <p class="text-xs text-gray-500 text-center mb-16 fade-in-up">
+        Monthly memberships bill each month until cancelled.
+        By purchasing you agree to our <a href="/terms-and-conditions/" class="text-hunter hover:text-emerald-600 underline">Terms &amp; Conditions</a> and <a href="/privacy/" class="text-hunter hover:text-emerald-600 underline">Privacy Policy</a>.
+        Checkout opens securely via Birrdi in a new tab.
+    </p>
+
+    <!-- How billing works -->
+    <div class="bg-cardBg rounded-2xl border border-gray-200 p-7 md:p-8 mb-10 fade-in-up">
+        <h2 class="font-serif text-2xl font-bold text-gray-900 mb-6">How It Works</h2>
+        <div class="grid md:grid-cols-3 gap-6 text-sm text-gray-600">
             <div>
-                <h1 class="font-serif text-3xl md:text-4xl font-bold text-gray-900">Memberships</h1>
-                <p class="text-sm text-gray-700 mt-2 max-w-2xl">
-                    Choose the tier that fits how often you play. Memberships include private 24/7 access during your booked time, smart entry, and included monthly simulator hours.
-                </p>
+                <p class="font-semibold text-gray-900 mb-2">Monthly hours, covered</p>
+                <p class="leading-relaxed">Your monthly fee covers all your included simulator hours. No per-session charges on top — just book and play.</p>
             </div>
-            <div class="inline-flex items-center gap-2 bg-green-200/70 border border-hunter/40 rounded-full px-4 py-2 text-xs text-gray-800">
-                <span class="w-2 h-2 rounded-full bg-hunter animate-pulse"></span>
-                <span><span class="font-semibold">Open now</span> — founders pricing for everyone</span>
+            <div>
+                <p class="font-semibold text-gray-900 mb-2">Book online, anytime</p>
+                <p class="leading-relaxed">Schedule sessions through the Birrdi booking portal. You'll receive a unique SMS door code 15 minutes before each session.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-gray-900 mb-2">Need more hours?</p>
+                <p class="leading-relaxed">Members can add discounted extra hours beyond their monthly allowance. You can also upgrade your tier at any time.</p>
             </div>
         </div>
-
-        <p class="text-sm text-gray-700 mb-4">
-            We keep membership capacity limited to maintain true private availability. When a tier is available, you can purchase below.
-            <strong class="text-gray-900">List prices are shown struck through;</strong> you pay the founders sale price. Monthly memberships bill each month unless cancelled.
-        </p>
-
-        <p class="text-[11px] text-gray-600 mb-8">
-            Checkout opens secure payment with Birrdi in a new tab. By purchasing, you agree to our
-            <a href="/terms-and-conditions/" class="text-hunter hover:text-emerald-600 underline">Terms &amp; Conditions</a>
-            and
-            <a href="/privacy/" class="text-hunter hover:text-emerald-600 underline">Privacy Policy</a>.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-6">
-
-            <!-- Starter -->
-            <section id="starter" class="bg-white/80 p-6 rounded-2xl border border-hunter/60 shadow-md scale-in stagger-1 relative flex flex-col scroll-mt-28">
-                <div class="absolute top-0 right-0 bg-hunter text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
-                    MOST POPULAR
-                </div>
-                <div class="mb-4">
-                    <h2 class="font-serif text-2xl text-gray-900 mb-1">Starter</h2>
-                    <p class="text-xs uppercase tracking-wide text-gray-500">For the occasional round</p>
-                    <div class="mt-2 flex flex-wrap items-baseline gap-2">
-                        <span class="text-xl text-gray-500 line-through decoration-gray-400 decoration-2">$179</span>
-                        <span class="text-2xl font-bold text-gray-900">$149<span class="text-base font-normal text-gray-600">/mo</span></span>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-700 mb-4">
-                    Includes <span class="font-semibold">4 hours</span> of simulator time each month.
-                </p>
-                <ul class="text-sm text-gray-700 space-y-2 mb-6">
-                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Bring up to 3 guests at no extra charge.</li>
-                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> 1 booking at a time.</li>
-                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Great for monthly tune-ups and casual play.</li>
-                </ul>
-                <div class="mt-auto space-y-2">
-                    <a id="starter-annual" href="https://app.birrdi.com/u/plans/004385c0-9b1d-4b9b-be2c-a34be55a6db0" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
-                        Choose Annual Starter
-                    </a>
-                    <a id="starter-monthly" href="https://app.birrdi.com/u/plans/6481dad6-13ca-41c9-aa04-f6c4e93681a1" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
-                        Choose Monthly Starter
-                    </a>
-                    <p class="text-[11px] text-gray-600 text-center mt-2">
-                        Annual includes 1 month free.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Practice -->
-            <section id="practice" class="bg-white/60 p-6 rounded-2xl border border-gray-200 shadow-sm scale-in stagger-2 flex flex-col scroll-mt-28">
-                <div class="mb-4">
-                    <h2 class="font-serif text-2xl text-gray-900 mb-1">Practice</h2>
-                    <p class="text-xs uppercase tracking-wide text-gray-500">For regular practice</p>
-                    <div class="mt-2 flex flex-wrap items-baseline gap-2">
-                        <span class="text-xl text-gray-500 line-through decoration-gray-400 decoration-2">$299</span>
-                        <span class="text-2xl font-bold text-gray-900">$219<span class="text-base font-normal text-gray-600">/mo</span></span>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-700 mb-4">
-                    Includes <span class="font-semibold">10 hours</span> of simulator time each month. Effective rate: ~$22/hr.
-                </p>
-                <ul class="text-sm text-gray-700 space-y-2 mb-6">
-                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> 2 bookings at a time.</li>
-                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Priority booking over Starter members.</li>
-                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Discounted a la carte hours when available.</li>
-                    <li class="flex gap-2"><span class="text-hunter font-bold">✓</span> Best for steady improvement.</li>
-                </ul>
-                <div class="mt-auto space-y-2">
-                    <a id="practice-annual" href="https://app.birrdi.com/u/plans/472a747c-253d-48cb-9677-719df2283c01" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-semibold text-sm transition shadow-md shadow-hunter/20">
-                        Choose Annual Practice
-                    </a>
-                    <a id="practice-monthly" href="https://app.birrdi.com/u/plans/ed41b4fb-d255-41ac-9122-0c44f5274bd1" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-lg bg-white text-hunter border border-hunter/40 hover:bg-hunter/5 font-semibold text-sm transition">
-                        Choose Monthly Practice
-                    </a>
-                    <p class="text-[11px] text-gray-600 text-center mt-2">
-                        Annual includes 1 month free.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Ultimate (Sold Out) -->
-            <section id="ultimate" class="bg-gray-100 p-6 rounded-2xl border border-gray-300 shadow-inner scale-in stagger-3 flex flex-col opacity-95 relative scroll-mt-28">
-                <div class="absolute top-0 right-0 bg-gray-700 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
-                    SOLD OUT
-                </div>
-                <div class="mb-4">
-                    <h2 class="font-serif text-2xl text-gold mb-1">Ultimate</h2>
-                    <p class="text-xs uppercase tracking-wide text-gray-500">For heavy users</p>
-                    <div class="mt-2 flex flex-wrap items-baseline gap-2">
-                        <span class="text-xl text-gray-500 line-through decoration-gray-400 decoration-2">$399</span>
-                        <span class="text-2xl font-bold text-gray-900">$299<span class="text-base font-normal text-gray-600">/mo</span></span>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-700 mb-4">
-                    Includes at least <span class="font-semibold text-gold">20 hours</span> of simulator time per month, with additional access based on availability.
-                </p>
-                <ul class="text-sm text-gray-700 space-y-2 mb-6">
-                    <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Designed for serious players.</li>
-                    <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Extended booking window and highest priority.</li>
-                    <li class="flex gap-2"><span class="text-gold font-bold">✓</span> Limited capacity by design.</li>
-                </ul>
-                <div class="mt-auto space-y-2">
-                    <span class="block w-full text-center py-3 rounded-lg bg-gray-200 text-gray-500 font-semibold text-sm border border-gray-300 cursor-default">
-                        Sold Out
-                    </span>
-                    <p class="text-[11px] text-center text-gray-600 italic leading-relaxed">
-                        No Ultimate spots currently available.
-                    </p>
-                </div>
-            </section>
-
-        </div>
-
     </div>
+
+    <!-- Membership FAQ -->
+    <div class="mb-16 fade-in-up">
+        <h2 class="font-serif text-2xl font-bold text-gray-900 mb-6">Common Questions</h2>
+        <div class="space-y-3">
+
+            <details class="bg-cardBg rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4 text-sm">
+                    <span>Do unused hours roll over?</span>
+                    <svg class="w-4 h-4 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Hours reset each billing cycle and don't roll over. If you consistently need more, you can upgrade your tier or purchase discounted extra hours.</p>
+            </details>
+
+            <details class="bg-cardBg rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4 text-sm">
+                    <span>Can I upgrade or cancel later?</span>
+                    <svg class="w-4 h-4 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Yes. You can upgrade at any time. Cancellations take effect at the end of your current billing period. <a href="/contact/" class="text-hunter hover:text-emerald-600">Contact us</a> to make changes.</p>
+            </details>
+
+            <details class="bg-cardBg rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4 text-sm">
+                    <span>How do I book sessions once I'm a member?</span>
+                    <svg class="w-4 h-4 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">After purchase you'll have access to the Birrdi member portal to book time slots using your included hours. You'll receive a step-by-step guide, or see our <a href="/booking/" class="text-hunter hover:text-emerald-600">booking guide</a> for a walkthrough.</p>
+            </details>
+
+            <details class="bg-cardBg rounded-xl border border-gray-200 p-5 group">
+                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4 text-sm">
+                    <span>What's the difference between annual and monthly?</span>
+                    <svg class="w-4 h-4 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Annual billing is charged upfront for the year and includes one month free — effectively 12 months for the price of 11. Monthly billing renews each month and can be cancelled at any time.</p>
+            </details>
+
+        </div>
+    </div>
+
+    <!-- Just want to play once? -->
+    <div class="bg-deepGreen rounded-2xl p-8 text-center text-white relative overflow-hidden fade-in-up">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.15),transparent_60%)] pointer-events-none"></div>
+        <div class="relative z-10">
+            <p class="text-emerald-200 text-sm uppercase tracking-widest mb-3 font-medium">No Commitment Needed</p>
+            <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-3">Not ready to commit?</h3>
+            <p class="text-emerald-100 mb-6 font-light">Book a single session at $35/hr — no membership required.</p>
+            <a href="/book-now/" class="inline-block bg-hunter hover:bg-emerald-500 text-white px-8 py-3.5 rounded-lg font-semibold transition shadow-lg shadow-black/20 text-sm">
+                Book a Single Session
+            </a>
+        </div>
+    </div>
+
 </main>
 
-<!-- Footer Container - Injected by footer.js -->
 <div id="footerContainer"></div>
 
-<button id="backToTop" class="fixed bottom-8 right-8 bg-hunter text-white p-3 rounded-full shadow-lg hover:bg-emerald-600 transition-all duration-300 opacity-0 invisible translate-y-4 z-50 group" aria-label="Back to top">
-    <svg class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<button id="backToTop" class="fixed bottom-24 md:bottom-8 right-8 bg-hunter text-white p-3 rounded-full shadow-lg hover:bg-emerald-600 transition-all duration-300 opacity-0 invisible translate-y-4 z-50 group" aria-label="Back to top">
+    <svg class="w-5 h-5 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
 </button>
 
+<script src="../js/mobile-menu.js"></script>
 <script src="../js/back-to-top.js"></script>
 <script src="../js/footer.js"></script>
-
 <script>
-    // Optimized Scroll Animation Observer - Performance focused with fallback
-    let animationObserver;
-
-    function initScrollAnimations() {
-        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in');
-        if (!animatedElements.length) return;
-
-        if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
-            requestAnimationFrame(() => {
-                const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -100px 0px' };
-                animationObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            requestAnimationFrame(() => {
-                                entry.target.classList.add('visible');
-                                animationObserver.unobserve(entry.target);
-                            });
-                        }
-                    });
-                }, observerOptions);
-
-                animatedElements.forEach(el => animationObserver.observe(el));
-            });
+    // Scroll animations
+    (function() {
+        const els = document.querySelectorAll('.fade-in-up, .scale-in');
+        if ('IntersectionObserver' in window) {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+            }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+            els.forEach(el => obs.observe(el));
         } else {
-            animatedElements.forEach(el => el.classList.add('visible'));
+            els.forEach(el => el.classList.add('visible'));
         }
-    }
+    })();
 
-    function highlightDeepLinkTarget() {
+    // Deep-link highlight (email links go to #starter-monthly, #practice-annual, etc.)
+    (function() {
         const hash = window.location.hash;
         if (!hash) return;
         const el = document.querySelector(hash);
         if (!el) return;
-
-        try {
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } catch (e) {
-            el.scrollIntoView();
-        }
-
-        el.classList.add('ring-4', 'ring-hunter/30');
         setTimeout(() => {
-            el.classList.remove('ring-4', 'ring-hunter/30');
-        }, 1800);
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            initScrollAnimations();
-            highlightDeepLinkTarget();
-        });
-    } else {
-        initScrollAnimations();
-        highlightDeepLinkTarget();
-    }
+            try { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e) { el.scrollIntoView(); }
+            el.classList.add('ring-4', 'ring-hunter/40');
+            setTimeout(() => el.classList.remove('ring-4', 'ring-hunter/40'), 2000);
+        }, 300);
+    })();
 </script>
 
 </body>
