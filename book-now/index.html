@@ -385,46 +385,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="footerContainer"></div>
 
-<!-- Booking Confirmation Modal -->
-<div id="bookingModalBackdrop" class="fixed inset-0 bg-black/40 z-[80] hidden"></div>
-<div id="bookingModal" class="fixed inset-0 z-[90] flex items-center justify-center px-4 hidden">
-    <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-sm w-full p-6">
-        <div class="flex items-start gap-3 mb-4">
-            <div class="w-8 h-8 rounded-full bg-hunter/10 flex items-center justify-center flex-shrink-0">
-                <svg class="w-4 h-4 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            </div>
-            <div>
-                <h3 class="font-serif text-lg font-bold text-gray-900">Continue to Booking</h3>
-                <p class="text-sm text-gray-600 mt-1">You're about to open our secure booking calendar in a new tab to reserve your session.</p>
-            </div>
-        </div>
-        <div class="flex gap-2 mt-5">
-            <button id="bookingModalCancel" class="flex-1 py-2.5 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition">Cancel</button>
-            <button id="bookingModalConfirm" class="flex-1 py-2.5 rounded-lg bg-hunter text-white text-sm font-semibold hover:bg-emerald-600 transition shadow-md shadow-hunter/20">Continue</button>
-        </div>
-    </div>
-</div>
-
 <script src="../js/mobile-menu.js"></script>
 <script src="../js/footer.js"></script>
 <script>
-    // Booking Modal
+    // Booking buttons
     (function() {
         const buttons = document.querySelectorAll('.booking-link-btn');
-        const backdrop = document.getElementById('bookingModalBackdrop');
-        const modal = document.getElementById('bookingModal');
-        const confirmBtn = document.getElementById('bookingModalConfirm');
-        const cancelBtn = document.getElementById('bookingModalCancel');
-        let pendingUrl = null;
-
-        function openModal(url) { pendingUrl = url; backdrop.classList.remove('hidden'); modal.classList.remove('hidden'); document.body.classList.add('overflow-hidden'); }
-        function closeModal() { pendingUrl = null; backdrop.classList.add('hidden'); modal.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
-
-        buttons.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); openModal(btn.getAttribute('data-url') || '#'); }));
-        confirmBtn.addEventListener('click', () => { if (pendingUrl && pendingUrl !== '#') window.open(pendingUrl, '_blank', 'noopener'); closeModal(); });
-        cancelBtn.addEventListener('click', closeModal);
-        backdrop.addEventListener('click', closeModal);
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+        buttons.forEach(btn => btn.addEventListener('click', () => {
+            const url = btn.getAttribute('data-url');
+            if (url && url !== '#') window.open(url, '_blank', 'noopener');
+        }));
     })();
 
     // Carousel
