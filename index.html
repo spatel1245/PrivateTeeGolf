@@ -229,6 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="#details" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">The Experience</a>
             <a href="#pricing" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Memberships</a>
             <a href="/corporate/" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Corporate</a>
+            <a href="#" data-square-egift class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">eGift Cards</a>
             <a href="/contact/" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Contact</a>
             <div class="w-px h-5 bg-gray-300 mx-2"></div>
             <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20">Book a Tee Time</a>
@@ -282,6 +283,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="/corporate/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
                 <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                 Corporate Events
+            </a>
+            <a href="#" data-square-egift class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
+                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109 8h3zM12 8h7l1 12H4l1-12h7z"/></svg>
+                eGift Cards
             </a>
             <a href="/contact/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
                 <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -599,17 +604,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">What People Are Saying</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
 
             <!-- Facebook Review -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-1">
-                <div class="flex items-center gap-1 mb-4">
+            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-1 flex flex-col h-full">
+                <div class="flex items-center gap-1 mb-4 flex-shrink-0">
                     <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
                 </div>
                 <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
                     "This place is awesome. Very private to work on that golf swing for the spring and summer coming up. The best part is the picture it takes of your club head through the ball shot after shot. It really lets you diagnose what your hands are doing and correct it through feedback. Can't beat all the great golf courses downloaded on the simulator. Definitely recommend........"
                 </p>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3 mt-auto pt-2 flex-shrink-0 border-t border-gray-100">
                     <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
                     </div>
@@ -621,19 +626,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Google Review -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-2">
-                <div class="flex items-center gap-1 mb-4">
+            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-2 flex flex-col h-full">
+                <div class="flex items-center gap-1 mb-4 flex-shrink-0">
                     <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
                 </div>
                 <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
                     "Went for the opening weekend event and had a great time! Super nice place and tons of room for friends to come for sessions. Liked that it was a full private simulator."
                 </p>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3 mt-auto pt-2 flex-shrink-0 border-t border-gray-100">
                     <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
                     </div>
                     <div>
                         <p class="text-sm font-semibold text-gray-900">Olivia M.</p>
+                        <p class="text-xs text-gray-500">Google Review</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Review -->
+            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-3 flex flex-col h-full">
+                <div class="flex items-center gap-1 mb-4 flex-shrink-0">
+                    <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
+                </div>
+                <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
+                    "Super convenient and easy to use, very accurate tracking and an overall pleasant environment to practice"
+                </p>
+                <div class="flex items-center gap-3 mt-auto pt-2 flex-shrink-0 border-t border-gray-100">
+                    <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-900">Tommy M.</p>
                         <p class="text-xs text-gray-500">Google Review</p>
                     </div>
                 </div>
@@ -794,6 +818,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 View Memberships
             </a>
         </div>
+        <p class="text-emerald-100/85 text-sm mt-8 font-light">
+            <a href="#" data-square-egift class="text-white font-medium underline decoration-white/40 underline-offset-4 hover:decoration-white">Send an eGift card</a>
+            <span class="text-emerald-100/70"> — redeem at the simulator.</span>
+        </p>
     </div>
 </section>
 
@@ -807,6 +835,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </svg>
 </button>
 
+<script src="js/site-config.js"></script>
 <script src="js/mobile-menu.js"></script>
 <script src="js/back-to-top.js"></script>
 <script src="js/footer.js"></script>

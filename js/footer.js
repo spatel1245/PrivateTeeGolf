@@ -2,6 +2,27 @@
 (function() {
     'use strict';
 
+    function getSquareEgiftUrl() {
+        var c = window.PRIVATE_TEE_CONFIG;
+        if (!c || typeof c.squareEgiftUrl !== 'string') {
+            return '';
+        }
+        return c.squareEgiftUrl.trim();
+    }
+
+    function wireSquareEgiftLinks() {
+        var url = getSquareEgiftUrl();
+        document.querySelectorAll('a[data-square-egift]').forEach(function(a) {
+            if (url) {
+                a.setAttribute('href', url);
+                a.setAttribute('target', '_blank');
+                a.setAttribute('rel', 'noopener noreferrer');
+            } else {
+                a.style.display = 'none';
+            }
+        });
+    }
+
     // Initialize footer when DOM is ready
     function initFooter() {
         const footerContainer = document.getElementById('footerContainer');
@@ -14,6 +35,10 @@
         const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
         const isCorporatePage = window.location.pathname.includes('/corporate/');
         const logoPath = isHomepage ? 'small_logo.jpg' : '../small_logo.jpg';
+        const egiftUrl = getSquareEgiftUrl();
+        const egiftFooterRow = egiftUrl
+            ? `<a href="${egiftUrl.replace(/"/g, '&quot;')}" target="_blank" rel="noopener noreferrer" class="text-gray-900 hover:text-hunter transition font-medium text-sm">eGift Cards</a>`
+            : '';
 
         // Build footer HTML
         const footerHTML = `
@@ -67,6 +92,7 @@
             <div class="flex flex-col gap-4 md:items-end">
                 <a href="/contact/" class="text-gray-900 hover:text-hunter transition font-medium text-sm">Contact Us</a>
                 ${!isCorporatePage ? `<a href="/corporate/" class="text-gray-900 hover:text-hunter transition font-medium text-sm">Corporate Events</a>` : ''}
+                ${egiftFooterRow}
                 <a href="mailto:info@privateteegolf.com" class="inline-flex items-center gap-2 text-hunter hover:text-emerald-600 transition group">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -116,6 +142,7 @@
 
         // Inject footer HTML
         footerContainer.innerHTML = footerHTML;
+        wireSquareEgiftLinks();
     }
 
     // Initialize when DOM is ready
