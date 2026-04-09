@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <title>Masters Weekend Special — $30/hr at Private Tee Golf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* GLOBAL RESET */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #d6cfc0; 
+            -webkit-font-smoothing: antialiased; 
+        }
+        .email-wrapper { 
+            max-width: 600px; 
+            margin: 40px auto; 
+            background-color: #faf7f0; 
+            border-radius: 4px; 
+            overflow: hidden; 
+            border: 1px solid #b8952a; 
+            box-shadow: 0 0 0 4px #faf7f0, 0 0 0 5px #b8952a, 0 8px 24px rgba(0,0,0,0.2); 
+            color: #2d2d2d; 
+            line-height: 1.6; 
+        }
+
+        /* Header */
+        .header-link { 
+            display: block; 
+            background-color: #005540;
+            padding: 28px 30px 22px;
+            text-align: center; 
+            text-decoration: none; 
+            border-bottom: 3px solid #b8952a;
+        }
+        .header-eyebrow {
+            font-family: "Inter", sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: #b8952a;
+            text-transform: uppercase;
+            margin: 0 0 8px 0;
+        }
+        .brand-text { 
+            color: #ffffff; 
+            font-family: "Playfair Display", serif;
+            font-size: 28px; 
+            font-weight: 700; 
+            letter-spacing: -0.02em; 
+            margin: 0; 
+        }
+        .brand-accent { 
+            color: #c9a84c; 
+        }
+        .header-tagline {
+            font-family: "Inter", sans-serif;
+            font-size: 11px;
+            color: rgba(185, 149, 42, 0.75);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 8px 0 0 0;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background-color: #003d2e;
+            padding: 14px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(184, 149, 42, 0.3);
+        }
+        .promo-banner-text {
+            color: #c9a84c;
+            font-family: "Playfair Display", serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 0.01em;
+            font-style: italic;
+        }
+        .promo-banner-sub {
+            color: rgba(255,255,255,0.6);
+            font-size: 11px;
+            font-family: "Inter", sans-serif;
+            margin: 4px 0 0 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Content */
+        .content { 
+            padding: 40px; 
+            font-size: 16px; 
+            background-color: #faf7f0;
+            font-family: "Inter", sans-serif;
+        }
+        h1, h2, h3, p { 
+            margin-bottom: 20px; 
+            font-family: "Inter", sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: "Playfair Display", serif;
+            color: #005540;
+            font-weight: 700;
+        }
+        strong { 
+            color: #003d2e; 
+            font-weight: 600; 
+        }
+
+        /* Decorative rule */
+        .gold-rule {
+            border: none;
+            border-top: 1px solid #b8952a;
+            opacity: 0.4;
+            margin: 28px 0;
+        }
+
+        /* Price / CTA box */
+        .price-highlight {
+            display: block;
+            background-color: #005540;
+            border: 1px solid #b8952a;
+            border-radius: 4px;
+            padding: 28px;
+            text-align: center;
+            margin: 28px 0;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 0 0 3px #005540, 0 0 0 4px #b8952a;
+        }
+        .price-highlight:hover {
+            background-color: #006650;
+        }
+        .price-highlight-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #c9a84c;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: "Inter", sans-serif;
+        }
+        .price-highlight-rule {
+            border: none;
+            border-top: 1px solid rgba(184, 149, 42, 0.5);
+            margin: 12px auto;
+            width: 60px;
+        }
+        .price-highlight-amount {
+            font-family: "Playfair Display", serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+            margin: 0;
+        }
+        .price-highlight-unit {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 8px;
+            font-weight: 400;
+            font-family: "Inter", sans-serif;
+        }
+        .price-highlight-fine {
+            font-size: 11px;
+            color: rgba(201, 168, 76, 0.8);
+            margin-top: 10px;
+            letter-spacing: 1px;
+            font-family: "Inter", sans-serif;
+        }
+        .price-highlight-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #b8952a;
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 11px 28px;
+            border-radius: 2px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer { 
+            background-color: #005540;
+            padding: 30px; 
+            border-top: 3px solid #b8952a;
+            text-align: center;
+        }
+        .footer-brand {
+            font-family: "Playfair Display", serif;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .footer-brand-accent {
+            color: #c9a84c;
+        }
+        .footer-info {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin: 0 0 20px 0;
+        }
+        .footer-link {
+            color: rgba(255,255,255,0.6) !important;
+            text-decoration: none !important;
+        }
+        .footer-contact-link {
+            color: rgba(255,255,255,0.85) !important;
+            text-decoration: none !important;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 12px 0;
+        }
+        .footer-email {
+            color: #c9a84c;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+        }
+        .footer-social {
+            margin: 20px 0;
+        }
+        .footer-social-link {
+            color: rgba(255,255,255,0.5) !important;
+            text-decoration: none !important;
+            font-size: 13px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(184, 149, 42, 0.3);
+            padding-top: 16px;
+            margin-top: 20px;
+        }
+        .footer-copyright {
+            font-size: 10px;
+            color: rgba(255,255,255,0.4);
+            margin: 0 0 8px 0;
+        }
+        .footer-legal-link {
+            font-size: 10px;
+            color: rgba(255,255,255,0.4) !important;
+            text-decoration: none !important;
+        }
+        .signature-line { 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 1px solid rgba(184, 149, 42, 0.3);
+        }
+        .signature-name {
+            font-family: "Playfair Display", serif;
+            color: #005540;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<div class="email-wrapper">
+
+    <a href="https://PrivateTeeGolf.com" class="header-link">
+        <h1 class="brand-text">Private Tee <span class="brand-accent">Golf.</span></h1>
+    </a>
+
+    <div class="promo-banner">
+        <p class="promo-banner-text">Masters Weekend Special: $30/hr</p>
+        <p class="promo-banner-sub">Thursday &ndash; Sunday &bull; Limited Availability</p>
+    </div>
+
+    <div class="content">
+        <p>Hi {{ contact.FIRSTNAME | default:'there' }},</p>
+
+        <p>The roars from Amen Corner are echoing. Rae's Creek is waiting. The green jacket is on the line.</p>
+
+        <p>While the world watches the <strong>Masters Tournament</strong> unfold at Augusta National this weekend, we thought you deserved more than a front-row seat on the couch. You deserve a club in your hand.</p>
+
+        <hr class="gold-rule">
+
+        <h3>Play Augusta this weekend.</h3>
+
+        <p>To celebrate the biggest week in golf, we're offering a special rate for the full run of the tournament:</p>
+
+        <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg" class="price-highlight">
+            <p class="price-highlight-label">Masters Weekend Special</p>
+            <hr class="price-highlight-rule">
+            <p class="price-highlight-amount">$30</p>
+            <p class="price-highlight-unit">per hour on the simulator</p>
+            <p class="price-highlight-fine">Thursday &ndash; Sunday &bull; For the Duration of the Masters &bull; Book while slots last</p>
+            <span class="price-highlight-btn">Book Your Tee Time &rarr;</span>
+        </a>
+
+        <p>Select <strong>Georgia Golf Club</strong> on GSPro, step up to the first tee, and play the same course the best players in the world are competing on this week. No green jacket required. Just good golf and great company.</p>
+
+        <p>Spots are limited, so don't wait until Sunday to book. Grab your tee time before someone else does.</p>
+
+        <hr class="gold-rule">
+
+        <p>Questions? Just hit reply or give us a call. We'll get you set up.</p>
+
+        <div class="signature-line">
+            <p style="margin-bottom: 5px;" class="signature-name">Private Tee <span style="color: #c9a84c;">Golf.</span></p>
+            <p style="margin: 0; font-size: 14px; color: #64748b;">Greensburg, PA</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span class="footer-brand">Private Tee <span class="footer-brand-accent">Golf.</span></span>
+        
+        <div class="footer-info">
+            <a href="https://maps.app.goo.gl/mwQJ1wPZmTUbU8AbA" class="footer-link">5351 US-30, Greensburg, PA 15601</a><br>
+            <a href="tel:+18786453216" class="footer-link">(878) 645-3216</a>
+        </div>
+
+        <a href="https://PrivateTeeGolf.com/contact/" class="footer-contact-link">Contact Us</a>
+        
+        <a href="mailto:info@privateteegolf.com" class="footer-email">info@privateteegolf.com</a>
+
+        <div class="footer-social">
+            <a href="https://www.instagram.com/private.tee.golf" class="footer-social-link">Instagram</a> |
+            <a href="https://www.facebook.com/privateteegolf/" class="footer-social-link">Facebook</a> |
+            <a href="https://www.linkedin.com/company/private-tee-golf/" class="footer-social-link">LinkedIn</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 Private Tee Golf LLC. All rights reserved.</p>
+            <a href="https://PrivateTeeGolf.com/privacy/" class="footer-legal-link">Privacy Policy</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
