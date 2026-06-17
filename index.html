@@ -19,7 +19,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -28,11 +28,21 @@
             theme: {
                 extend: {
                     colors: {
-                        mainBg: '#cbd5e1',
-                        cardBg: '#e2e8f0',
-                        hunter: '#10b981',
-                        deepGreen: '#064e3b',
-                        gold: '#d97706',
+                        // Warm clubhouse palette
+                        bone:    '#F7F3EA',
+                        bone2:   '#EFE8D8',
+                        forest:  '#0B3D2E',
+                        forest2: '#072A20',
+                        ink:     '#1A1A17',
+                        muted:   '#6B6357',
+                        brass:   '#B8893E',
+                        brassL:  '#CBA45A',
+                        // Legacy tokens remapped so the shared footer/components inherit the warm look on this page
+                        mainBg:    '#F7F3EA',
+                        cardBg:    '#EFE8D8',
+                        hunter:    '#0B3D2E',
+                        deepGreen: '#072A20',
+                        gold:      '#B8893E',
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -132,72 +142,35 @@
 
     <link rel="stylesheet" href="css/shared.css">
     <style>
-        /* Hero */
-        .hero-wrapper { position: relative; overflow: hidden; }
-        .hero-bg-image {
+        /* Warm palette overrides (load after shared.css so they win on the homepage) */
+        body {
+            background-color: #F7F3EA;
+            background-image: radial-gradient(circle at 50% 0%, rgba(11, 61, 46, 0.06) 0%, #F7F3EA 55%);
+        }
+        .glass-nav {
+            background: rgba(247, 243, 234, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(26, 26, 23, 0.10);
+        }
+        .kicker { letter-spacing: 0.28em; }
+
+        /* Hero (static — no scroll animations) */
+        .hero-img {
             position: absolute; inset: 0;
             background-image: url('images/facility/2.jpeg');
             background-size: cover;
-            background-position: center 44%;
-            filter: brightness(0.55) contrast(1.1);
-            transform: scale(1.05);
+            background-position: center 42%;
             z-index: 0;
         }
-        .hero-overlay {
-            position: absolute; inset: 0;
-            background: radial-gradient(ellipse at center, rgba(0,0,0,0.35), rgba(0,0,0,0.70));
-            z-index: 1;
+        .hero-grad {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(90deg, rgba(7,42,32,0.92) 0%, rgba(7,42,32,0.6) 45%, rgba(7,42,32,0.15) 100%);
         }
 
-        /* Scroll Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translate3d(0, 30px, 0);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-        }
-        .fade-in-up.visible { opacity: 1; transform: translate3d(0, 0, 0); will-change: auto; }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity;
-        }
-        .fade-in.visible { opacity: 1; will-change: auto; }
-
-        .scale-in {
-            opacity: 0;
-            transform: translate3d(0, 0, 0) scale(0.95);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
-        }
-        .scale-in.visible { opacity: 1; transform: translate3d(0, 0, 0) scale(1); will-change: auto; }
-
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-
-        /* Step numbers */
-        .step-number {
-            width: 3rem; height: 3rem;
-            background: #10b981;
-            color: white;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.125rem; font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        /* Review stars */
-        .star { color: #d97706; }
-
-        /* Divider line between steps on desktop */
-        @media (min-width: 768px) {
-            .step-connector { display: block; }
-        }
+        .occ:hover .occ-arrow { transform: translateX(4px); }
     </style>
 </head>
-<body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
+<body class="text-ink font-sans antialiased selection:bg-forest selection:text-bone relative">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXMTHW83"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -206,11 +179,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>fbq('track', 'ViewContent');</script>
 
 <!-- Mobile Sticky Bar -->
-<div id="mobileStickyBar" class="fixed bottom-0 left-0 w-full bg-cardBg/95 backdrop-blur-md border-t border-gray-200 px-4 py-3 z-[100] md:hidden flex items-center gap-3 shadow-[0_-5px_20px_rgba(0,0,0,0.1)]">
-    <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="flex-1 text-center bg-hunter text-white px-4 py-3 rounded-lg text-sm font-bold shadow-lg shadow-hunter/20 active:scale-95 transition">
-        Book a Tee Time
+<div id="mobileStickyBar" class="fixed bottom-0 left-0 w-full bg-bone/95 backdrop-blur-md border-t border-ink/10 px-4 py-3 z-[100] md:hidden flex items-center gap-3 shadow-[0_-5px_20px_rgba(0,0,0,0.08)]">
+    <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="flex-1 text-center bg-brass hover:bg-brassL text-forest2 px-4 py-3 rounded-lg text-sm font-bold shadow-lg active:scale-95 transition">
+        Book a Bay
     </a>
-    <a href="/memberships/" class="flex-1 text-center bg-white border border-gray-300 text-gray-900 px-4 py-3 rounded-lg text-sm font-semibold active:scale-95 transition">
+    <a href="/memberships/" class="flex-1 text-center bg-bone2 border border-ink/15 text-ink px-4 py-3 rounded-lg text-sm font-semibold active:scale-95 transition">
         Memberships
     </a>
 </div>
@@ -220,27 +193,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-3 flex justify-between items-center">
 
         <a href="/" class="flex items-center gap-3 hover:opacity-80 transition duration-300">
-            <img src="small_logo.jpg" alt="Private Tee Golf Logo" class="h-10 w-10 rounded-full border border-gray-200">
-            <span class="text-gray-900 font-serif text-2xl font-bold tracking-tight">Private Tee <span class="text-hunter">Golf.</span></span>
+            <img src="small_logo.jpg" alt="Private Tee Golf Logo" class="h-10 w-10 rounded-full border border-ink/15">
+            <span class="text-ink font-serif text-2xl font-bold tracking-tight">Private Tee <span class="text-brass">Golf.</span></span>
         </a>
 
         <!-- Desktop Nav -->
         <div class="hidden md:flex items-center gap-1">
-            <a href="#how-it-works" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">How It Works</a>
-            <a href="#details" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">The Experience</a>
-            <a href="#pricing" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Memberships</a>
-            <a href="/corporate/" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Corporate</a>
-            <a href="#" data-square-egift class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">eGift Cards</a>
-            <a href="/contact/" class="text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition">Contact</a>
-            <div class="w-px h-5 bg-gray-300 mx-2"></div>
-            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="bg-hunter text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition shadow-lg shadow-hunter/20">Book a Tee Time</a>
-            <a href="/memberships/" class="border border-gray-300 text-gray-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition ml-1">
+            <a href="#how-it-works" class="text-ink/70 px-3 py-2 rounded-lg text-sm font-medium hover:bg-ink/5 hover:text-ink transition">How It Works</a>
+            <a href="#experience" class="text-ink/70 px-3 py-2 rounded-lg text-sm font-medium hover:bg-ink/5 hover:text-ink transition">The Bay</a>
+            <a href="#pricing" class="text-ink/70 px-3 py-2 rounded-lg text-sm font-medium hover:bg-ink/5 hover:text-ink transition">Pricing</a>
+            <a href="/corporate/" class="text-ink/70 px-3 py-2 rounded-lg text-sm font-medium hover:bg-ink/5 hover:text-ink transition">Corporate</a>
+            <a href="#" data-square-egift class="text-ink/70 px-3 py-2 rounded-lg text-sm font-medium hover:bg-ink/5 hover:text-ink transition">eGift Cards</a>
+            <a href="/contact/" class="text-ink/70 px-3 py-2 rounded-lg text-sm font-medium hover:bg-ink/5 hover:text-ink transition">Contact</a>
+            <div class="w-px h-5 bg-ink/15 mx-2"></div>
+            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="bg-brass text-forest2 px-5 py-2 rounded-full text-sm font-bold hover:bg-brassL transition shadow-lg">Book a Bay</a>
+            <a href="/memberships/" class="border border-ink/20 text-ink/80 px-5 py-2 rounded-full text-sm font-semibold hover:bg-ink/5 transition ml-1">
                 Memberships
             </a>
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="flex md:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition items-center justify-center" aria-label="Open menu" aria-expanded="false">
+        <button id="mobileMenuBtn" class="flex md:hidden p-2 text-ink hover:bg-ink/5 rounded-lg transition items-center justify-center" aria-label="Open menu" aria-expanded="false">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -252,11 +225,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="mobileMenuBackdrop" class="mobile-menu-backdrop fixed inset-0 bg-black/50 z-[60] md:hidden"></div>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobileMenu" class="mobile-menu-overlay fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-cardBg shadow-2xl z-[70] md:hidden overflow-y-auto">
+<div id="mobileMenu" class="mobile-menu-overlay fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bone shadow-2xl z-[70] md:hidden overflow-y-auto">
     <div class="flex flex-col h-full">
-        <div class="flex items-center justify-between p-6 border-b border-gray-200">
-            <span class="font-serif text-xl font-bold text-gray-900">Menu</span>
-            <button id="mobileMenuClose" class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition" aria-label="Close menu">
+        <div class="flex items-center justify-between p-6 border-b border-ink/10">
+            <span class="font-serif text-xl font-bold text-ink">Menu</span>
+            <button id="mobileMenuClose" class="p-2 text-muted hover:bg-ink/5 rounded-lg transition" aria-label="Close menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -264,43 +237,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <nav class="flex-1 p-6 space-y-1" aria-label="Mobile navigation">
-            <a href="#how-it-works" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
-                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
-                How It Works
-            </a>
-            <a href="#details" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
-                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                The Experience
-            </a>
-            <a href="#pricing" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
-                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Memberships
-            </a>
-            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
-                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                Book a Tee Time
-            </a>
-            <div class="border-t border-gray-200 my-3"></div>
-            <a href="/corporate/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
-                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                Corporate Events
-            </a>
-            <a href="#" data-square-egift class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
-                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109 8h3zM12 8h7l1 12H4l1-12h7z"/></svg>
-                eGift Cards
-            </a>
-            <a href="/contact/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-900 hover:bg-gray-100 transition font-medium">
-                <svg class="w-5 h-5 text-hunter" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                Contact Us
-            </a>
+            <a href="#how-it-works" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-ink hover:bg-ink/5 transition font-medium">How It Works</a>
+            <a href="#experience" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-ink hover:bg-ink/5 transition font-medium">The Bay</a>
+            <a href="#pricing" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-ink hover:bg-ink/5 transition font-medium">Pricing</a>
+            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-ink hover:bg-ink/5 transition font-medium">Book a Bay</a>
+            <div class="border-t border-ink/10 my-3"></div>
+            <a href="/corporate/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-ink hover:bg-ink/5 transition font-medium">Corporate Events</a>
+            <a href="#" data-square-egift class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-ink hover:bg-ink/5 transition font-medium">eGift Cards</a>
+            <a href="/contact/" class="mobile-menu-link flex items-center gap-3 px-4 py-3 rounded-lg text-ink hover:bg-ink/5 transition font-medium">Contact Us</a>
         </nav>
 
-        <div class="p-6 border-t border-gray-200 space-y-3">
-            <a href="/memberships/" class="block w-full text-center bg-hunter text-white px-4 py-3 rounded-lg text-sm font-bold shadow-lg shadow-hunter/20 transition">
+        <div class="p-6 border-t border-ink/10 space-y-3">
+            <a href="/memberships/" class="block w-full text-center bg-forest text-bone px-4 py-3 rounded-lg text-sm font-bold shadow-lg transition">
                 View Memberships
             </a>
-            <a href="tel:+18786453216" class="flex items-center justify-center gap-2 text-gray-600 text-sm hover:text-gray-900 transition py-1">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+18786453216" class="flex items-center justify-center gap-2 text-muted text-sm hover:text-ink transition py-1">
                 (878) 645-3216
             </a>
         </div>
@@ -310,360 +261,238 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- =========================================================
      HERO
      ========================================================= -->
-<section class="hero-wrapper min-h-screen flex items-center justify-center pt-20">
-    <div class="hero-bg-image"></div>
-    <div class="hero-overlay"></div>
+<header class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <div class="hero-img"></div>
+    <div class="hero-grad"></div>
 
-    <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center z-10 relative py-16">
+    <div class="relative z-10 max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 w-full">
+        <div class="max-w-2xl py-28">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brassL/40 bg-forest2/40 backdrop-blur mb-7">
+                <span class="w-1.5 h-1.5 rounded-full bg-brassL animate-pulse"></span>
+                <span class="text-brassL text-[11px] uppercase kicker font-medium">Open tonight</span>
+            </div>
 
-        <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-gold/50 bg-black/20 backdrop-blur-md mb-8">
-            <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
-            <span class="text-gold text-xs uppercase tracking-[0.2em] font-medium">Summer Special &mdash; Public Sessions from $40/hr</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+            <h1 class="font-serif text-5xl md:text-7xl leading-[1.04] text-bone drop-shadow-lg">
+                Your private bay.<br>Any hour.<br><span class="italic text-brassL">No tee times.</span>
+            </h1>
+
+            <p class="mt-7 text-lg md:text-xl text-bone/85 font-light max-w-lg leading-relaxed drop-shadow">
+                An indoor golf simulator in Greensburg, open whenever you are. Book online, get a code by text, and let yourself in.
+            </p>
+
+            <div class="mt-9 flex flex-col sm:flex-row gap-3">
+                <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="bg-brass hover:bg-brassL text-forest2 px-8 py-4 rounded-full text-base font-bold transition shadow-xl text-center">Book a Bay</a>
+                <a href="#how-it-works" class="border border-bone/40 hover:bg-bone/10 text-bone px-8 py-4 rounded-full text-base font-semibold transition backdrop-blur-sm text-center">See how it works</a>
+            </div>
+            <p class="mt-6 text-bone/70 text-sm tracking-wide">$40/hr &nbsp;·&nbsp; book the whole bay &nbsp;·&nbsp; open 24 hours a day</p>
         </div>
+    </div>
+</header>
 
-        <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-xl">
-            Golf. On Your Terms.
-        </h1>
-
-        <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-xl mx-auto font-light leading-relaxed drop-shadow-md">
-            An indoor golf simulator in Greensburg, PA.<br class="hidden md:block"> The bay is all yours when you book.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="w-full sm:w-auto bg-hunter hover:bg-emerald-600 text-white px-8 py-4 rounded-lg text-base font-semibold transition duration-300 shadow-xl shadow-hunter/30">
-                Book a Tee Time
-            </a>
-            <a href="/memberships/" class="w-full sm:w-auto px-8 py-4 rounded-lg text-white border border-white/40 hover:bg-white/10 hover:border-white/60 transition backdrop-blur-sm text-base font-semibold">
-                View Memberships
-            </a>
-        </div>
-
-        <!-- Scroll cue -->
-        <div class="mt-16 flex justify-center">
-            <a href="#how-it-works" class="text-white/50 hover:text-white/80 transition flex flex-col items-center gap-2 text-xs uppercase tracking-widest">
-                <span>See how it works</span>
-                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </a>
-        </div>
+<!-- TRUST STRIP -->
+<section class="bg-forest text-bone">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-2 md:grid-cols-4 divide-x divide-bone/10">
+        <div class="py-7 px-6 text-center"><p class="font-serif text-2xl text-brassL">24/7</p><p class="text-xs text-bone/70 mt-1 tracking-wide">Open every hour</p></div>
+        <div class="py-7 px-6 text-center"><p class="font-serif text-2xl text-brassL">Private</p><p class="text-xs text-bone/70 mt-1 tracking-wide">The bay's all yours</p></div>
+        <div class="py-7 px-6 text-center"><p class="font-serif text-2xl text-brassL">Flat rate</p><p class="text-xs text-bone/70 mt-1 tracking-wide">Covers your whole group</p></div>
+        <div class="py-7 px-6 text-center"><p class="font-serif text-2xl text-brassL">XO2 + GSPro</p><p class="text-xs text-bone/70 mt-1 tracking-wide">Uneekor · 2,000+ courses</p></div>
     </div>
 </section>
 
 <!-- =========================================================
      HOW IT WORKS
      ========================================================= -->
-<section id="how-it-works" class="py-20 border-t border-gray-200 scroll-mt-20">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
-
-        <div class="text-center mb-14 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Here's How It Works</h2>
-            <p class="text-gray-600 text-lg max-w-xl mx-auto">
-                Book online, get your code, walk in and play. No staff required — that's the point.
-            </p>
+<section id="how-it-works" class="py-24 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <p class="text-brass text-xs uppercase kicker font-semibold mb-3">Book online, walk right in</p>
+            <h2 class="font-serif text-4xl md:text-5xl text-ink">From booking to the tee<br>in about a minute</h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-
-            <!-- Step 1 -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 fade-in-up stagger-1 relative">
-                <div class="step-number mb-6">1</div>
-                <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Book Your Time</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Pick a date and time at privateteegolf.com. Members use their included hours — public players book at <strong class="text-gray-800">$40/hr</strong>. The whole thing takes about a minute.
-                </p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-bone2 rounded-3xl border border-ink/10 p-8">
+                <div class="font-serif text-brass text-5xl mb-5">01</div>
+                <h3 class="font-serif text-xl text-ink mb-2">Book your time</h3>
+                <p class="text-sm text-muted leading-relaxed">Pick any open time and pay online. Day or night, $40/hr.</p>
             </div>
-
-            <!-- Step 2 -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 fade-in-up stagger-2 relative">
-                <div class="step-number mb-6">2</div>
-                <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Get Your Door Code</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    15 minutes before your session starts, you'll receive a unique access code via SMS. That's your key — no app, no check-in desk, no waiting around.
-                </p>
+            <div class="rounded-3xl overflow-hidden border border-ink/10 relative min-h-[260px] flex items-end">
+                <img src="images/booking-guide/lock_new.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Keypad entry at Private Tee Golf">
+                <div class="absolute inset-0 bg-gradient-to-t from-forest2/95 to-transparent"></div>
+                <div class="relative p-8 text-bone">
+                    <div class="font-serif text-brassL text-5xl mb-3">02</div>
+                    <h3 class="font-serif text-xl mb-2">Get your door code</h3>
+                    <p class="text-sm text-bone/80 leading-relaxed">We text you a door code 15 minutes before you play. Punch it in at the keypad. No key, no app.</p>
+                </div>
             </div>
-
-            <!-- Step 3 -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 fade-in-up stagger-3 relative">
-                <div class="step-number mb-6">3</div>
-                <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Walk In and Play</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                    Enter your code and everything is already on and ready — projector, simulator software, the works. Bring your own clubs, pick a course, and start your round. No setup, no fiddling with equipment.
-                </p>
+            <div class="bg-bone2 rounded-3xl border border-ink/10 p-8">
+                <div class="font-serif text-brass text-5xl mb-5">03</div>
+                <h3 class="font-serif text-xl text-ink mb-2">Walk in and play</h3>
+                <p class="text-sm text-muted leading-relaxed">Everything turns on automatically. Just bring your clubs, pick a course, and start swinging.</p>
             </div>
-
         </div>
 
-        <!-- Questions callout -->
-        <div class="mt-10 text-center fade-in-up">
-            <p class="text-sm text-gray-500">
-                First time? <a href="#faq" class="text-hunter hover:text-emerald-600 font-medium underline decoration-hunter/30">Read the FAQ</a> or <a href="/contact/" class="text-hunter hover:text-emerald-600 font-medium underline decoration-hunter/30">reach out to us</a> — we're happy to walk you through it.
-            </p>
+        <div class="mt-10 text-center">
+            <p class="text-sm text-muted">First time? <a href="#faq" class="text-brass hover:text-brassL font-medium underline decoration-brass/30">Read the FAQ</a> or <a href="/contact/" class="text-brass hover:text-brassL font-medium underline decoration-brass/30">send us a message</a>.</p>
         </div>
-
     </div>
 </section>
 
 <!-- =========================================================
-     THE EXPERIENCE
+     THE BAY
      ========================================================= -->
-<section id="details" class="py-20 border-t border-gray-200 scroll-mt-20 relative overflow-hidden">
-    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-hunter/8 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-
-        <div class="text-center mb-12 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Experience</h2>
-            <p class="text-gray-600 max-w-xl mx-auto leading-relaxed">
-                A fully equipped simulator bay with pro-level tech, a comfortable lounge, and 24/7 access — the whole space is yours for your entire session.
-            </p>
-        </div>
-
-        <!-- Facility Photo Carousel -->
-        <div class="relative mb-14 fade-in-up">
-            <div class="carousel-container relative overflow-hidden rounded-2xl border border-gray-200 shadow-lg bg-cardBg group" id="carouselContainer">
+<section id="experience" class="py-24 bg-forest text-bone relative overflow-hidden scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Carousel -->
+        <div class="relative">
+            <div class="carousel-container relative overflow-hidden rounded-3xl border border-bone/15 shadow-2xl bg-forest2 group" id="carouselContainer">
                 <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
-                    <div class="carousel-slide min-w-full">
-                        <div class="relative aspect-[16/9] md:aspect-[21/9] bg-gray-900 overflow-hidden">
-                            <img src="images/facility/1.jpeg" alt="Private Tee Golf Simulator Bay" class="w-full h-full object-cover" style="object-position: center 28%;">
-                        </div>
-                    </div>
-                    <div class="carousel-slide min-w-full">
-                        <div class="relative aspect-[16/9] md:aspect-[21/9] bg-gray-900 overflow-hidden">
-                            <img src="images/facility/2.jpeg" alt="Private Tee Golf Simulator Bay" class="w-full h-full object-cover object-center">
-                        </div>
-                    </div>
-                    <div class="carousel-slide min-w-full">
-                        <div class="relative aspect-[16/9] md:aspect-[21/9] bg-gray-900 overflow-hidden">
-                            <img src="images/facility/3.jpeg" alt="Private Tee Golf Interior" class="w-full h-full object-cover" style="object-position: center 25%;">
-                        </div>
-                    </div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/1.jpeg" alt="Private Tee Golf simulator bay" class="w-full h-full object-cover" style="object-position:center 30%"></div></div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/2.jpeg" alt="Private Tee Golf simulator screen" class="w-full h-full object-cover object-center"></div></div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/3.jpeg" alt="Private Tee Golf lounge" class="w-full h-full object-cover" style="object-position:center 25%"></div></div>
                 </div>
-
-                <!-- Arrows -->
-                <button class="carousel-btn carousel-prev absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-2.5 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Previous image">
+                <button class="carousel-btn carousel-prev absolute left-3 top-1/2 -translate-y-1/2 bg-bone/90 hover:bg-bone text-ink p-2.5 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Previous image">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button class="carousel-btn carousel-next absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-2.5 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Next image">
+                <button class="carousel-btn carousel-next absolute right-3 top-1/2 -translate-y-1/2 bg-bone/90 hover:bg-bone text-ink p-2.5 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Next image">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
-
-            <!-- Indicators -->
             <div class="flex justify-center gap-2 mt-4" id="carouselIndicators">
-                <button class="carousel-indicator w-8 h-2 rounded-full bg-hunter transition-all duration-300" aria-label="Slide 1" data-slide="0"></button>
-                <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Slide 2" data-slide="1"></button>
-                <button class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" aria-label="Slide 3" data-slide="2"></button>
+                <button class="carousel-indicator w-8 h-2 rounded-full bg-brassL transition-all duration-300" aria-label="Slide 1" data-slide="0"></button>
+                <button class="carousel-indicator w-2 h-2 rounded-full bg-bone/30 transition-all duration-300" aria-label="Slide 2" data-slide="1"></button>
+                <button class="carousel-indicator w-2 h-2 rounded-full bg-bone/30 transition-all duration-300" aria-label="Slide 3" data-slide="2"></button>
             </div>
         </div>
 
-        <!-- Feature Cards -->
-        <div class="grid md:grid-cols-3 gap-6">
-
-            <div class="bg-cardBg p-7 rounded-2xl border border-gray-200 hover:border-hunter/40 transition duration-300 group hover:-translate-y-1 shadow-lg fade-in-up stagger-1">
-                <div class="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-hunter transition duration-300">
-                    <svg class="w-5 h-5 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                </div>
-                <h3 class="text-gray-900 font-serif text-lg font-bold mb-2">Pro-Level Simulator</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Uneekor Eye XO2 with Swing Optix cameras and a 4K projector. See your club impact in 3,000 FPS slow-motion. Play 2,000+ courses.</p>
+        <div>
+            <p class="text-brassL text-xs uppercase kicker font-semibold mb-3">The experience</p>
+            <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-5">The whole place<br>to yourself.</h2>
+            <p class="text-bone/80 leading-relaxed mb-8 max-w-md">One bay, one lounge, and nobody else around. The whole space is yours for your session.</p>
+            <div class="inline-flex items-baseline gap-3 bg-forest2/60 border border-brassL/30 rounded-2xl px-6 py-4 mb-9">
+                <span class="font-serif text-3xl text-brassL">$40/hr</span>
+                <span class="text-bone/80 text-sm">for your whole group, not per person.</span>
             </div>
-
-            <div class="bg-cardBg p-7 rounded-2xl border border-gray-200 hover:border-hunter/40 transition duration-300 group hover:-translate-y-1 shadow-lg fade-in-up stagger-2">
-                <div class="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-hunter transition duration-300">
-                    <svg class="w-5 h-5 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                </div>
-                <h3 class="text-gray-900 font-serif text-lg font-bold mb-2">24/7 Smart Access</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Book online and receive a unique SMS door code before your session. Show up any time — day or night. No staff, no check-in line, no hassle.</p>
+            <div class="grid grid-cols-2 gap-3 max-w-md">
+                <div class="bg-forest2/50 rounded-xl px-4 py-3 text-sm"><span class="text-brassL">✦</span> Uneekor Eye XO2</div>
+                <div class="bg-forest2/50 rounded-xl px-4 py-3 text-sm"><span class="text-brassL">✦</span> 2,000+ courses</div>
+                <div class="bg-forest2/50 rounded-xl px-4 py-3 text-sm"><span class="text-brassL">✦</span> 4K projector</div>
+                <div class="bg-forest2/50 rounded-xl px-4 py-3 text-sm"><span class="text-brassL">✦</span> Instant shot replay + stats</div>
             </div>
-
-            <div class="bg-cardBg p-7 rounded-2xl border border-gray-200 hover:border-hunter/40 transition duration-300 group hover:-translate-y-1 shadow-lg fade-in-up stagger-3">
-                <div class="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-hunter transition duration-300">
-                    <svg class="w-5 h-5 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                </div>
-                <h3 class="text-gray-900 font-serif text-lg font-bold mb-2">Your Own Lounge</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Comfortable seating, 4K TVs, mini-fridge, and Gigabit WiFi. The whole space is yours for the duration of your session — no shared areas, no strangers.</p>
-            </div>
-
         </div>
     </div>
 </section>
 
 <!-- =========================================================
-     MEMBERSHIPS
+     PRICING — HOURLY FIRST
      ========================================================= -->
-<section id="pricing" class="py-20 border-t border-gray-200 scroll-mt-20">
-    <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
-
-        <div class="text-center mb-12 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Membership Options</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                Monthly memberships with included simulator hours and 24/7 private access. The more you play, the more you save.
-            </p>
+<section id="pricing" class="py-24 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <p class="text-brass text-xs uppercase kicker font-semibold mb-3">Simple pricing</p>
+            <h2 class="font-serif text-4xl md:text-5xl text-ink">Just book and play</h2>
         </div>
-
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 items-start">
-
-            <!-- Starter -->
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden transition duration-300 hover:border-hunter/50 hover:-translate-y-1 shadow-lg flex flex-col h-full scale-in stagger-1">
-                <div class="absolute top-0 right-0 bg-hunter text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider">MOST POPULAR</div>
-
-                <h3 class="text-gray-900 font-serif text-2xl mb-3">Starter</h3>
-                <div class="mb-3 flex flex-wrap items-baseline gap-2">
-                    <span class="text-xl text-gray-400 line-through">$179</span>
-                    <span class="text-4xl font-bold text-gray-900">$149</span>
-                    <span class="text-gray-500 text-lg">/mo</span>
+        <div class="grid lg:grid-cols-3 gap-6 items-center">
+            <div class="lg:col-span-2 bg-forest text-bone rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-brass/15 rounded-full blur-3xl"></div>
+                <div class="relative">
+                    <p class="text-brassL text-xs uppercase kicker font-semibold mb-4">The everyday rate</p>
+                    <div class="flex items-baseline gap-3 mb-5">
+                        <span class="font-serif text-7xl">$40</span>
+                        <span class="text-bone/70 text-xl">/ hour</span>
+                    </div>
+                    <p class="text-bone/80 max-w-md mb-8 leading-relaxed">One rate for the whole group, never per person.</p>
+                    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-bone/85 mb-9">
+                        <span>✦ Bring a group</span><span>✦ 24/7 access</span><span>✦ Bring your clubs</span><span>✦ Book in a minute</span>
+                    </div>
+                    <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="inline-block bg-brass hover:bg-brassL text-forest2 px-9 py-4 rounded-full font-bold transition shadow-lg">Book a Bay</a>
                 </div>
-                <div class="mb-5 pb-5 border-b border-gray-200">
-                    <p class="text-sm text-gray-600">Includes <span class="text-hunter font-bold text-base">4 hours</span> per month</p>
-                </div>
-
-                <ul class="space-y-3 mb-8 flex-grow text-sm text-gray-600">
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>4 hours of simulator time included</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>Bring up to 3 guests at no charge</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>24/7 private access</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>1 active booking at a time</li>
-                </ul>
-
-                <a href="/memberships/#starter-monthly" class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-bold transition shadow-lg shadow-hunter/20">
-                    Get Started
-                </a>
             </div>
-
-            <!-- Practice -->
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden transition duration-300 hover:border-hunter/50 hover:-translate-y-1 shadow-lg flex flex-col h-full scale-in stagger-2">
-
-                <h3 class="text-gray-900 font-serif text-2xl mb-3">Practice</h3>
-                <div class="mb-3 flex flex-wrap items-baseline gap-2">
-                    <span class="text-xl text-gray-400 line-through">$299</span>
-                    <span class="text-4xl font-bold text-gray-900">$219</span>
-                    <span class="text-gray-500 text-lg">/mo</span>
+            <div class="bg-bone2 border border-ink/10 rounded-3xl p-8">
+                <p class="text-brass text-xs uppercase kicker font-semibold mb-3">Play often?</p>
+                <h3 class="font-serif text-2xl text-ink mb-3">Memberships</h3>
+                <p class="text-sm text-muted leading-relaxed mb-6">Monthly memberships include hours at a lower rate, as low as <span class="text-ink font-semibold">~$22/hr</span>. Good for regulars and winter leagues.</p>
+                <a href="/memberships/" class="inline-block text-brass font-semibold text-sm hover:text-brassL transition">Compare plans →</a>
+                <div class="mt-7 pt-6 border-t border-ink/10">
+                    <p class="text-sm text-muted leading-relaxed mb-3">An hour in the bay makes an easy gift.</p>
+                    <a href="#" data-square-egift class="inline-block text-brass font-semibold text-sm hover:text-brassL transition">Send an eGift card →</a>
                 </div>
-                <div class="mb-5 pb-5 border-b border-gray-200">
-                    <p class="text-sm text-gray-600">Includes <span class="text-hunter font-bold text-base">10 hours</span> per month <span class="text-gray-400">(~$22/hr)</span></p>
-                </div>
-
-                <ul class="space-y-3 mb-8 flex-grow text-sm text-gray-600">
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>10 hours of simulator time included</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>Bring up to 3 guests at no charge</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>24/7 private access</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>2 active bookings at a time</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-hunter font-bold mt-0.5 flex-shrink-0">✓</span>Priority booking over Starter</li>
-                </ul>
-
-                <a href="/memberships/#practice-monthly" class="block w-full text-center py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white font-bold transition shadow-lg shadow-hunter/20">
-                    Get Started
-                </a>
             </div>
-
-            <!-- Ultimate -->
-            <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 relative overflow-hidden shadow-lg opacity-80 flex flex-col h-full scale-in stagger-3">
-                <div class="absolute top-0 right-0 bg-gray-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider">SOLD OUT</div>
-
-                <h3 class="text-gold font-serif text-2xl mb-3">Ultimate</h3>
-                <div class="mb-3 flex flex-wrap items-baseline gap-2">
-                    <span class="text-xl text-gray-400 line-through">$399</span>
-                    <span class="text-4xl font-bold text-gray-900">$299</span>
-                    <span class="text-gray-500 text-lg">/mo</span>
-                </div>
-                <div class="mb-5 pb-5 border-b border-gray-200">
-                    <p class="text-sm text-gray-600">Includes <span class="text-gold font-bold text-base">20+ hours</span> per month</p>
-                </div>
-
-                <ul class="space-y-3 mb-8 flex-grow text-sm text-gray-600">
-                    <li class="flex gap-2.5 items-start"><span class="text-gold font-bold mt-0.5 flex-shrink-0">✓</span>20+ hours included monthly</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-gold font-bold mt-0.5 flex-shrink-0">✓</span>Bring up to 3 guests at no charge</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-gold font-bold mt-0.5 flex-shrink-0">✓</span>30-day booking window</li>
-                    <li class="flex gap-2.5 items-start"><span class="text-gold font-bold mt-0.5 flex-shrink-0">✓</span>Guaranteed availability</li>
-                </ul>
-
-                <button class="block w-full text-center py-3 rounded-lg bg-gray-100 text-gray-400 font-bold border border-gray-200 cursor-not-allowed" disabled>
-                    Currently Sold Out
-                </button>
-            </div>
-
         </div>
+    </div>
+</section>
 
-        <!-- View full details link -->
-        <div class="text-center mt-10 fade-in-up">
-            <a href="/memberships/" class="inline-flex items-center gap-2 text-hunter hover:text-emerald-600 font-semibold text-sm transition">
-                View full membership details, annual pricing, and FAQs
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+<!-- =========================================================
+     SOCIAL PROOF
+     ========================================================= -->
+<section class="py-24 bg-forest2 text-bone">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+                <p class="text-brassL text-xs uppercase kicker font-semibold mb-3">What players say</p>
+                <h2 class="font-serif text-4xl md:text-5xl">From people who've played here</h2>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-brassL text-2xl tracking-tight">★★★★★</span>
+                <span class="text-bone/80 text-sm">5.0 · Google &amp; Facebook reviews</span>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="bg-forest rounded-2xl border border-bone/10 p-7">
+                <p class="text-bone/85 text-sm leading-relaxed mb-5 italic">"The best part is the picture it takes of your club head through the ball, shot after shot. It really lets you diagnose what your hands are doing and correct it."</p>
+                <p class="text-sm font-semibold">Mark A. <span class="text-bone/50 font-normal">· Facebook</span></p>
+            </div>
+            <div class="bg-forest rounded-2xl border border-bone/10 p-7">
+                <p class="text-bone/85 text-sm leading-relaxed mb-5 italic">"Super nice place and tons of room for friends. Loved that it was a full private simulator — the whole space to ourselves."</p>
+                <p class="text-sm font-semibold">Olivia M. <span class="text-bone/50 font-normal">· Google</span></p>
+            </div>
+            <div class="bg-forest rounded-2xl border border-bone/10 p-7">
+                <p class="text-bone/85 text-sm leading-relaxed mb-5 italic">"Super convenient and easy to use, very accurate tracking, and an overall pleasant environment to practice."</p>
+                <p class="text-sm font-semibold">Tommy M. <span class="text-bone/50 font-normal">· Google</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================
+     OCCASIONS
+     ========================================================= -->
+<section id="occasions" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <p class="text-brass text-xs uppercase kicker font-semibold mb-3">Why people come in</p>
+            <h2 class="font-serif text-4xl md:text-5xl text-ink">Plenty of reasons to play</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="occ group bg-bone2 rounded-2xl border border-ink/10 p-7 hover:border-brass/50 transition">
+                <h3 class="font-serif text-xl text-ink mb-2">Weekend tune-up</h3>
+                <p class="text-sm text-muted leading-relaxed mb-4">Get your swing right before your Saturday round.</p>
+                <span class="occ-arrow inline-block text-brass text-sm font-semibold transition">Book an hour →</span>
             </a>
-        </div>
-
-    </div>
-</section>
-
-<!-- =========================================================
-     REVIEWS
-     ========================================================= -->
-<section class="py-20 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
-
-        <div class="text-center mb-12 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">What People Are Saying</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-
-            <!-- Facebook Review -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-1 flex flex-col h-full">
-                <div class="flex items-center gap-1 mb-4 flex-shrink-0">
-                    <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
-                </div>
-                <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
-                    "This place is awesome. Very private to work on that golf swing for the spring and summer coming up. The best part is the picture it takes of your club head through the ball shot after shot. It really lets you diagnose what your hands are doing and correct it through feedback. Can't beat all the great golf courses downloaded on the simulator. Definitely recommend........"
-                </p>
-                <div class="flex items-center gap-3 mt-auto pt-2 flex-shrink-0 border-t border-gray-100">
-                    <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold text-gray-900">Mark A.</p>
-                        <p class="text-xs text-gray-500">Facebook Review</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Google Review -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-2 flex flex-col h-full">
-                <div class="flex items-center gap-1 mb-4 flex-shrink-0">
-                    <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
-                </div>
-                <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
-                    "Went for the opening weekend event and had a great time! Super nice place and tons of room for friends to come for sessions. Liked that it was a full private simulator."
-                </p>
-                <div class="flex items-center gap-3 mt-auto pt-2 flex-shrink-0 border-t border-gray-100">
-                    <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold text-gray-900">Olivia M.</p>
-                        <p class="text-xs text-gray-500">Google Review</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Google Review -->
-            <div class="bg-cardBg rounded-2xl border border-gray-200 p-8 shadow-lg fade-in-up stagger-3 flex flex-col h-full">
-                <div class="flex items-center gap-1 mb-4 flex-shrink-0">
-                    <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
-                </div>
-                <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
-                    "Super convenient and easy to use, very accurate tracking and an overall pleasant environment to practice"
-                </p>
-                <div class="flex items-center gap-3 mt-auto pt-2 flex-shrink-0 border-t border-gray-100">
-                    <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold text-gray-900">Tommy M.</p>
-                        <p class="text-xs text-gray-500">Google Review</p>
-                    </div>
-                </div>
-            </div>
-
+            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="occ group bg-bone2 rounded-2xl border border-ink/10 p-7 hover:border-brass/50 transition">
+                <h3 class="font-serif text-xl text-ink mb-2">Rainy-day plan</h3>
+                <p class="text-sm text-muted leading-relaxed mb-4">Weather blew out your tee time? The bay doesn't care.</p>
+                <span class="occ-arrow inline-block text-brass text-sm font-semibold transition">Book an hour →</span>
+            </a>
+            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="occ group bg-bone2 rounded-2xl border border-ink/10 p-7 hover:border-brass/50 transition">
+                <h3 class="font-serif text-xl text-ink mb-2">After-work nine</h3>
+                <p class="text-sm text-muted leading-relaxed mb-4">Play a quick nine at 9pm, when the courses are closed.</p>
+                <span class="occ-arrow inline-block text-brass text-sm font-semibold transition">Book an hour →</span>
+            </a>
+            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="occ group bg-bone2 rounded-2xl border border-ink/10 p-7 hover:border-brass/50 transition">
+                <h3 class="font-serif text-xl text-ink mb-2">Date night</h3>
+                <p class="text-sm text-muted leading-relaxed mb-4">Private bay, your music, nobody else around.</p>
+                <span class="occ-arrow inline-block text-brass text-sm font-semibold transition">Book an hour →</span>
+            </a>
+            <a href="/corporate/" class="occ group bg-bone2 rounded-2xl border border-ink/10 p-7 hover:border-brass/50 transition">
+                <h3 class="font-serif text-xl text-ink mb-2">Group outing</h3>
+                <p class="text-sm text-muted leading-relaxed mb-4">Birthdays, buddies, work outings. Rent the whole bay.</p>
+                <span class="occ-arrow inline-block text-brass text-sm font-semibold transition">Plan an event →</span>
+            </a>
+            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="occ group bg-bone2 rounded-2xl border border-ink/10 p-7 hover:border-brass/50 transition">
+                <h3 class="font-serif text-xl text-ink mb-2">Beat the heat</h3>
+                <p class="text-sm text-muted leading-relaxed mb-4">90 degrees outside? It's air conditioned in here.</p>
+                <span class="occ-arrow inline-block text-brass text-sm font-semibold transition">Book an hour →</span>
+            </a>
         </div>
     </div>
 </section>
@@ -671,158 +500,98 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- =========================================================
      LOCATION
      ========================================================= -->
-<section class="py-20 border-t border-gray-200">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
-
-        <div class="text-center mb-10 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-3">Find Us</h2>
-            <p class="text-gray-600">
-                <strong class="text-gray-800">5351 US-30, Greensburg, PA 15601</strong> &mdash; across from Westmoreland Mall and Live! Casino, right next to the former Corsi's Golf.
-            </p>
+<section class="py-24 bg-forest text-bone">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+            <p class="text-brassL text-xs uppercase kicker font-semibold mb-3">Find us</p>
+            <h2 class="font-serif text-4xl md:text-5xl mb-5">Right on Route 30</h2>
+            <p class="text-bone/80 leading-relaxed mb-3">5351 US-30, Greensburg, PA 15601. Right next door to the former Corsi's Golf, across from Westmoreland Mall and Live! Casino.</p>
+            <p class="text-bone/60 text-sm mb-8">Open 24 hours a day, 7 days a week.</p>
+            <a href="https://maps.app.goo.gl/mwQJ1wPZmTUbU8AbA" target="_blank" rel="noopener" class="inline-block border border-bone/40 hover:bg-bone/10 px-7 py-3.5 rounded-full font-semibold text-sm transition">Open in Google Maps</a>
         </div>
-
-        <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg fade-in-up">
-            <iframe
-                src="https://maps.google.com/maps?q=5351+US-30,+Greensburg,+PA+15601&output=embed"
-                width="100%"
-                height="380"
-                style="border:0; display:block;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Private Tee Golf location on Google Maps">
-            </iframe>
+        <div class="relative">
+            <div class="relative overflow-hidden rounded-3xl border border-bone/15 shadow-2xl bg-forest2" id="locContainer">
+                <div class="flex transition-transform duration-500 ease-in-out" id="locTrack">
+                    <div class="min-w-full">
+                        <iframe src="https://maps.google.com/maps?q=5351+US-30,+Greensburg,+PA+15601&output=embed" width="100%" height="340" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Private Tee Golf location on Google Maps"></iframe>
+                    </div>
+                    <div class="min-w-full">
+                        <img src="images/booking-guide/exterior.jpeg" alt="Private Tee Golf building exterior and entrance in Greensburg, PA" class="w-full object-cover" style="height:340px;">
+                    </div>
+                </div>
+                <button class="loc-prev absolute left-3 top-1/2 -translate-y-1/2 bg-bone/90 hover:bg-bone text-ink p-2.5 rounded-full shadow-lg transition-all duration-300 z-10" aria-label="Previous">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="loc-next absolute right-3 top-1/2 -translate-y-1/2 bg-bone/90 hover:bg-bone text-ink p-2.5 rounded-full shadow-lg transition-all duration-300 z-10" aria-label="Next">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+            <div class="flex justify-center gap-2 mt-4" id="locIndicators">
+                <button class="loc-indicator w-8 h-2 rounded-full bg-brassL transition-all duration-300" data-slide="0" aria-label="Map"></button>
+                <button class="loc-indicator w-2 h-2 rounded-full bg-bone/30 transition-all duration-300" data-slide="1" aria-label="Exterior photo"></button>
+            </div>
         </div>
-
-        <div class="mt-6 text-center fade-in-up">
-            <a href="https://maps.app.goo.gl/mwQJ1wPZmTUbU8AbA" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-hunter hover:text-emerald-600 text-sm font-semibold transition">
-                Open in Google Maps
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
-        </div>
-
     </div>
 </section>
 
 <!-- =========================================================
      FAQ
      ========================================================= -->
-<section id="faq" class="py-20 border-t border-gray-200 scroll-mt-20">
+<section id="faq" class="py-24 scroll-mt-20">
     <div class="max-w-3xl mx-auto px-4 md:px-6 lg:px-8">
-
-        <div class="text-center mb-12 fade-in-up">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Common Questions</h2>
-            <p class="text-gray-600">Everything you need to know before your first visit.</p>
+        <div class="text-center mb-12">
+            <p class="text-brass text-xs uppercase kicker font-semibold mb-3">First time?</p>
+            <h2 class="font-serif text-4xl md:text-5xl text-ink">Common questions</h2>
         </div>
-
         <div class="space-y-3">
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
-                    <span>Do I need to bring my own clubs?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    Yes — bring your own clubs. Everything else is provided: the simulator is on, the course is loaded, and the bay is ready when you walk in. Just show up with your bag.
-                </p>
-            </details>
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
-                    <span>Do I need a membership to book?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    No. Anyone can book a session at $40/hr — no membership required. Memberships are for regular players who want included hours at a better effective rate.
-                </p>
-            </details>
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
-                    <span>How do I get into the facility?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    After booking, you'll receive a unique door code via SMS 15 minutes before your session. Enter the code at the keypad on the door and you're in. No key, no app, no staff needed.
-                </p>
-            </details>
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
+            <details class="bg-bone2 rounded-2xl border border-ink/10 p-6 group">
+                <summary class="font-semibold text-ink cursor-pointer flex items-center justify-between gap-4">
                     <span>Is anyone there when I arrive?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-5 h-5 text-muted flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    The facility is unstaffed — that's intentional. You get the entire space to yourself with no interruptions. If you ever need help during your session, reach us at <a href="tel:+18786453216" class="text-hunter hover:text-emerald-600">(878) 645-3216</a> or <a href="mailto:info@privateteegolf.com" class="text-hunter hover:text-emerald-600">info@privateteegolf.com</a>.
-                </p>
+                <p class="mt-4 text-sm text-muted leading-relaxed">No, the facility is unstaffed on purpose. Everything turns on by itself, the lights, simulator, and TV included, so the bay is ready the moment you walk in. It's yours the whole time you're booked, and if you need anything we're a text or call away at <a href="tel:+18786453216" class="text-brass hover:text-brassL">(878) 645-3216</a>.</p>
             </details>
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
+            <details class="bg-bone2 rounded-2xl border border-ink/10 p-6 group">
+                <summary class="font-semibold text-ink cursor-pointer flex items-center justify-between gap-4">
+                    <span>How do I get into the facility?</span>
+                    <svg class="w-5 h-5 text-muted flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-4 text-sm text-muted leading-relaxed">We text you a code 15 minutes before your session. Punch it into the keypad and you're in. No key, no app.</p>
+            </details>
+            <details class="bg-bone2 rounded-2xl border border-ink/10 p-6 group">
+                <summary class="font-semibold text-ink cursor-pointer flex items-center justify-between gap-4">
                     <span>What if I've never used a golf simulator before?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-5 h-5 text-muted flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    No experience needed. When you arrive, the projector, simulator software, and everything else is already on and ready to go — just bring your clubs, pick a course, and swing. If you want a walkthrough before your first session, just <a href="/contact/" class="text-hunter hover:text-emerald-600">reach out</a> and we'll help.
-                </p>
+                <p class="mt-4 text-sm text-muted leading-relaxed">Everything's on and ready when you walk in. Pick a course on the screen and swing. Want a walkthrough first? <a href="/contact/" class="text-brass hover:text-brassL">Send us a message</a>.</p>
             </details>
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
+            <details class="bg-bone2 rounded-2xl border border-ink/10 p-6 group">
+                <summary class="font-semibold text-ink cursor-pointer flex items-center justify-between gap-4">
+                    <span>Do I need to bring my own clubs?</span>
+                    <svg class="w-5 h-5 text-muted flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <p class="mt-4 text-sm text-muted leading-relaxed">Yes, bring your own clubs. Everything else is here and ready.</p>
+            </details>
+            <details class="bg-bone2 rounded-2xl border border-ink/10 p-6 group">
+                <summary class="font-semibold text-ink cursor-pointer flex items-center justify-between gap-4">
                     <span>Can I bring friends?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-5 h-5 text-muted flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    Yes. The bay comfortably fits up to 4 players. Members can bring up to 3 guests at no additional charge. Public bookings cover everyone in your group under the hourly rate.
-                </p>
+                <p class="mt-4 text-sm text-muted leading-relaxed">Bring whoever you want. The $40/hr covers your whole group, so split it however you like.</p>
             </details>
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
-                    <span>What hours are you open?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    24/7. The smart access system means there are no set open hours — book any time that works for you, any day of the week.
-                </p>
-            </details>
-
-            <details class="bg-cardBg rounded-xl border border-gray-200 p-6 group fade-in-up">
-                <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between gap-4">
-                    <span>How do I cancel or modify a booking?</span>
-                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </summary>
-                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
-                    Contact us directly at <a href="mailto:info@privateteegolf.com" class="text-hunter hover:text-emerald-600">info@privateteegolf.com</a> or <a href="tel:+18786453216" class="text-hunter hover:text-emerald-600">(878) 645-3216</a> and we'll take care of it.
-                </p>
-            </details>
-
         </div>
     </div>
 </section>
 
 <!-- =========================================================
-     BOTTOM CTA
+     FINAL CTA
      ========================================================= -->
-<section class="py-20 border-t border-gray-200 bg-deepGreen text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.15),transparent_60%)] pointer-events-none"></div>
-    <div class="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center relative z-10 fade-in-up">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Ready to Play?</h2>
-        <p class="text-emerald-100 text-lg mb-10 font-light">
-            Book a single session or lock in a monthly membership. Either way, the bay is all yours.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="bg-hunter hover:bg-emerald-500 text-white px-8 py-4 rounded-lg font-semibold transition shadow-xl shadow-black/20 text-base">
-                Book a Tee Time — $40/hr
-            </a>
-            <a href="/memberships/" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition text-base">
-                View Memberships
-            </a>
-        </div>
-        <p class="text-emerald-100/85 text-sm mt-8 font-light">
-            <a href="#" data-square-egift class="text-white font-medium underline decoration-white/40 underline-offset-4 hover:decoration-white">Send an eGift card</a>
-            <span class="text-emerald-100/70"> — redeem at the simulator.</span>
-        </p>
+<section class="py-28 bg-forest2 text-bone text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,137,62,0.18),transparent_65%)] pointer-events-none"></div>
+    <div class="relative max-w-2xl mx-auto px-4">
+        <h2 class="font-serif text-4xl md:text-6xl mb-5">The bay is open.</h2>
+        <p class="text-bone/80 text-lg mb-10 font-light">Pick a time, get your code, and play. Any hour you want.</p>
+        <a href="https://app.birrdi.com/u/browse/reserve?team_booking_link_id=private_tee_golf_greensburg&date=2026-03-20" target="_blank" rel="noopener" class="inline-block bg-brass hover:bg-brassL text-forest2 px-10 py-4 rounded-full text-lg font-bold transition shadow-xl">Book a Bay &nbsp;·&nbsp; $40/hr</a>
     </div>
 </section>
 
@@ -830,7 +599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="footerContainer"></div>
 
 <!-- Back to Top -->
-<button id="backToTop" class="fixed bottom-28 md:bottom-8 right-8 bg-hunter text-white p-3 rounded-full shadow-lg hover:bg-emerald-600 transition-all duration-300 opacity-0 invisible translate-y-4 z-50 group" aria-label="Back to top">
+<button id="backToTop" class="fixed bottom-28 md:bottom-8 right-8 bg-forest text-bone p-3 rounded-full shadow-lg hover:bg-forest2 transition-all duration-300 opacity-0 invisible translate-y-4 z-50 group" aria-label="Back to top">
     <svg class="w-5 h-5 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
@@ -859,11 +628,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const indicators = carouselIndicators.querySelectorAll('.carousel-indicator');
             indicators.forEach((indicator, index) => {
                 if (index === currentSlide) {
-                    indicator.classList.add('bg-hunter', 'w-8');
-                    indicator.classList.remove('bg-gray-300', 'w-2');
+                    indicator.classList.add('bg-brassL', 'w-8');
+                    indicator.classList.remove('bg-bone/30', 'w-2');
                 } else {
-                    indicator.classList.remove('bg-hunter', 'w-8');
-                    indicator.classList.add('bg-gray-300', 'w-2');
+                    indicator.classList.remove('bg-brassL', 'w-8');
+                    indicator.classList.add('bg-bone/30', 'w-2');
                 }
             });
             prevBtn.style.opacity = currentSlide === 0 ? '0.4' : '1';
@@ -874,63 +643,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         nextBtn.addEventListener('click', () => { if (currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); } });
         prevBtn.addEventListener('click', () => { if (currentSlide > 0) { currentSlide--; updateCarousel(); } });
-
         carouselIndicators.addEventListener('click', (e) => {
-            if (e.target.classList.contains('carousel-indicator')) {
-                currentSlide = parseInt(e.target.dataset.slide);
-                updateCarousel();
-            }
+            if (e.target.classList.contains('carousel-indicator')) { currentSlide = parseInt(e.target.dataset.slide); updateCarousel(); }
         });
 
-        // Touch/swipe support for mobile
         let touchStartX = 0;
-        let touchEndX = 0;
         carouselContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
         carouselContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0 && currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); }
-                else if (diff < 0 && currentSlide > 0) { currentSlide--; updateCarousel(); }
-            }
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) { if (diff > 0 && currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); } else if (diff < 0 && currentSlide > 0) { currentSlide--; updateCarousel(); } }
         }, { passive: true });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (carouselContainer.matches(':hover')) {
-                if (e.key === 'ArrowLeft' && currentSlide > 0) { currentSlide--; updateCarousel(); }
-                else if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); }
-            }
-        });
 
         updateCarousel();
     }
 
-    // Scroll Animations
-    function initScrollAnimations() {
-        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .scale-in');
-        if ('IntersectionObserver' in window) {
-            requestAnimationFrame(() => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            requestAnimationFrame(() => { entry.target.classList.add('visible'); });
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
-                animatedElements.forEach(el => observer.observe(el));
-            });
-        } else {
-            animatedElements.forEach(el => el.classList.add('visible'));
-        }
-    }
+    // Location carousel (map + exterior)
+    (function() {
+        const track = document.getElementById('locTrack');
+        const indWrap = document.getElementById('locIndicators');
+        const prev = document.querySelector('.loc-prev');
+        const next = document.querySelector('.loc-next');
+        if (!track || !prev || !next) return;
+        const total = track.children.length;
+        let cur = 0;
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initScrollAnimations);
-    } else {
-        initScrollAnimations();
-    }
+        function update() {
+            track.style.transform = `translateX(-${cur * 100}%)`;
+            indWrap.querySelectorAll('.loc-indicator').forEach((d, i) => {
+                d.classList.toggle('bg-brassL', i === cur);
+                d.classList.toggle('w-8', i === cur);
+                d.classList.toggle('bg-bone/30', i !== cur);
+                d.classList.toggle('w-2', i !== cur);
+            });
+            prev.style.opacity = cur === 0 ? '0.4' : '1';
+            prev.disabled = cur === 0;
+            next.style.opacity = cur === total - 1 ? '0.4' : '1';
+            next.disabled = cur === total - 1;
+        }
+
+        next.addEventListener('click', () => { if (cur < total - 1) { cur++; update(); } });
+        prev.addEventListener('click', () => { if (cur > 0) { cur--; update(); } });
+        indWrap.addEventListener('click', (e) => {
+            if (e.target.classList.contains('loc-indicator')) { cur = parseInt(e.target.dataset.slide); update(); }
+        });
+
+        update();
+    })();
 </script>
 
 </body>
