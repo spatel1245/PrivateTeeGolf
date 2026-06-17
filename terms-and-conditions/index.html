@@ -23,11 +23,19 @@
             theme: {
                 extend: {
                     colors: {
-                        mainBg: '#cbd5e1',
-                        cardBg: '#e2e8f0',
-                        hunter: '#10b981',
-                        deepGreen: '#064e3b',
-                        gold: '#d97706',
+                        bone: '#ECE4D3',
+                        bone2: '#FBF8F2',
+                        forest: '#0B3D2E',
+                        forest2: '#072A20',
+                        ink: '#1A1A17',
+                        muted: '#6B6357',
+                        brass: '#B8893E',
+                        brassL: '#CBA45A',
+                        mainBg: '#ECE4D3',
+                        cardBg: '#FBF8F2',
+                        hunter: '#0B3D2E',
+                        deepGreen: '#072A20',
+                        gold: '#B8893E',
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -39,8 +47,12 @@
     </script>
 
     <link rel="stylesheet" href="../css/shared.css">
+    <style>
+        body { background-color: #ECE4D3; background-image: radial-gradient(circle at 50% 0%, rgba(11,61,46,0.05) 0%, #ECE4D3 55%); }
+        .glass-nav { background: rgba(236,228,211,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(26,26,23,0.10); }
+    </style>
 </head>
-<body class="text-gray-800 font-sans antialiased selection:bg-hunter selection:text-white relative">
+<body class="text-ink font-sans antialiased selection:bg-forest selection:text-white relative">
 
 <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
     <div class="max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-3 flex justify-between items-center">
