@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Before You Swing — Private Tee Golf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700&display=swap" rel="stylesheet" />
+<style>
+  /* ── Warm clubhouse palette ───────────────────────────────────── */
+  :root {
+    --bone:    #ECE4D3;
+    --bone2:   #FBF8F2;
+    --forest:  #0B3D2E;
+    --forest2: #072A20;
+    --ink:     #1A1A17;
+    --muted:   #6B6357;
+    --brass:   #B8893E;
+    --brassL:  #CBA45A;
+    --signal:  #0F9D58;  /* "green light" — ball detected */
+    --red:     #C8442E;  /* not detected */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: #d8d2c5;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 8.5 x 11 page */
+  @page { size: letter portrait; margin: 0; }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background: var(--bone2);
+    padding: 0.34in 0.4in;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── Header ──────────────────────────────────────────────────── */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 12px;
+  }
+  .brand img {
+    width: 38px; height: 38px;
+    border-radius: 9999px;
+    border: 1px solid rgba(26,26,23,0.15);
+    object-fit: cover;
+  }
+  .brand .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .brand .name .g { color: var(--brass); }
+
+  .eyebrow {
+    color: var(--brass);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 58px;
+    line-height: 1.0;
+    font-weight: 600;
+    color: var(--forest);
+    margin: 8px 0 12px;
+  }
+  h1 .green { color: var(--signal); font-style: italic; }
+  .lede {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  /* ── Step blocks ─────────────────────────────────────────────── */
+  .step {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;
+  }
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 11px;
+  }
+  .num {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background: var(--forest);
+    color: var(--bone2);
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-head .t {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.08;
+  }
+  .step-head .t small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+
+  /* ── Media: photo pairs fill the remaining height ────────────── */
+  .media {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+  }
+  .figure {
+    display: flex;
+    flex-direction: column;
+    border-radius: 11px;
+    overflow: hidden;
+    background: var(--forest2);
+    border: 1px solid rgba(26,26,23,0.10);
+    box-shadow: 0 4px 12px -4px rgba(0,0,0,0.28);
+  }
+  .figure img {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .figure .cap {
+    background: var(--forest);
+    color: var(--bone);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 9px 12px;
+    text-align: center;
+  }
+  .figure .cap b { color: var(--brassL); font-weight: 600; }
+  /* Zoom toward the orange box on the player-view photo and center it */
+  .figure img.zoom {
+    object-position: 48% 30%;
+    transform: scale(1.4);
+    transform-origin: 48% 30%;
+  }
+
+  /* ── Launch monitor good / bad ───────────────────────────────── */
+  .lm {
+    position: relative;
+    border-radius: 11px;
+    overflow: hidden;
+    border: 3px solid;
+    background: #000;
+    display: flex;
+  }
+  .lm.good { border-color: var(--signal); }
+  .lm.bad  { border-color: var(--red); }
+  .lm img {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .lm .badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    width: 34px; height: 34px;
+    border-radius: 9999px;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 8px -2px rgba(0,0,0,0.5);
+  }
+  .lm.good .badge { background: var(--signal); }
+  .lm.bad  .badge { background: var(--red); }
+  .lm .badge svg { width: 21px; height: 21px; }
+  .lm .tag {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 30px 15px 12px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .lm.good .tag { color: #5fd99a; }
+  .lm.bad  .tag { color: #f0917e; }
+
+  .note {
+    margin-top: 13px;
+    padding: 12px 20px;
+    font-size: 21px;
+    line-height: 1.4;
+    color: var(--ink);
+    text-align: center;
+    border: 1.5px solid rgba(11, 61, 46, 0.35);
+    border-radius: 10px;
+    background: rgba(11, 61, 46, 0.04);
+  }
+  .note b { color: var(--forest); font-weight: 700; }
+  .note.warn {
+    font-size: 22px;
+    border-color: rgba(200, 68, 46, 0.4);
+    background: rgba(200, 68, 46, 0.05);
+  }
+  .note.warn b {
+    color: var(--red);
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <h1>Wait for <span class="green">green</span> before you swing</h1>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="num">1</div>
+        <div class="t">Tee up inside the box
+          <small>Place your ball within the orange box on the mat.</small>
+        </div>
+      </div>
+      <div class="media">
+        <div class="figure">
+          <img src="Back_2.jpg" alt="Overhead view of mat with orange box" />
+        </div>
+        <div class="figure">
+          <img class="zoom" src="Side_Edited.jpg" alt="Player's view of mat with orange box" />
+        </div>
+      </div>
+      <div class="note warn">
+        <b>Please do not move the hitting mat.</b> It is attached to the floor.
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="num">2</div>
+        <div class="t">Check the launch monitor light
+          <small>The overhead unit's logo must glow <b style="color:var(--signal)">green</b> before you swing.</small>
+        </div>
+      </div>
+      <div class="media">
+        <div class="lm good">
+          <img src="lm-green.jpg" alt="Green logo light — ball detected" />
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="tag">Green = ready to swing</div>
+        </div>
+        <div class="lm bad">
+          <img src="lm-red.jpg" alt="No green light — not detected" />
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </div>
+          <div class="tag">Red = move ball into the box</div>
+        </div>
+      </div>
+      <div class="note">
+        <b>No green light?</b> Slide the ball around inside the box until the logo turns green.
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

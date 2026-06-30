@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leave a Review (fold-in-half) — Private Tee Golf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bone:    #ECE4D3;
+    --bone2:   #FBF8F2;
+    --forest:  #0B3D2E;
+    --forest2: #072A20;
+    --ink:     #1A1A17;
+    --muted:   #6B6357;
+    --brass:   #B8893E;
+    --brassL:  #CBA45A;
+    --gold:    #E0A82E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: #d8d2c5;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* One 8 x 6 landscape sheet: two 4x6 cards side by side. Fold down the
+     center line and the card shows on both faces in a 4x6 stand. */
+  @page { size: 8in 6in landscape; margin: 0; }
+
+  .sheet {
+    width: 8in;
+    height: 6in;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+  }
+  /* faint dashed fold guide down the middle */
+  .sheet::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    border-left: 1px dashed rgba(26, 26, 23, 0.28);
+    pointer-events: none;
+  }
+
+  .card {
+    width: 4in;
+    height: 6in;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #ffffff 0%, var(--bone2) 55%, #F3EDE0 100%);
+    padding: 0.34in 0.32in 0.3in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* thin brass frame just inside the edge */
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0.12in;
+    border: 1px solid rgba(184, 137, 62, 0.45);
+    border-radius: 10px;
+    pointer-events: none;
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 24px;
+    letter-spacing: 5px;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 37px;
+    line-height: 1.04;
+    font-weight: 600;
+    color: var(--forest);
+  }
+  .sub {
+    margin-top: 9px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--muted);
+    font-weight: 400;
+    max-width: 3.2in;
+  }
+  .sub b { color: var(--ink); font-weight: 600; }
+
+  /* QR block — centered in the space between copy and footer */
+  .middle {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-wrap {
+    background: #fff;
+    border-radius: 14px;
+    padding: 11px;
+    box-shadow: 0 6px 16px -6px rgba(0,0,0,0.28);
+  }
+  .qr-wrap img {
+    width: 1.85in;
+    height: 1.85in;
+    display: block;
+  }
+  .scan {
+    margin-top: 11px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+
+  /* text-us footer */
+  .help {
+    width: 100%;
+    background: var(--forest);
+    color: var(--bone);
+    border-radius: 11px;
+    padding: 13px 16px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .help .h {
+    font-weight: 600;
+    color: #fff;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .help .phone {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--brassL);
+    letter-spacing: 0.02em;
+    display: block;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <!-- LEFT card -->
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <h1>Enjoyed your visit?</h1>
+      <p class="sub">
+        Help our local business grow with a quick
+        <b>5&#8209;star Google review</b>.
+      </p>
+      <div class="middle">
+        <div class="qr-wrap">
+          <img src="review-qr.png" alt="Scan to leave a Google review" />
+        </div>
+        <div class="scan">Scan with your phone camera</div>
+      </div>
+      <div class="help">
+        <span class="h">Something not right?</span>
+        Any issues, concerns, or comments? Text us anytime and we'll make it right.
+        <span class="phone">878&#8209;645&#8209;3216</span>
+      </div>
+    </div>
+
+    <!-- RIGHT card (identical) -->
+    <div class="card">
+      <div class="stars">★★★★★</div>
+      <h1>Enjoyed your visit?</h1>
+      <p class="sub">
+        Help our local business grow with a quick
+        <b>5&#8209;star Google review</b>.
+      </p>
+      <div class="middle">
+        <div class="qr-wrap">
+          <img src="review-qr.png" alt="Scan to leave a Google review" />
+        </div>
+        <div class="scan">Scan with your phone camera</div>
+      </div>
+      <div class="help">
+        <span class="h">Something not right?</span>
+        Any issues, concerns, or comments? Text us anytime and we'll make it right.
+        <span class="phone">878&#8209;645&#8209;3216</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
