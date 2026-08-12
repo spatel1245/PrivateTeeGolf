@@ -394,7 +394,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </section>
 
-<div id="footerContainer"></div>
+<div id="footerContainer">
+    <!-- Static fallback: update the ending year manually if footer.js is unavailable. -->
+    <footer aria-label="Site footer" style="border-top:1px solid #e5e7eb;background:#fff;">
+        <div style="max-width:72rem;margin:0 auto;padding:1rem 1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem;color:#4b5563;font:10px/1.5 Arial,sans-serif;">
+            <p style="margin:0;">&copy; 2025&ndash;2026 Private Tee Golf LLC. All rights reserved.</p>
+            <nav aria-label="Legal"><a href="/privacy/" style="color:inherit;margin-right:1rem;">Privacy Policy</a><a href="/terms-and-conditions/" style="color:inherit;">Terms &amp; Conditions</a></nav>
+        </div>
+    </footer>
+</div>
 
 <script src="../js/site-config.js"></script>
 <script src="../js/mobile-menu.js"></script>

@@ -35,6 +35,11 @@
         const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
         const isCorporatePage = window.location.pathname.includes('/corporate/');
         const logoPath = isHomepage ? 'small_logo.jpg' : '../small_logo.jpg';
+        const launchYear = 2025;
+        const currentYear = Math.max(launchYear, new Date().getFullYear());
+        const copyrightYears = currentYear === launchYear
+            ? `${launchYear}`
+            : `${launchYear}&ndash;${currentYear}`;
         const egiftUrl = getSquareEgiftUrl();
         const egiftFooterRow = egiftUrl
             ? `<a href="${egiftUrl.replace(/"/g, '&quot;')}" target="_blank" rel="noopener noreferrer" class="text-gray-900 hover:text-hunter transition font-medium text-sm">eGift Cards</a>`
@@ -124,7 +129,7 @@
     <!-- Bottom Bar - Copyright & Legal -->
     <div class="border-t border-gray-200 py-4 pb-24 md:pb-4">
         <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-            <p class="text-[10px] text-gray-600">&copy; 2026 Private Tee Golf LLC. All rights reserved.</p>
+            <p class="text-[10px] text-gray-600">&copy; ${copyrightYears} Private Tee Golf LLC. All rights reserved.</p>
             <div class="flex gap-4">
                 <a href="/privacy/" class="text-[10px] text-gray-600 hover:text-gray-400 transition duration-300">
                     Privacy Policy
