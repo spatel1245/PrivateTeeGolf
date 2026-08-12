@@ -188,7 +188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </div>
 
-<main class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 pt-32 pb-20">
+<main class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 pt-28 md:pt-32 pb-28 md:pb-20">
     <div class="mb-8">
         <a href="/booking/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-gray-900 border border-gray-300 hover:bg-gray-100 hover:border-gray-400 transition font-medium">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,99 +198,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
     </div>
 
-    <div class="bg-cardBg p-8 rounded-2xl border border-gray-200 shadow-lg">
-        <h1 class="font-serif text-3xl md:text-4xl font-bold mb-2 text-gray-900">How to Use the Simulator</h1>
-        <p class="text-sm text-gray-600 mb-8">A quick guide for when you arrive at your booked session.</p>
+    <header class="text-center max-w-3xl mx-auto mb-8 md:mb-12">
+        <p class="text-brass text-xs md:text-sm font-bold tracking-[0.24em] uppercase mb-3">First visit? Start here</p>
+        <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Your visit in 4 quick steps</h1>
+        <p class="text-gray-600 text-lg md:text-xl mt-4">Everything starts automatically. Here&rsquo;s all you need to know.</p>
+    </header>
 
-        <!-- Step 1: Get Your Code -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2">
-                <span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center text-sm font-bold">1</span>
-                You&rsquo;ll Receive a Code
-            </h2>
-            <p class="text-gray-700 mb-4">
-                You&rsquo;ll receive a <strong>6-digit door code via text message 5 minutes before your booking start time.</strong> For example, if your session is at 9:00 AM, expect your code around 8:55 AM. Keep it handy — you&rsquo;ll need it at the door.
-            </p>
-        </section>
+    <ol class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10 md:mb-14" aria-label="Quick overview">
+        <li class="bg-cardBg rounded-xl border border-gray-200 px-4 py-4 flex items-center gap-3 shadow-sm"><span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center font-bold flex-shrink-0">1</span><span class="font-semibold text-sm md:text-base">Find the entrance</span></li>
+        <li class="bg-cardBg rounded-xl border border-gray-200 px-4 py-4 flex items-center gap-3 shadow-sm"><span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center font-bold flex-shrink-0">2</span><span class="font-semibold text-sm md:text-base">Enter your code</span></li>
+        <li class="bg-cardBg rounded-xl border border-gray-200 px-4 py-4 flex items-center gap-3 shadow-sm"><span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center font-bold flex-shrink-0">3</span><span class="font-semibold text-sm md:text-base">Place your ball</span></li>
+        <li class="bg-cardBg rounded-xl border border-gray-200 px-4 py-4 flex items-center gap-3 shadow-sm"><span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center font-bold flex-shrink-0">4</span><span class="font-semibold text-sm md:text-base">Wait for green</span></li>
+    </ol>
 
-        <!-- Step 2: Enter Code & Open Door -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2">
-                <span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center text-sm font-bold">2</span>
-                Enter the Code &amp; Open the Door
-            </h2>
-            <p class="text-gray-700 mb-4">
-                Enter your 6-digit code on the keypad at your <strong>exact booking start time</strong>, then press <strong>#</strong> to unlock the door. Please don&rsquo;t enter early — there may be another guest finishing up before you, and the simulator is set up to hand off at the scheduled time.
-            </p>
-            <p class="text-gray-700 mb-4">
-                The parking area right in front of the building is open for guests.
-            </p>
-            <div class="bg-gray-800 rounded-xl p-4 md:p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    <div class="rounded-lg overflow-hidden bg-gray-900 flex items-center justify-center">
-                        <img src="../images/booking-guide/lock_new.jpg" alt="Door and keypad - enter 6-digit code then #" class="w-full h-auto max-h-[70vh] object-contain">
-                    </div>
-                    <div class="rounded-lg overflow-hidden bg-gray-900 flex items-center justify-center">
-                        <img src="../images/booking-guide/exterior-marked.jpg" alt="Private Tee Golf exterior with entrance marked" class="w-full h-auto max-h-[70vh] object-contain">
-                    </div>
-                </div>
-            </div>
-            <p class="text-sm text-gray-500 mt-2">Tip: Enter the code exactly as texted, then press #.</p>
-        </section>
-
-        <!-- Step 3: Inside - GSPRO is Ready -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2">
-                <span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center text-sm font-bold">3</span>
-                Start Playing
-            </h2>
-            <p class="text-gray-700 mb-4">
-                The computer, TV, projector, and simulator software will all turn on automatically at the start of your booked time. <strong>GSPRO</strong> will already be running when you walk in. Select <strong>Local Match</strong> to jump into a course or head to the driving range for practice.
-            </p>
-            <div class="bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-4 flex items-start gap-3 text-red-800 text-sm">
-                <span class="text-lg flex-shrink-0">⚠️</span>
-                <span><strong>Do not attempt to manually start the software.</strong> Everything is set up to launch automatically at your booking time. If the screen appears off when you arrive, wait a moment — it will come on.</span>
-            </div>
-            <div class="mx-auto max-w-2xl border border-gray-200 rounded-xl overflow-hidden bg-gray-50 aspect-[4/3] max-h-[50vh]">
-                <img src="../images/facility/3.jpeg" alt="GSPRO screen - select Local Match to play a course or practice" class="w-full h-full object-cover" style="object-position: center 15%">
-            </div>
-        </section>
-
-        <!-- Step 4: Ready to Hit -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2">
-                <span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center text-sm font-bold">4</span>
-                Ready to Hit
-            </h2>
-            <p class="text-gray-700 mb-4">
-                Place your ball in the hitting area on the mat and wait for the <strong>Uneekor logo</strong> on the ceiling-mounted launch monitor to light up <strong class="text-hunter">green</strong>. The screen will also show <strong>Connected</strong> in green. Once you see the green light, you're ready to swing.
-            </p>
-            <div class="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 mb-5 flex items-start gap-3 text-amber-900 text-sm">
-                <span class="text-lg flex-shrink-0">💡</span>
-                <span><strong>Green light not showing?</strong> Make sure the mat is centered on the turf, then try moving the ball slightly left or right within the hitting area. The sensor needs the ball within its detection zone to activate.</span>
-            </div>
-            <div class="mx-auto max-w-2xl border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
-                <img src="../images/booking-guide/uneekor-ready.png" alt="Uneekor launch monitor ready - green logo and Connected on screen" class="w-full h-auto object-contain">
-            </div>
-        </section>
-
-        <!-- Step 5: When Time Is Up -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2">
-                <span class="w-8 h-8 rounded-full bg-hunter text-white flex items-center justify-center text-sm font-bold">5</span>
-                Wrapping Up
-            </h2>
-            <p class="text-gray-700 mb-4">
-                When your time is up, the simulator will automatically power down. Please clean up the space and exit by the end of your booked time.
-            </p>
-        </section>
-
-        <div class="mt-8 pt-6 border-t border-gray-200">
-            <p class="text-sm text-gray-600">
-                Questions? <a href="mailto:info@privateteegolf.com" class="text-hunter hover:text-emerald-600 underline">Email us</a> or <a href="tel:+18786453216" class="text-hunter hover:text-emerald-600 underline">call (878) 645-3216</a>.
-            </p>
+    <section class="bg-cardBg rounded-3xl border border-gray-200 shadow-lg overflow-hidden mb-6 md:mb-8">
+        <div class="p-6 md:p-10">
+            <p class="text-brass font-bold text-sm tracking-[0.18em] uppercase mb-2">Getting inside</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900">Find the door. Enter your code.</h2>
+            <p class="text-gray-600 mt-3 max-w-2xl">Your 6-digit code arrives by text about 5 minutes before your booking. It works at your exact start time.</p>
         </div>
-    </div>
+        <div class="grid md:grid-cols-2 border-t border-gray-200">
+            <figure class="relative bg-gray-900 aspect-square overflow-hidden">
+                <img src="../images/booking-guide/exterior-door.jpg" alt="Private Tee Golf building and guest entrance" class="absolute inset-0 w-full h-full object-cover" style="object-position: center 18%;">
+                <figcaption class="absolute top-4 left-4 right-4 flex items-center gap-3 bg-white/95 rounded-xl px-4 py-3 shadow-lg"><span class="w-9 h-9 rounded-full bg-hunter text-white flex items-center justify-center font-bold">1</span><strong>Use this entrance</strong></figcaption>
+            </figure>
+            <figure class="relative bg-gray-900 aspect-square overflow-hidden border-t md:border-t-0 md:border-l border-gray-700">
+                <img src="../images/booking-guide/door-lock.jpg" alt="Door keypad" class="absolute inset-0 w-full h-full object-cover">
+                <figcaption class="absolute top-4 left-4 right-4 flex items-center gap-3 bg-white/95 rounded-xl px-4 py-3 shadow-lg"><span class="w-9 h-9 rounded-full bg-hunter text-white flex items-center justify-center font-bold">2</span><strong>Enter the code you received via text</strong></figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <aside class="bg-forest text-white rounded-3xl p-6 md:p-9 flex items-start md:items-center gap-5 mb-6 md:mb-8 shadow-lg">
+        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-3xl flex-shrink-0" aria-hidden="true">✓</div>
+        <div><p class="text-brassL text-xs font-bold tracking-[0.2em] uppercase mb-1">Once you&rsquo;re inside</p><h2 class="font-serif text-2xl md:text-4xl font-bold">Don&rsquo;t turn anything on.</h2><p class="text-white/80 mt-2 text-base md:text-lg">The computer, projector, TV, and simulator start automatically.</p></div>
+    </aside>
+
+    <section class="bg-cardBg rounded-3xl border border-gray-200 shadow-lg p-6 md:p-10 mb-6 md:mb-8">
+        <div class="text-center max-w-2xl mx-auto mb-7">
+            <p class="text-brass font-bold text-sm tracking-[0.18em] uppercase mb-2">Before every swing</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900">Place your ball in the hitting area</h2>
+            <p class="text-gray-600 mt-3">The orange outline shows where the launch monitor can see your ball, so please leave the mat where it is.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+            <figure><div class="rounded-2xl overflow-hidden border-2 border-gray-200 bg-forest2"><img src="../images/booking-guide/hitting-area-overhead.jpg" alt="Overhead view of the mat with the hitting area outlined in orange" class="w-full aspect-[4/3] object-cover"></div><figcaption class="text-center font-bold text-gray-700 mt-2">Overhead view</figcaption></figure>
+            <figure><div class="rounded-2xl overflow-hidden border-2 border-gray-200 bg-forest2"><img src="../images/booking-guide/hitting-area-player.jpg" alt="Player view of the mat with the hitting area outlined in orange" class="w-full aspect-[4/3] object-cover"></div><figcaption class="text-center font-bold text-gray-700 mt-2">Your view</figcaption></figure>
+        </div>
+    </section>
+
+    <section class="bg-cardBg rounded-3xl border border-gray-200 shadow-lg p-6 md:p-10 mb-6 md:mb-8">
+        <div class="text-center max-w-2xl mx-auto mb-7">
+            <p class="text-brass font-bold text-sm tracking-[0.18em] uppercase mb-2">Ready check</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900">Wait for the green light</h2>
+            <p class="text-gray-600 mt-3">The overhead Uneekor logo must glow green before every swing.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+            <figure><div class="relative rounded-2xl overflow-hidden border-4 border-emerald-600 bg-gray-900"><img src="../images/booking-guide/uneekor-green-ready.jpg" alt="Uneekor logo glowing green" class="w-full aspect-[16/9] object-cover"><span class="absolute top-3 left-3 w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold shadow-lg">✓</span></div><figcaption class="text-center text-emerald-700 font-bold text-lg mt-2">Green = ready to swing</figcaption></figure>
+            <figure><div class="relative rounded-2xl overflow-hidden border-4 border-red-500 bg-gray-900"><img src="../images/booking-guide/uneekor-not-ready.jpg" alt="Uneekor logo not glowing green" class="w-full aspect-[16/9] object-cover"><span class="absolute top-3 left-3 w-12 h-12 rounded-full bg-red-500 text-white flex items-center justify-center text-2xl font-bold shadow-lg">&times;</span></div><figcaption class="text-center text-red-600 font-bold text-lg mt-2">Not green? Reposition the ball in the hitting area</figcaption></figure>
+        </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
+        <article class="bg-cardBg rounded-3xl border border-gray-200 p-6 md:p-8 shadow-lg"><p class="text-brass font-bold text-sm tracking-[0.18em] uppercase mb-2">Using GSPro</p><h2 class="font-serif text-2xl md:text-3xl font-bold">Move the mouse left</h2><p class="text-gray-600 mt-3">Slide the mouse all the way left until it appears on the projector. Choose <strong>Local Match</strong> to play a course, or choose <strong>Practice</strong> to use the driving range.</p></article>
+        <article class="bg-cardBg rounded-3xl border border-gray-200 p-6 md:p-8 shadow-lg"><p class="text-brass font-bold text-sm tracking-[0.18em] uppercase mb-2">When time is up</p><h2 class="font-serif text-2xl md:text-3xl font-bold">Clean up and head out</h2><ul class="text-gray-600 mt-3 space-y-2"><li>✓ Finish by the end of your booking.</li><li>✓ Take your belongings and clean up.</li><li>✓ The simulator shuts down automatically.</li></ul></article>
+    </section>
+
+    <section class="bg-amber-50 border border-amber-200 rounded-3xl p-6 md:p-8 text-center">
+        <p class="text-amber-900 font-semibold">Something not working?</p>
+        <a href="sms:+18786453216" class="inline-flex mt-3 items-center justify-center bg-hunter text-white px-7 py-3 rounded-full font-bold hover:bg-emerald-700 transition">Text 878-645-3216 for help</a>
+    </section>
 </main>
 
 <!-- Footer Container - Injected by footer.js -->
