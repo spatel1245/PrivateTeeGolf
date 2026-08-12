@@ -19,6 +19,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="images/facility/hero-mobile.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/facility/hero-desktop.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -157,10 +159,16 @@
         /* Hero (static — no scroll animations) */
         .hero-img {
             position: absolute; inset: 0;
-            background-image: url('images/facility/2.jpeg');
-            background-size: cover;
-            background-position: center 42%;
             z-index: 0;
+        }
+        .hero-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center 42%;
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .hero-img img { object-position: center; }
         }
         .hero-grad {
             position: absolute; inset: 0; z-index: 1;
@@ -262,7 +270,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      HERO
      ========================================================= -->
 <header class="relative min-h-[90vh] flex items-center overflow-hidden">
-    <div class="hero-img"></div>
+    <picture class="hero-img" aria-hidden="true">
+        <source media="(min-width: 768px)" srcset="images/facility/hero-desktop.webp" type="image/webp">
+        <source media="(min-width: 768px)" srcset="images/facility/hero-desktop.jpg" type="image/jpeg">
+        <source srcset="images/facility/hero-mobile.webp" type="image/webp">
+        <img src="images/facility/hero-mobile.jpg" alt="" width="1200" height="1600" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero-grad"></div>
 
     <div class="relative z-10 max-w-6xl lg:max-w-7xl xl:max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 w-full">
@@ -316,7 +329,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="text-sm text-muted leading-relaxed">Pick any open time and pay online. Day or night, $40/hr.</p>
             </div>
             <div class="rounded-3xl overflow-hidden border border-ink/10 relative min-h-[260px] flex items-end">
-                <img src="images/booking-guide/lock_new.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Keypad entry at Private Tee Golf">
+                <img src="images/booking-guide/lock_new.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Keypad entry at Private Tee Golf" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-forest2/95 to-transparent"></div>
                 <div class="relative p-8 text-bone">
                     <div class="font-serif text-brassL text-5xl mb-3">02</div>
@@ -350,11 +363,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="relative">
             <div class="carousel-container relative overflow-hidden rounded-3xl border border-bone/15 shadow-2xl bg-forest2 group" id="carouselContainer">
                 <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
-                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/1.jpeg" alt="Private Tee Golf simulator bay" class="w-full h-full object-cover" style="object-position:center 30%"></div></div>
-                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/2.jpeg" alt="Private Tee Golf simulator screen" class="w-full h-full object-cover object-center"></div></div>
-                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/3.jpeg" alt="Private Tee Golf lounge" class="w-full h-full object-cover" style="object-position:center 25%"></div></div>
-                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/booking-guide/exterior-door.jpg" alt="Private Tee Golf building and guest entrance" class="w-full h-full object-cover" style="object-position:center 22%"></div></div>
-                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/booking-guide/exterior-street-v2.jpg" alt="Private Tee Golf entrance from the Route 30 side of the building" class="w-full h-full object-cover" style="object-position:center 38%"></div></div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/1.jpeg" alt="Private Tee Golf simulator bay" class="w-full h-full object-cover" style="object-position:center 30%" loading="lazy" decoding="async"></div></div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/2.jpeg" alt="Private Tee Golf simulator screen" class="w-full h-full object-cover object-center" loading="lazy" decoding="async"></div></div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/facility/3.jpeg" alt="Private Tee Golf lounge" class="w-full h-full object-cover" style="object-position:center 25%" loading="lazy" decoding="async"></div></div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/booking-guide/exterior-door.jpg" alt="Private Tee Golf building and guest entrance" class="w-full h-full object-cover" style="object-position:center 22%" loading="lazy" decoding="async"></div></div>
+                    <div class="carousel-slide min-w-full"><div class="relative aspect-[4/3] bg-forest2 overflow-hidden"><img src="images/booking-guide/exterior-street-v2.jpg" alt="Private Tee Golf entrance from the Route 30 side of the building" class="w-full h-full object-cover" style="object-position:center 38%" loading="lazy" decoding="async"></div></div>
                 </div>
                 <button class="carousel-btn carousel-prev absolute left-3 top-1/2 -translate-y-1/2 bg-bone/90 hover:bg-bone text-ink p-2.5 rounded-full shadow-lg transition-all duration-300 z-10 opacity-0 group-hover:opacity-100" aria-label="Previous image">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -528,10 +541,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <iframe src="https://maps.google.com/maps?q=5351+US-30,+Greensburg,+PA+15601&output=embed" width="100%" height="340" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Private Tee Golf location on Google Maps"></iframe>
                     </div>
                     <div class="min-w-full">
-                        <img src="images/booking-guide/exterior-door.jpg" alt="Private Tee Golf building and guest entrance in Greensburg, PA" class="w-full object-cover" style="height:340px; object-position:center 38%;">
+                        <img src="images/booking-guide/exterior-door.jpg" alt="Private Tee Golf building and guest entrance in Greensburg, PA" class="w-full object-cover" style="height:340px; object-position:center 38%;" loading="lazy" decoding="async">
                     </div>
                     <div class="min-w-full">
-                        <img src="images/booking-guide/exterior-street-v2.jpg" alt="Private Tee Golf entrance from the Route 30 side of the building" class="w-full object-cover" style="height:340px; object-position:center 38%;">
+                        <img src="images/booking-guide/exterior-street-v2.jpg" alt="Private Tee Golf entrance from the Route 30 side of the building" class="w-full object-cover" style="height:340px; object-position:center 38%;" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <button class="loc-prev absolute left-3 top-1/2 -translate-y-1/2 bg-bone/90 hover:bg-bone text-ink p-2.5 rounded-full shadow-lg transition-all duration-300 z-10" aria-label="Previous">
