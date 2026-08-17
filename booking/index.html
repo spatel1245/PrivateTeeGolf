@@ -19,6 +19,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PXMTHW83');</script>
     <!-- End Google Tag Manager -->
+    <script src="../js/birrdi-conversion.js"></script>
 
     <link rel="icon" href="../small_logo.jpg" type="image/jpeg">
 
@@ -328,12 +329,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-2">
-                    <button
+                    <a
                         class="booking-link-btn w-full sm:w-auto px-6 py-3 rounded-lg bg-hunter hover:bg-emerald-600 text-white text-sm font-semibold shadow-md shadow-hunter/20 transition"
-                        data-url="https://app.birrdi.com/u/reserve?team_booking_link_id=private_tee_golf_greensburg"
+                        href="https://app.birrdi.com/u/reserve?team_booking_link_id=private_tee_golf_greensburg"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         Book Your Next Round
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -434,7 +437,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         buttons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const url = btn.getAttribute('data-url') || '#';
+                const url = btn.getAttribute('href') || '#';
                 openModal(url);
             });
         });
